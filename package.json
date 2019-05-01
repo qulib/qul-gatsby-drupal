@@ -1,0 +1,41 @@
+{
+  "name": "qul-gatsby-drupal",
+  "repository": "https://github.com/qulib/qul-gatsby-drupal.git",
+  "description": "QUL example site using the Drupal 8 source plugin",
+  "version": "1.0.0",
+  "author": "Paul Clifford",
+  "dependencies": {
+    "gatsby": "^2.0.50",
+    "gatsby-image": "^2.0.20",
+    "gatsby-plugin-google-analytics": "^2.0.18",
+    "gatsby-plugin-manifest": "^2.0.26",
+    "gatsby-plugin-offline": "^2.0.25",
+    "gatsby-plugin-react-helmet": "^3.0.2",
+    "gatsby-plugin-sass": "^2.0.4",
+    "gatsby-plugin-sharp": "^2.0.12",
+    "gatsby-source-drupal": "^3.1.4",
+    "gatsby-transformer-sharp": "^2.1.8",
+    "lodash": "^4.17.11",
+    "node-sass": "^4.11.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.0",
+    "react-icons": "^3.6.1",
+    "sanitize.css": "^8.0.0",
+    "typeface-open-sans": "0.0.54"
+  },
+  "license": "MIT",
+  "main": "n/a",
+  "scripts": {
+    "build": "npm run clean && gatsby build",
+    "develop": "npm run clean && gatsby develop",
+    "deploy": "npm run clean && gatsby build --prefix-paths",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
+    "clean": "rimraf .cache public"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "prettier": "^1.17.0",
+    "rimraf": "^2.6.3"
+  }
+}

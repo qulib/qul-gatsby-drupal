@@ -1,0 +1,18 @@
+#site-header {
+  padding: 2rem;
+  background-color: $clr-qul-light-blue;
+  a {
+    color: $queens-logo-blue;
+    text-decoration: none;
+  }
+  .site-title {
+    display: block;
+    color: $queens-logo-blue;
+    font-size: 2rem;
+    text-transform: capitalize;
+    font-weight: 700;
+  }
+  .site-subtitle {
+    display: block;
+  }
+}
