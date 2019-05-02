@@ -1,11 +1,11 @@
 import React, { Component } from "react"
-import { graphql } from "gatsby"
+// import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 
 class Home extends Component {
   render() {
-    const data = this.props.data;
+    // const data = this.props.data;
 
     return (
       <Layout>
