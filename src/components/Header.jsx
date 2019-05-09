@@ -1,11 +1,11 @@
 import React from "react"
 import { Link } from "gatsby"
+import QULlogo from "../images/qul-logo.svg"
 
 const Header = ({ siteTitle, siteSubtitle }) => (
   <header id="site-header">
     <Link to="/" title="Home">
-      <span className="site-title">{siteTitle}</span>
-      <span className="site-subtitle">{siteSubtitle}</span>
+      <img id="qul-logo" src={QULlogo} alt="Queen's University Library" />
     </Link>
   </header>
 )

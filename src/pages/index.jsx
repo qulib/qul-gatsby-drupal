@@ -1,7 +1,7 @@
-import React, { Component } from "react"
+import React, { Component } from 'react'
 // import { graphql } from "gatsby"
 
-import Layout from "../components/layout"
+import Layout from '../components/layout'
 
 class Home extends Component {
   render() {
@@ -16,9 +16,3 @@ class Home extends Component {
 }
 
 export default Home
-
-// export const pageQuery = graphql`
-// {
-  
-// }
-// `

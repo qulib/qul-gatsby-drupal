@@ -1,10 +1,10 @@
 import React from "react"
-import QULlogo from "../images/qul-logo.svg"
+import QueensLogo from "../images/qu-logo.svg"
 
 const Footer = () => (
   <footer id="site-footer">
-    <a title="Queen's University Library" href="https://library.queensu.ca">
-      <img id="qul-logo" src={QULlogo} alt="Queen's University Library" />
+    <a title="Queen's University" href="https://queensu.ca">
+      <img id="qu-logo" src={QueensLogo} alt="Queen's University" width="200" height="152"/>
     </a>
   </footer>
 )

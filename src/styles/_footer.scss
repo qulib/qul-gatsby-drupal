@@ -1,7 +1,14 @@
 #site-footer {
   padding: 2rem;
+  border-top: 3px solid $clr-primary;
   margin-top: 1rem;
+
+
   img {
     max-width: 100%;
+  }
+
+  #qu-logo {
+    float: right;
   }
 }

@@ -25,7 +25,7 @@ exports.createPages = async ({ actions, graphql }) => {
   const { allNodeAlbum } = result.data
 
   /* templates */
-  const albumTemplate = path.resolve(`./src/templates/album.jsx`)
+  const albumTemplate = path.resolve(`./src/templates/album-template.jsx`)
 
   allNodeAlbum.nodes.forEach(node => {
     createPage({

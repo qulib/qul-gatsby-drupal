@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
+// import Img from 'gatsby-image'
 import Layout from '../components/Layout.jsx'
 
 class AlbumTemplate extends Component {
   render() {
     const post = this.props.data.nodeAlbum
-    // console.log(post)
 
     return (
       <Layout>
