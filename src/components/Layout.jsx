@@ -8,7 +8,6 @@ import 'typeface-open-sans'
 import '../styles/style.scss'
 
 const siteTitle = 'QUL Gatsby + Drupal'
-const siteSubtitle = 'just testing...'
 
 export default ({ children }) => (
   <div id="site">
@@ -16,8 +15,8 @@ export default ({ children }) => (
       <meta charSet="utf-8" />
       <title>{siteTitle}</title>
     </Helmet>
-    <Header siteTitle={siteTitle} siteSubtitle={siteSubtitle} />
+    <Header />
     <div id="main">{children}</div>
-    <Footer siteTitle={siteTitle} />
+    <Footer />
   </div>
 )
