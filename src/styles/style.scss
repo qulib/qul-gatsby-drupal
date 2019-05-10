@@ -24,12 +24,17 @@ h6 {
 }
 
 a {
-  color: $clr-text-link;
+  color: $clr-link;
+  text-decoration: none;
+
+  &:hover {
+    color: $clr-link-hover;
+    text-decoration: underline;
+  }
 }
 
 blockquote {
   background: url(../images/blockquote.svg) no-repeat;
-  // border: none;
   padding: 30px 0 15px 90px;
   min-height: 100px;
 
@@ -39,4 +44,9 @@ blockquote {
     font-size: large;
     font-weight: 300;
   }
+}
+
+ul {
+  list-style: url(../images/list-bullet.svg);
+
 }

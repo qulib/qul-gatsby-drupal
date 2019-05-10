@@ -13,7 +13,7 @@ class AlbumTemplate extends Component {
     return (
       <Layout>
         <h1>{post.title}</h1>
-        <div class="album-container">
+        <div className="album-container">
           <img
             src={
               post.relationships.field_cover.localFile.childImageSharp.resize
@@ -21,13 +21,13 @@ class AlbumTemplate extends Component {
             }
             alt={post.title + "cover"}
           />
-          <span class="album-metadata">
+          <span className="album-metadata">
             <p>Artist: {post.field_artist}</p>
             <p>Release Date: {post.field_release_date}</p>
             <p dangerouslySetInnerHTML={{ __html: post.body.processed }} />
           </span>
         </div>
-        <Link to="albums">See All Albums</Link>
+        <Link to="/albums">See All Albums</Link>
       </Layout>
     )
   }

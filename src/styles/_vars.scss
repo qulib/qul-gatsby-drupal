@@ -35,11 +35,13 @@ $clr-secondary: $queens-logo-red;
 
 /* Text Pallete */
 $clr-text-main: black;
-$clr-text-link: $clr-qul-link-blue;
-$clr-text-link-visited: $queens-logo-purple;
+$clr-link: $clr-qul-link-blue;
+$clr-link-hover: $queens-logo-red;
+$clr-link-visited: $queens-logo-purple;
 
 /* Other Usage */
 $clr-filters: $clr-qul-yellow;
+$clr-filters-lighter: lighten($clr-filters, 10%);
 $clr-quote: $queens-logo-red;
 
 

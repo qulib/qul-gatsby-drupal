@@ -1,0 +1,38 @@
+.filters {
+  // padding: 2rem;
+
+
+  label,
+  input {
+    margin-right: 1rem;
+  }
+
+  label {
+    color: $clr-primary;
+  }
+
+  input {
+    padding: 5px;
+    width: 90%;
+  }
+
+  .filter-actions {
+    padding: 2rem 1rem;
+    background-color: $clr-filters;
+  }
+
+  .filter-results {
+    padding: 1rem;
+    background-color: $clr-filters-lighter;
+    color: $clr-primary;
+    width: 100%;
+    text-align: center;
+  }
+
+  // button {
+  //   color: white;
+  //   border: none;
+  //   background-color: $clr-primary;
+  //   padding:  5px 20px;
+  // }
+}
