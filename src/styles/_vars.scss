@@ -3,7 +3,7 @@
 * Sass color functions: https://robots.thoughtbot.com/controlling-color-with-sass-color-functions
 */
 
-/* from Queen's logo */
+/* From Queen's logo */
 $queens-logo-black: #231f20;
 $queens-logo-red: #b81237;
 $queens-logo-blue: #002f5e;
@@ -33,16 +33,21 @@ $clr-qul-light-gray: lighten($clr-qul-gray, 20%);
 $clr-primary: $queens-logo-blue;
 $clr-secondary: $queens-logo-red;
 
-/* text pallete */
+/* Text Pallete */
 $clr-text-main: black;
 $clr-text-link: $clr-qul-link-blue;
 $clr-text-link-visited: $queens-logo-purple;
+
+/* Other Usage */
+$clr-filters: $clr-qul-yellow;
+$clr-quote: $queens-logo-red;
+
 
 /*
 * Responsive Design
 */
 
-/* widths */
+/* Widths */
 $desktop: 1200px;
 $tablet: 750px;
 $buffer: 50px;
@@ -51,5 +56,5 @@ $buffer: 50px;
 * Typography
 */
 
-/* fonts */
+/* Fonts */
 $font-main: 'Open Sans', sans-serif;

@@ -3,6 +3,7 @@
 @import 'mixins';
 @import 'header';
 @import 'main';
+@import 'filters';
 @import 'footer';
 
 body {
@@ -12,6 +13,30 @@ body {
   color: $clr-text-main;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 300;
+  color: $clr-primary;
+}
+
 a {
   color: $clr-text-link;
+}
+
+blockquote {
+  background: url(../images/blockquote.svg) no-repeat;
+  // border: none;
+  padding: 30px 0 15px 90px;
+  min-height: 100px;
+
+  p {
+    color: $clr-quote;
+    font-style: italic;
+    font-size: large;
+    font-weight: 300;
+  }
 }
