@@ -1,7 +1,4 @@
 .filters {
-  // padding: 2rem;
-
-
   label,
   input {
     margin-right: 1rem;
@@ -13,7 +10,7 @@
 
   input {
     padding: 5px;
-    width: 90%;
+    width: 88%;
   }
 
   .filter-actions {
@@ -29,10 +26,10 @@
     text-align: center;
   }
 
-  // button {
-  //   color: white;
-  //   border: none;
-  //   background-color: $clr-primary;
-  //   padding:  5px 20px;
-  // }
+  /* antd things */
+  .ant-input-suffix {
+    // width: 30px;
+    // height: 30px;
+    // background-color: white;
+  }
 }

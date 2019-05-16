@@ -1,9 +1,9 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
+import { Input } from 'antd'
+import Layout from '../../components/Layout.jsx'
 
-import Layout from '../components/Layout.jsx'
-
-class Databases extends React.Component {
+class StaffDir extends React.Component {
   constructor() {
     super()
     this.state = {
@@ -17,41 +17,40 @@ class Databases extends React.Component {
 
   render() {
     const data = this.props.data
-    let filteredAlbums = data.allNodeAlbum.nodes.filter(node => {
+    let filteredStaff = data.allNodeStaff.nodes.filter(node => {
       return (
         node.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
       )
     })
 
-    let resultString = (filteredAlbums.length === 1) ? "result" : "results";
+    let resultString = filteredStaff.length === 1 ? 'result' : 'results'
 
     return (
       <Layout>
-        <h1>Databases</h1>
+        <h1>Staff Directory</h1>
         <div className="filters" action="/">
           <div className="filter-actions">
             <label htmlFor="filter-search">Search:</label>
-            <input
+            {/* <input
               type="text"
+              e
               id="filter-search"
               value={this.state.search}
               onChange={this.updateSearch.bind(this)}
-            />
+            /> */}
+            <Input id="filter-search" allowClear value={this.state.search} onChange={this.updateSearch.bind(this)}/>
           </div>
           <div className="filter-results">
-            {filteredAlbums.length} {resultString} found
+            {filteredStaff.length} {resultString} found
           </div>
         </div>
 
         <ul>
-          {filteredAlbums.map(node => (
+          {filteredStaff.map(node => (
             <li key={node.drupal_id}>
-              <div className="album-card">
-                <span className="album-title">
-                  <Link to={'/album/' + node.field_slug}>{node.title}</Link>
-                </span>
+              <div className="staff-card">
+                <Link to={'/staff/' + node.field_slug}>{node.title}</Link>
                 <br />
-                <span className="album-desc">{node.body.summary}</span>
               </div>
             </li>
           ))}
@@ -61,19 +60,20 @@ class Databases extends React.Component {
   }
 }
 
-export default Databases
+export default StaffDir
 
 export const query = graphql`
   {
-    allNodeAlbum(sort: { fields: [title] }) {
+    allNodeStaff(sort: { fields: [title] }) {
       nodes {
         drupal_id
         title
         field_slug
-        field_artist
-        body {
-          summary
-        }
+        field_last_name
+        field_first_name
+        field_job_title
+        field_email
+        field_telephone
       }
     }
   }
