@@ -19,7 +19,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-drupal',
       options: {
-        baseUrl: 'http://dev-qul.pantheonsite.io/',
+        baseUrl: 'https://dev-qul-test.pantheonsite.io/',
         apiBase: 'jsonapi',
       },
     },

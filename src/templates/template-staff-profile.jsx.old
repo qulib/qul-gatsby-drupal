@@ -61,9 +61,6 @@ export const staffQuery = graphql`
             }
           }
         }
-        field_subject_specialization {
-          name
-        }
       }
     }
   }

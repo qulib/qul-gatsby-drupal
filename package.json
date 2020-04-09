@@ -5,25 +5,25 @@
   "version": "1.0.0",
   "author": "Paul Clifford",
   "dependencies": {
-    "antd": "^3.18.1",
-    "gatsby": "^2.0.50",
-    "gatsby-image": "^2.0.20",
-    "gatsby-plugin-antd": "^2.0.2",
-    "gatsby-plugin-google-analytics": "^2.0.18",
-    "gatsby-plugin-manifest": "^2.0.26",
-    "gatsby-plugin-offline": "^2.0.25",
-    "gatsby-plugin-react-helmet": "^3.0.2",
-    "gatsby-plugin-sass": "^2.0.4",
-    "gatsby-plugin-sharp": "^2.0.12",
-    "gatsby-source-drupal": "^3.1.4",
-    "gatsby-transformer-sharp": "^2.1.8",
-    "lodash": "^4.17.11",
-    "node-sass": "^4.11.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "antd": "^3.26.14",
+    "gatsby": "^2.20.9",
+    "gatsby-image": "^2.3.1",
+    "gatsby-plugin-antd": "^2.2.0",
+    "gatsby-plugin-google-analytics": "^2.2.2",
+    "gatsby-plugin-manifest": "^2.3.3",
+    "gatsby-plugin-offline": "^2.2.10",
+    "gatsby-plugin-react-helmet": "^3.2.1",
+    "gatsby-plugin-sass": "^2.2.1",
+    "gatsby-plugin-sharp": "^2.5.3",
+    "gatsby-source-drupal": "^3.4.2",
+    "gatsby-transformer-sharp": "^2.4.3",
+    "lodash": "^4.17.15",
+    "node-sass": "^4.13.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "react-helmet": "^5.2.0",
-    "react-icons": "^3.6.1",
-    "sanitize.css": "^8.0.0",
+    "react-icons": "^3.9.0",
+    "sanitize.css": "^8.0.1",
     "typeface-open-sans": "0.0.54"
   },
   "license": "MIT",
@@ -36,7 +36,7 @@
     "clean": "rimraf .cache public"
   },
   "devDependencies": {
-    "prettier": "^1.17.0",
-    "rimraf": "^2.6.3"
+    "prettier": "^1.19.1",
+    "rimraf": "^2.7.1"
   }
 }

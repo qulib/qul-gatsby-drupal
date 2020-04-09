@@ -5,25 +5,26 @@ import Layout from '../components/Layout.jsx'
 
 class Home extends React.Component {
   render() {
-    const allAlbums = this.props.data.allNodeAlbum;
+    // const allAlbums = this.props.data.allNodeAlbum;
+
+    const allPages = this.props.data.allNodePage;
+
+    // { data.allNodeCoffee.edges.map(({ node }) => (
+    //   <div>
+    //     <h3>{ node.title }</h3>
+    //     <div dangerouslySetInnerHTML={{ __html: node.body.value }} />
+    //   </div>
+    // ))}
 
     return (
       <Layout>
-        <h2>Albums</h2>
+        <h2>Pages</h2>
         <ul>
-        {allAlbums.nodes.map(node => (
-          <li key={node.drupal_id}>
-            <div className="album-card">
-              <span className="album-title">
-                <Link to={'/album/' + node.field_slug}>{node.title}</Link>
-              </span>
-              <br />
-              <span className="album-desc">{node.body.summary}</span>
-            </div>
-          </li>
-        ))}
+          {allPages.edges.map(({ node }) => (
+            <li key={node.drupal_internal__nid}><Link to={node.path.alias}>{node.title}</Link></li>
+          ))}
         </ul>
-        <Link to="/albums">See All Albums</Link>
+
         <h2>About Us</h2>
         <ul>
           <li><Link to="/about-us/staff-directory">Staff Directory</Link></li>
@@ -36,15 +37,16 @@ class Home extends React.Component {
 export default Home
 
 export const query = graphql`
-  {
-    allNodeAlbum(limit: 3) {
-      nodes {
-        drupal_id
-        title
-        field_slug
-        field_artist
-        body {
-          summary
+  query allNodePage {
+    allNodePage {
+      totalCount
+      edges {
+        node {
+          title
+          path {
+            alias
+          }
+          drupal_internal__nid
         }
       }
     }
