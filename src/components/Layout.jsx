@@ -16,7 +16,7 @@ export default ({ children }) => (
       <title>{siteTitle}</title>
     </Helmet>
     <Header />
-    <div id="main">{children}</div>
+    <div id="site-body" className="container">{children}</div>
     <Footer />
   </div>
 )

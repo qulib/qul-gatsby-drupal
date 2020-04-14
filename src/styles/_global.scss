@@ -1,0 +1,33 @@
+body {
+  font-family: $font-main;
+  font-size: 100%;
+  color: $clr-text-main;
+  background-color: yellowgreen;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 300;
+  color: $clr-primary;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: $clr-link;
+  text-decoration: none;
+
+  &:hover {
+    color: $clr-link-hover;
+    text-decoration: underline;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 2rem;
+}
