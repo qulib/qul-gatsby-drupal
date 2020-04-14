@@ -1,12 +1,16 @@
 #site-footer {
-  background-color: white;;
   border-top: 3px solid $clr-primary;
+  background-color: white;
+  display: flex;
 
-  img {
-    max-width: 100%;
-  }
+  section {
 
-  #qu-logo {
-    
+    img {
+      max-width: 100%;
+    }
+
+    #qu-logo {
+      float: right
+    }
   }
 }
