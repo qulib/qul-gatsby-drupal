@@ -1,36 +1,41 @@
-#site-body {
-  margin-top: 3rem;
-  background-color: white;
-  padding: 0;
-}
-
 #site-main {
-  display: flex;
-
   .content {
-    width: 70%;
     padding: 0 2rem 2rem;
 
     h1 {
-      font-size: 2.5em;
-      line-height: 1.125em;
+      font-size: 2rem;
+      line-height: 1.4;
+
+      @include breakpoint($desktop) {
+        font-size: 2.5rem;
+      }
     }
 
     h2 {
-      font-size: 2em;
-      line-height: 1.25em;
+      font-size: 1.5rem;
+      line-height: 1;
+
+      @include breakpoint($desktop) {
+        font-size: 2rem;
+      }
     }
 
     h3 {
-      font-size: 1.5em;
-      line-height: 1.25em;
+      font-size: 1.2rem;
+      line-height: 0.6;
+
+      @include breakpoint($desktop) {
+        font-size: 1.5rem;
+      }
     }
 
     h4 {
-      font-size: 1.125em;
-      // font-weight: bold;
-      line-height: 1.25em;
-      text-transform: uppercase;
+      font-size: 1rem;
+      line-height: 0.4;
+
+      @include breakpoint($desktop) {
+        font-size: 1.125rem;
+      }
     }
 
     a {
@@ -60,16 +65,14 @@
   }
 
   button {
-    background-color: $clr-primary;
-    color: white;
-    font-size: 1rem;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem 2rem;
-    border-bottom: 3px solid $queens-logo-black;
+    @include button-style($clr-primary);
+  }
 
-    &:hover {
-      background-color: $clr-link;
+  @include breakpoint($desktop) {
+    display: flex;
+
+    .content {
+      width: 70%;
     }
   }
 }

@@ -1,8 +1,9 @@
 // Wraps @content in a @media block using a given query.
 // @param $pixels pixel width of breakpoint
-// @ param  $min set to false for max-with (e.g. mobile only)
-@mixin breakpoint($pixels, $min: true) {
-  @if $min == true {
+// @ param  $mobile-only set to false for max-with
+// see _vars.scss for breakpoint definitions
+@mixin breakpoint($pixels, $mobile-only: false) {
+  @if $mobile-only != true {
     @media (min-width: $pixels) {
       @content;
     }
@@ -15,11 +16,17 @@
 
 // used to set button styles
 // @param $baseColour the background colour of the button
-@mixin buttonStyle($baseColour) {
+@mixin button-style($baseColour) {
   background-color: $baseColour;
-  border-bottom: 3px solid $clr-text-main;
   color: white;
+  border: none;
+  border-bottom: 3px solid darken($baseColour, 10%);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem 2rem;
+  margin: 1rem;
+
   &:hover {
-    background-color: darken($baseColour, 10%);
+    background-color: darken($baseColour, 5%);
   }
 }

@@ -4,38 +4,51 @@
   padding: 1rem 2rem;
 
   section {
-    display: flex;
-    align-items: flex-end;
-
     #qul-logo {
-      width: 40%;
       img {
         max-width: 100%;
       }
     }
 
     #main-menu {
-      width: 60%;
-      // background-color: yellowgreen;
-
       ul {
-        display: flex;
-        justify-content: flex-end;
-        align-content: flex-end;
-        margin: 0;
-
         li {
-          padding: 0 2rem;
-
+          padding-top: 1rem;
           a {
             text-transform: uppercase;
             font-weight: bold;
             color: $clr-primary;
-            
+
             &:hover {
               text-decoration: none;
               border-bottom: 3px solid $clr-primary;
             }
+          }
+        }
+      }
+    }
+  }
+
+  @include breakpoint($desktop) {
+    section {
+      display: flex;
+      align-items: flex-end;
+
+      #qul-logo {
+        width: 40%;
+      }
+
+      #main-menu {
+        width: 60%;
+
+        ul {
+          display: flex;
+          justify-content: flex-end;
+          align-content: flex-end;
+          margin: 0;
+
+          li {
+            padding: 0 1rem;
           }
         }
       }

@@ -43,15 +43,13 @@ $clr-filters: $clr-qul-yellow;
 $clr-filters-lighter: lighten($clr-filters, 10%);
 $clr-quote: $queens-logo-red;
 
-
 /*
 * Responsive Design
 */
 
 /* Widths */
-$desktop: 1200px;
+$desktop: 1100px;
 $tablet: 750px;
-$buffer: 50px;
 
 /*
 * Typography
