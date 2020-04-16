@@ -2,39 +2,47 @@
   .content {
     padding: 0 2rem 2rem;
 
+    // using "minor third" type scale (https://type-scale.com/)
     h1 {
-      font-size: 2rem;
-      line-height: 1.4;
-
-      @include breakpoint($desktop) {
-        font-size: 2.5rem;
-      }
+      font-size: 2.488em;
     }
 
     h2 {
-      font-size: 1.5rem;
-      line-height: 1;
-
-      @include breakpoint($desktop) {
-        font-size: 2rem;
-      }
+      font-size: 2.074em;
     }
 
     h3 {
-      font-size: 1.2rem;
-      line-height: 0.6;
-
-      @include breakpoint($desktop) {
-        font-size: 1.5rem;
-      }
+      font-size: 1.728em;
     }
 
     h4 {
-      font-size: 1rem;
-      line-height: 0.4;
+      font-size: 1.44em;
+    }
 
-      @include breakpoint($desktop) {
-        font-size: 1.125rem;
+    h5 {
+      font-size: 1.2em;
+    }
+
+    // using "major third" type scale for desktop
+    @include breakpoint($desktop) {
+      h1 {
+        font-size: 3.052em;
+      }
+
+      h2 {
+        font-size: 2.441em;
+      }
+
+      h3 {
+        font-size: 1.953em;
+      }
+
+      h4 {
+        font-size: 1.563em;
+      }
+
+      h5 {
+        font-size: 1.25em;
       }
     }
 
@@ -60,7 +68,12 @@
         font-style: italic;
         font-size: large;
         font-weight: 300;
+
       }
+    }
+
+    a {
+      text-decoration: underline;
     }
   }
 
@@ -68,7 +81,7 @@
     @include button-style($clr-primary);
   }
 
-  @include breakpoint($desktop) {
+  @include breakpoint($tablet) {
     display: flex;
 
     .content {

@@ -1,5 +1,5 @@
 #site-breadcrumbs {
-  background-color: $clr-qul-blue;
+  background-color: $clr-primary;
   padding: 0 1rem;
 
   ol {
@@ -12,16 +12,17 @@
       & + li::before {
         content: "/ ";
         padding: 0 5px;
-        color: #ccc;
+        color: white;
       }
 
       a {
         color: white;
+        text-decoration: underline;
 
         &[aria-current="page"] {
-          color: $clr-qul-light-gray;
           pointer-events: none;
           cursor: default;
+          text-decoration: none;
         }
       }
     }

@@ -23,7 +23,7 @@ $clr-qul-yellow: #fcc34c;
 
 /* Grays */
 $clr-qul-gray: #8c8c8c;
-$clr-qul-light-gray: lighten($clr-qul-gray, 20%);
+$clr-qul-light-gray: #E0E0E0;
 
 /*
 * Colour Usage
@@ -48,8 +48,9 @@ $clr-quote: $queens-logo-red;
 */
 
 /* Widths */
+$mobile: 320px;
+$tablet: 760px;
 $desktop: 1100px;
-$tablet: 750px;
 
 /*
 * Typography

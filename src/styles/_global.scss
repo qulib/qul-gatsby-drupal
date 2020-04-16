@@ -1,16 +1,25 @@
 html {
-  font-size: 100%;
+  font-size: 14px;
+}
+
+@include breakpoint($tablet) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@include breakpoint($desktop) {
+  html {
+    font-size: 16px;
+  }
 }
 
 body {
   font-family: $font-main;
-  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.65;
   color: $clr-text-main;
-  background-color: yellowgreen;
-
-  @include breakpoint($desktop) {
-    font-size: 1rem;
-  }
+  background-color: #ccc;
 }
 
 h1,
@@ -21,7 +30,8 @@ h5,
 h6 {
   font-weight: 300;
   color: $clr-primary;
-  margin-bottom: 1rem;
+  line-height: 1.15;
+  margin: 2rem 0 1rem;
 }
 
 a {

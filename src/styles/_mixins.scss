@@ -4,11 +4,11 @@
 // see _vars.scss for breakpoint definitions
 @mixin breakpoint($pixels, $mobile-only: false) {
   @if $mobile-only != true {
-    @media (min-width: $pixels) {
+    @media screen and (min-width: $pixels) {
       @content;
     }
   } @else {
-    @media (max-width: $pixels) {
+    @media screen and (max-width: $pixels) {
       @content;
     }
   }
