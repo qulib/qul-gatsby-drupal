@@ -2,15 +2,32 @@
   border-top: 3px solid $clr-primary;
   background-color: white;
   display: flex;
+  position: relative;
 
-  section {
+  .social-links {
+    // background-color: yellowgreen;
+    width: 800px;
+    top: -50px;
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    padding: 1rem;
+    list-style: none;
 
-    // img {
-    //   max-width: 100%;
-    // }
-
-    #qu-logo {
-      float: right
+    li {
+      padding-right: 2rem;
     }
+  }
+
+  .footer-blurb {
+    // background-color: forestgreen;
+    padding: 2rem 1rem;
+    font-size: .9rem;
+  }
+
+  .queens-logo {
+    // background-color: darkkhaki;
+    padding: 1rem;
   }
 }

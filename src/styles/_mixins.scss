@@ -21,7 +21,8 @@
   color: white;
   border: none;
   border-bottom: 3px solid darken($baseColour, 10%);
-  font-size: 1rem;
+  font-family: $font-main;
+  font-size: 0.9rem;
   cursor: pointer;
   padding: 0.5rem 2rem;
   margin: 1rem;

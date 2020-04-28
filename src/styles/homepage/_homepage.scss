@@ -1,6 +1,7 @@
 #home {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 
   h1 {
     position: absolute;
@@ -11,6 +12,7 @@
   section {
     padding: 1rem 2rem;
     width: 100%;
+    // border: 1px solid red;
   }
 
   button {

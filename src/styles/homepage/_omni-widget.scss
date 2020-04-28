@@ -1,3 +1,12 @@
 .omni-widget {
-  background-color: $clr-qul-yellow;
+  background: $clr-qul-yellow url("../images/omni-widget-bg.svg") no-repeat center top;
+
+  margin: 0 0 3rem;
+
+  @include breakpoint($tablet) {
+    width: 700px;
+    height: 250px;
+    background-size: 700px 290px;
+    margin: 0 0 3rem 5rem;
+  }
 }
