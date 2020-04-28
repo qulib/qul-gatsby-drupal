@@ -1,34 +1,37 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
 
 import Layout from '../components/Layout.jsx'
+import HomepageBanner from '../components/homepage/HomepageBanner.jsx'
+import OmniWidget from '../components/homepage/OmniWidget.jsx'
+import AskUsWidget from '../components/homepage/AskUsWidget.jsx'
+import Hours from '../components/homepage/Hours.jsx'
+import QuickLinks from '../components/homepage/QuickLinks.jsx'
+import NewsEvents from '../components/homepage/NewsEvents.jsx'
+import FeaturedSlider from '../components/homepage/FeaturedSlider.jsx'
+
+
+
 
 class Home extends React.Component {
   render() {
-    // const allAlbums = this.props.data.allNodeAlbum;
-
-    const allPages = this.props.data.allNodePage;
-
-    // { data.allNodeCoffee.edges.map(({ node }) => (
-    //   <div>
-    //     <h3>{ node.title }</h3>
-    //     <div dangerouslySetInnerHTML={{ __html: node.body.value }} />
-    //   </div>
-    // ))}
+    const allPages = this.props.data.allNodePage
 
     return (
       <Layout>
-        <h2>Pages</h2>
-        <ul>
-          {allPages.edges.map(({ node }) => (
-            <li key={node.drupal_internal__nid}><Link to={node.path.alias}>{node.title}</Link></li>
-          ))}
-        </ul>
-
-        <h2>About Us</h2>
-        <ul>
-          <li><Link to="/about-us/staff-directory">Staff Directory</Link></li>
-        </ul>
+        <div id="site-body" className="home container">
+          <Helmet>
+            <title>Queen's Univesity Library - Home</title>
+          </Helmet>
+          <HomepageBanner />
+          <OmniWidget />
+          <AskUsWidget />
+          <Hours />
+          <QuickLinks />
+          <NewsEvents />
+          <FeaturedSlider />
+        </div>
       </Layout>
     )
   }
