@@ -1,7 +1,7 @@
 import React from "react"
 
 const FeaturedSlider = () => (
-  <div className="featured-slider">FeaturedSlider goes here</div>
+  <section className="featured-slider">FeaturedSlider goes here</section>
 )
 
 export default FeaturedSlider

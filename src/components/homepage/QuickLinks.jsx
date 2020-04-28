@@ -1,7 +1,7 @@
 import React from "react"
 
 const QuickLinks = () => (
-  <div className="quick-links">QuickLinks goes here</div>
+  <nav className="quick-links">QuickLinks here</nav>
 )
 
 export default QuickLinks

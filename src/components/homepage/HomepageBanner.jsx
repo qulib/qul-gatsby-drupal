@@ -1,7 +1,7 @@
 import React from "react"
 
 const HomepageBanner = () => (
-  <div className="banner">HomepageBanner goes here</div>
+  <section className="banner">HomepageBanner goes here</section>
 )
 
 export default HomepageBanner

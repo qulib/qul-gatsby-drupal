@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="isolation:isolate" viewBox="-17 -133 1166 400" width="1166" height="400">
+    <defs>
+        <clipPath id="a">
+            <path d="M-17-133h1166v400H-17z"/>
+        </clipPath>
+    </defs>
+    <g clip-path="url(#a)">
+        <path fill="#800" d="M-17-133h1166v400H-17z"/>
+        <path d="M783 45l231.633 222H1149v-400H961.488L783 45z" fill="#510000"/>
+        <path d="M783 45l231 221H562L783 45zM-17-133v282l283-282H-17z" fill="#650000"/>
+    </g>
+</svg>

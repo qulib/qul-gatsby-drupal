@@ -1,7 +1,7 @@
 import React from "react"
 
 const AskUsWidget = () => (
-  <div className="ask-us-widget">AskUsWidget goes here</div>
+  <nav className="ask-us-widget">AskUsWidget goes here</nav>
 )
 
 export default AskUsWidget

@@ -1,7 +1,7 @@
 import React from "react"
 
 const Hours = () => (
-  <div className="hours">Hours goes here</div>
+  <section className="hours">Hours goes here</section>
 )
 
 export default Hours

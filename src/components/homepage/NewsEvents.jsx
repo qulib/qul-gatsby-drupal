@@ -1,7 +1,7 @@
 import React from "react"
 
 const NewsEvents = () => (
-  <div className="news-events">NewsEvents goes here</div>
+  <section className="news-events">NewsEvents goes here</section>
 )
 
 export default NewsEvents
