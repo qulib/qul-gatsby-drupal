@@ -1,7 +1,7 @@
 import React from "react"
 
 const OmniWidget = () => (
-  <div className="omni-widget">OmniWidget goes here</div>
+  <section className="omni-widget">OmniWidget goes here</section>
 )
 
 export default OmniWidget

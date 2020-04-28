@@ -1,4 +1,22 @@
-.home {
+#home {
+  display: flex;
+  flex-wrap: wrap;
+
+  h1 {
+    position: absolute;
+    overflow: hidden;
+    left: -1000px;
+  }
+
+  section {
+    padding: 1rem 2rem;
+    width: 100%;
+  }
+
+  button {
+    @include button-style($clr-primary);
+  }
+
   @import 'banner.scss';
   @import 'omni-widget.scss';
   @import 'ask-us-widget.scss';
@@ -7,4 +25,3 @@
   @import 'news-events.scss';
   @import 'featured-slider.scss';
 }
-

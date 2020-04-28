@@ -11,19 +11,17 @@ import QuickLinks from '../components/homepage/QuickLinks.jsx'
 import NewsEvents from '../components/homepage/NewsEvents.jsx'
 import FeaturedSlider from '../components/homepage/FeaturedSlider.jsx'
 
-
-
-
 class Home extends React.Component {
   render() {
     const allPages = this.props.data.allNodePage
 
     return (
       <Layout>
-        <div id="site-body" className="home container">
+        <div id="home" className="container">
           <Helmet>
             <title>Queen's Univesity Library - Home</title>
           </Helmet>
+          <h1>Home</h1>
           <HomepageBanner />
           <OmniWidget />
           <AskUsWidget />
