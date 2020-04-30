@@ -1,12 +1,17 @@
-import React from "react"
-// import { Link } from "gatsby"
+import React from 'react'
+import { Link } from 'gatsby'
 
 const Breadcrumbs = () => (
   <nav id="site-breadcrumbs" aria-label="Breadcrumb">
     <ol>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">One</a></li>
-      <li><a href="#" aria-current="page">Two</a></li>
+      <li>
+        <Link to="/">Home</Link>
+      </li>
+      <li>
+        <Link to="/" aria-current="page">
+          This Page
+        </Link>
+      </li>
     </ol>
   </nav>
 )

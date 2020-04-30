@@ -1,6 +1,6 @@
 .featured-slider {
   height: 300px;
-  background: greenyellow url("../images/featured-slider-bg.svg") no-repeat center top;
-  background-size: 1200px 412px;
+  background: url("../images/featured-slider-bg.svg") no-repeat;
+  background-size: cover;
 }
 

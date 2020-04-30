@@ -1,9 +1,11 @@
 @import '~sanitize.css';
 
 @import 'vars';
+
+// @import 'bulma';
+
 @import 'mixins';
 @import 'global';
-
 @import 'header';
 @import 'breadcrumbs';
 @import 'main';

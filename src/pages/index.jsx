@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
 
 import Layout from '../components/Layout.jsx'
-import HomepageBanner from '../components/homepage/HomepageBanner.jsx'
+import Banner from '../components/homepage/Banner.jsx'
 import OmniWidget from '../components/homepage/OmniWidget.jsx'
 import AskUsWidget from '../components/homepage/AskUsWidget.jsx'
 import Hours from '../components/homepage/Hours.jsx'
@@ -22,7 +22,7 @@ class Home extends React.Component {
             <title>Queen's Univesity Library - Home</title>
           </Helmet>
           <h1>Home</h1>
-          <HomepageBanner />
+          <Banner />
           <OmniWidget />
           <AskUsWidget />
           <Hours />

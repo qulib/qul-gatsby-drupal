@@ -1,11 +1,10 @@
 #site-footer {
   background-color: white;
-  // display: flex;
 
   .footer-top {
     height: 300px;
-    background: gray url("../images/footer-bg.svg") no-repeat center top;
-    background-size: 1200px 380px;
+    background: url("../images/footer-bg.svg") no-repeat;
+    background-size: cover;
   }
 
   .footer-bottom {

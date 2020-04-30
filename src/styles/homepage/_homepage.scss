@@ -9,10 +9,10 @@
     left: -1000px;
   }
 
-  section {
+  > section {
     padding: 1rem 2rem;
     width: 100%;
-    // border: 1px solid red;
+    border: 1px solid red;
   }
 
   button {

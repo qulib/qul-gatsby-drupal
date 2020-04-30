@@ -1,0 +1,10 @@
+// put bulma overides here
+@charset "utf-8";
+
+$family-sans-serif: $font-main;
+$text: $clr-text-main;
+$link: $clr-link;
+$link-hover: $clr-link-hover;
+$link-visited: $clr-link-visited;
+
+@import "~bulma/bulma.sass";

@@ -1,11 +1,11 @@
 .ask-us-widget {
-  margin: 0 0 3rem;
+  margin: 0 auto 3rem;
+  width: 180px;
+  height: 180px;
+  padding: 0;
 
-  @include breakpoint($tablet) {
-    width: 180px;
-    height: 180px;
-    padding: 0;
-    margin: 35px 5rem 3rem 0;
+  @include breakpoint($desktop) {
+    margin: 0 5rem 3rem 0;
   }
 
 

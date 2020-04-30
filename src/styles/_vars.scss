@@ -25,10 +25,6 @@ $clr-qul-yellow: #fcc34c;
 $clr-qul-gray: #8c8c8c;
 $clr-qul-light-gray: #E0E0E0;
 
-/*
-* Colour Usage
-*/
-
 /* Primary Pallete */
 $clr-primary: $queens-logo-blue;
 
@@ -43,18 +39,10 @@ $clr-filters: $clr-qul-yellow;
 $clr-filters-lighter: lighten($clr-filters, 10%);
 $clr-quote: $queens-logo-red;
 
-/*
-* Responsive Design
-*/
-
-/* Widths */
+/* Responsive Widths */
 $mobile: 320px;
 $tablet: 760px;
-$desktop: 1100px;
-
-/*
-* Typography
-*/
+$desktop: 1200px;
 
 /* Fonts */
 $font-main: 'Open Sans', sans-serif;

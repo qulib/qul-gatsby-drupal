@@ -1,11 +1,12 @@
 import React from "react"
+import { Link } from "gatsby"
 
-const HomepageBanner = () => (
+const Banner = () => (
   <section className="banner">
     <h2>Banner Title</h2>
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-    <button>View Page</button>
+    <button><Link to="test-page">View Page</Link></button>
   </section>
 )
 
-export default HomepageBanner
+export default Banner

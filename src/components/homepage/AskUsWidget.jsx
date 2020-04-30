@@ -1,11 +1,13 @@
-import React from "react"
-import AskUsSymbol from "../../images/ask-us-symbol.svg"
+import React from 'react'
+import { Link } from 'gatsby'
+
+import AskUsSymbol from '../../images/ask-us-symbol.svg'
 
 const AskUsWidget = () => (
   <section className="ask-us-widget">
-    <a href="#">
+    <Link to="/">
       <img src={AskUsSymbol} alt="Ask Us" />
-    </a>
+    </Link>
   </section>
 )
 
