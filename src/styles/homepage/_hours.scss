@@ -1,14 +1,9 @@
 .hours {
-  height: 300px;
   background: url("../images/hours-bg.svg") no-repeat;
   background-size: cover;
-  display: flex;
-  flex-wrap: wrap;
+  // display: flex;
+  // flex-wrap: wrap;
 
-  section {
-    border: 1px solid red;
-    width: 100%
-  }
 
   .clock {
 

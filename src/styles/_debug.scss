@@ -1,0 +1,27 @@
+body {
+  background-color: gainsboro;
+
+  //mobile 
+  border-top: 3px solid royalblue;
+
+  section {
+    border: 1px solid royalblue;
+  }
+
+  @include breakpoint($tablet) {
+    border-top: 3px solid greenyellow;
+
+    section {
+      border: 1px solid greenyellow;
+    }
+  }
+
+  @include breakpoint($desktop) {
+    border-top: 3px solid red;
+
+    section {
+      border: 1px solid red;
+    }
+  }
+
+}

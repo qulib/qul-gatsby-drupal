@@ -9,7 +9,7 @@ import SocialYouTube from "../../images/social-youtube.svg"
 const Footer = () => (
   <footer id="site-footer" className="container">
 
-    <section className="footer-top"></section>
+    <section className="footer-top">Footer Top goes here</section>
 
 
 

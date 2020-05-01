@@ -1,14 +1,14 @@
 import React from "react"
-// import { Link } from "gatsby"
+import { Link } from "gatsby"
 
-const Menu = () => (
+const MainMenu = () => (
   <nav id="main-menu">
-    <ul><li><a href="/">Search</a></li>
-      <li><a href="/">Help & Services</a></li>
-      <li><a href="/">Locations & Hours</a></li>
-      <li><a href="/">About Us</a></li>
+    <ul><li><Link to="/">Search</Link></li>
+      <li><Link to="/">Help & Services</Link></li>
+      <li><Link to="/">Locations & Hours</Link></li>
+      <li><Link to="/">About Us</Link></li>
     </ul>
   </nav>
 )
 
-export default Menu
+export default MainMenu

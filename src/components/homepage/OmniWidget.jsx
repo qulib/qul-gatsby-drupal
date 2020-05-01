@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+// import { Link } from 'gatsby'
 
 import OmniSymbol from '../../images/qul-omni-logo.svg'
 

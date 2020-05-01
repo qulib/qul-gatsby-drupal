@@ -3,11 +3,15 @@
   border-bottom: 3px solid $clr-primary;
   padding: 1rem 2rem;
 
-  section {
+  section { // container
     #qul-logo {
       img {
         max-width: 100%;
       }
+    }
+
+    #user-menu {
+
     }
 
     #main-menu {
@@ -34,49 +38,17 @@
         }
       }
     }
+
+    #site-search {
+
+    }
   }
 
   @include breakpoint($tablet) {
-    section {
-      display: flex;
-      align-items: flex-end;
 
-      #qul-logo {
-        width: 35%;
-      }
-
-      #main-menu {
-        width: 65%;
-
-        ul {
-          display: flex;
-          justify-content: flex-end;
-          align-content: flex-end;
-          margin: 0;
-
-          li {
-            padding: 0 0.5rem;
-          }
-        }
-      }
-    }
   }
 
   @include breakpoint($desktop) {
-    section {
-      #qul-logo {
-        width: 40%;
-      }
 
-      #main-menu {
-        width: 60%;
-
-        ul {
-          li {
-            padding: 0 1rem;
-          }
-        }
-      }
-    }
   }
 }

@@ -1,17 +1,17 @@
 #site-breadcrumbs {
   background-color: $clr-primary;
-  padding: 0 1rem;
+  // padding: 0 1rem;
 
   ol {
     font-size: 0.9rem;
-    display: flex;
+    // display: flex;
     margin: 0;
-    padding: 0.5rem;
+    // padding: 0.5rem;
 
     li {
       & + li::before {
         content: "/ ";
-        padding: 0 5px;
+        // padding: 0 5px;
         color: white;
       }
 

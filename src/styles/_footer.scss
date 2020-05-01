@@ -2,7 +2,6 @@
   background-color: white;
 
   .footer-top {
-    height: 300px;
     background: url("../images/footer-bg.svg") no-repeat;
     background-size: cover;
   }
@@ -11,11 +10,11 @@
     position: relative;
 
     .social-links {
-      width: 800px;
+      // width: 800px;
       top: -75px;
       position: absolute;
-      display: flex;
-      flex-wrap: wrap;
+      // display: flex;
+      // flex-wrap: wrap;
       max-width: 100%;
       padding: 1rem;
       list-style: none;

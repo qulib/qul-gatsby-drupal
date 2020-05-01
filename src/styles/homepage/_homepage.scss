@@ -1,7 +1,7 @@
 #home {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  // display: flex;
+  // flex-wrap: wrap;
+  // justify-content: space-between;
 
   h1 {
     position: absolute;
@@ -9,11 +9,10 @@
     left: -1000px;
   }
 
-  > section {
-    padding: 1rem 2rem;
-    width: 100%;
-    border: 1px solid red;
-  }
+  // > section {
+  //   padding: 1rem 2rem;
+  //   width: 100%;
+  // }
 
   button {
     @include button-style($clr-primary);
