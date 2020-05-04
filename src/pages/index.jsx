@@ -19,7 +19,7 @@ class Home extends React.Component {
       <Layout>
         <div id="home" className="container">
           <Helmet>
-            <title>Queen's Univesity Library - Home</title>
+            <title>QUL - Home</title>
           </Helmet>
           <h1>Home</h1>
           <Banner />

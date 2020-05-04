@@ -1,0 +1,76 @@
+#site-header {
+  background-color: white;
+  border-bottom: 3px solid $clr-primary;
+
+  .container {
+    display: grid;
+    grid-template-columns: auto;
+
+    #qul-logo {
+      // @include debug;
+      grid-column-start: 1;
+      grid-column-end: 3;
+      align-self: center;
+      padding: 1rem;
+
+      img {
+        max-width: 100%;
+      }
+    }
+
+    #main-menu {
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+  }
+
+  @include breakpoint($tablet) {
+    .container {
+      grid-template-columns: auto auto auto;
+
+      #qul-logo {
+        grid-column-start: 1;
+        grid-column-end: 2;
+      }
+
+      #main-menu {
+        grid-column-start: 1;
+        grid-column-end: 4;
+      }
+    }
+  }
+
+  @include breakpoint($desktop) {
+    .container {
+      // grid-template-columns: auto auto auto;
+
+      #qul-logo {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 3;
+      }
+
+      // #user-menu {
+      //   grid-column-start: 2;
+      //   grid-column-end: 3;
+      // }
+
+      #site-search {
+        grid-column-start: 3;
+        grid-column-end: 4;
+      }
+
+      #main-menu {
+        grid-column-start: 2;
+        grid-column-end: 4;
+        grid-row-start: 2;
+        grid-row-end: 3;
+      }
+    }
+  }
+
+  @import 'main-menu';
+  @import 'user-menu';
+  @import 'site-search';
+}

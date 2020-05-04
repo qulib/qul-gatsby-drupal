@@ -1,10 +1,10 @@
-import React from "react"
-import { FiSearch } from 'react-icons/fi';
+import React from 'react'
+import { Input } from 'antd'
+import { FaSearch } from 'react-icons/fa'
 
 const SiteSearch = () => (
   <nav id="site-search">
-    <FiSearch />
-    <input type="text" placeholder="Search" />
+    <Input size="large" placeholder="site search" prefix={<FaSearch />} />
   </nav>
 )
 

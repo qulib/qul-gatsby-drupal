@@ -1,18 +1,14 @@
 @import '~sanitize.css';
+@import '~antd/dist/antd.css';
 
 @import 'vars';
-
-// @import 'bulma';
-
 @import 'mixins';
 @import 'debug';
-
 @import 'global';
-@import 'header';
-@import 'breadcrumbs';
-@import 'main';
-@import 'sidebar';
-@import 'filters';
-@import 'footer';
+
+@import 'header/header';
+@import 'body/body';
+@import 'sidebar/sidebar';
+@import 'footer/footer';
 
 @import 'homepage/homepage.scss'

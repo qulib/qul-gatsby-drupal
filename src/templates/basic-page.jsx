@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 // import Img from 'gatsby-image'
 
 import Layout from '../components/Layout.jsx'
-import Breadcrumbs from '../components/Breadcrumbs.jsx'
+import Breadcrumbs from '../components/body/Breadcrumbs.jsx'
 
 // add error checking to data assignments
 

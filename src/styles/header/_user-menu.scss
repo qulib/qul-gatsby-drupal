@@ -1,0 +1,43 @@
+#user-menu {
+  // @include debug;
+  padding: 1rem;
+  display: grid;
+
+  ul {
+    margin: 0;
+    display: grid;
+    grid-template-columns: auto auto auto;
+
+    li {
+      align-self: center;
+      justify-self: center;
+      padding-right: 1rem;
+
+      span {
+        display: none;
+        padding-left: 0.5rem;
+      }
+      a {
+        color: $clr-primary;
+      }
+      button {
+        font-size: 1rem;
+        color: $clr-primary;
+        border: 0;
+      }
+    }
+  }
+
+  @include breakpoint($tablet) {
+  }
+
+  @include breakpoint($desktop) {
+    ul {
+      li {
+        span {
+          display: inline;
+        }
+      }
+    }
+  }
+}

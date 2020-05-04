@@ -1,0 +1,38 @@
+#main-menu {
+  // @include debug;
+  padding: 1rem;
+
+  ul {
+    display: grid;
+    margin: 0;
+
+    li {
+      font-size: 1rem;
+
+      a {
+        text-transform: uppercase;
+        font-weight: bold;
+        color: $clr-primary;
+
+        &:hover {
+          text-decoration: none;
+          border-bottom: 3px solid $clr-primary;
+        }
+      }
+    }
+  }
+
+  @include breakpoint($tablet) {
+    ul {
+      grid-template-columns: repeat(4, auto);
+
+      li {
+        padding: 0;
+        justify-self: center;
+      };
+    }
+  }
+
+  @include breakpoint($desktop) {
+  }
+}
