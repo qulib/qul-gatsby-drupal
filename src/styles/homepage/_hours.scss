@@ -1,11 +1,40 @@
 .hours {
   background: url("../images/hours-bg.svg") no-repeat;
   background-size: cover;
-  // display: flex;
-  // flex-wrap: wrap;
-
+  padding: 1rem;
 
   .clock {
+    display: none;
+    width: 220px;
+    height: 220px;
+    background: url(../images/clock-bg.svg) no-repeat;
 
+    // react-analog-clock
+    div {
+      align-self: center;
+      justify-self: center;
+
+      div[type="second"] {
+        display: none;
+      }
+    }
+
+    @include breakpoint($desktop) {
+      display: grid;
+    }
+  }
+
+  .todays-hours {
+    @include debug;
+  }
+
+  .people-counter {
+    @include debug;
+  }
+
+  @include breakpoint($desktop) {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    justify-items: center;
   }
 }
