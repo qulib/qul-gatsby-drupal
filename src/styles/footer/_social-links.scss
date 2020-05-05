@@ -1,0 +1,19 @@
+.social-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 1rem;
+  list-style: none;
+
+  .social-icon {
+    padding: 1rem;
+    overflow: hidden;
+
+    img {
+      max-width: 100%;
+    }
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}

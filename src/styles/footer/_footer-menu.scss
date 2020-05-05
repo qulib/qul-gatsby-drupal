@@ -1,0 +1,31 @@
+#footer-menu {
+  padding: 1rem;
+
+  h2 {
+    color: $clr-secondary;
+    text-transform: uppercase;
+  }
+
+  a {
+    color: $clr-primary;
+  }
+
+  button {
+    @include button-style($clr-secondary);
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  @include breakpoint($tablet) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    button:first-of-type {
+      margin-top: 0;
+    }
+  }
+
+  // @include breakpoint($desktop) {
+  //   grid-template-columns: 2fr 2fr 1fr;
+  // }
+}

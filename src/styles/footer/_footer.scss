@@ -4,37 +4,51 @@
   .footer-top {
     background: url("../images/footer-bg.svg") no-repeat;
     background-size: cover;
+
+    @import "footer-menu";
   }
 
   .footer-bottom {
-    position: relative;
+    display: grid;
 
-    .social-links {
-      // width: 800px;
-      top: -75px;
-      position: absolute;
-      // display: flex;
-      // flex-wrap: wrap;
-      max-width: 100%;
-      padding: 1rem;
-      list-style: none;
-
-      li {
-        padding-right: 2rem;
-
-        &:hover {
-          opacity: 0.9;
-        }
-      }
-    }
+    @import "social-links";
 
     .footer-blurb {
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
+      padding: 0 1rem;
     }
 
     .queens-logo {
       padding: 1rem;
+      justify-self: center;
+    }
+  }
+
+  @include breakpoint($tablet) {
+    .footer-top {
+      padding-bottom: 3rem;
+    }
+
+    .footer-bottom {
+      margin-top: -5rem;
+      grid-template-columns: 2fr 1fr;
+      grid-gap: 0;
+      align-items: center;
+
+      .social-links {
+        padding-bottom: 0;
+        margin-bottom: 0;
+      }
+
+      .footer-blurb {
+        @include breakpoint($tablet) {
+          grid-column-start: 1;
+          grid-column-end: 2;
+        }
+      }
+
+      .queens-logo {
+        padding-top: 0;
+      }
     }
   }
 }

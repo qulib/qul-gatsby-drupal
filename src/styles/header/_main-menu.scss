@@ -1,6 +1,6 @@
 #main-menu {
   // @include debug;
-  padding: 1rem;
+  padding: 0 1rem 1rem;
 
   ul {
     display: grid;
@@ -8,6 +8,7 @@
 
     li {
       font-size: 1rem;
+      padding-bottom: 0.5rem;
 
       a {
         text-transform: uppercase;
@@ -23,8 +24,6 @@
   }
 
   @include breakpoint($tablet) {
-    // padding-top: 0;
-
     ul {
       grid-template-columns: repeat(4, auto);
 
@@ -36,12 +35,5 @@
   }
 
   @include breakpoint($desktop) {
-    padding-top: 0;
-
-    ul {
-      li {
-        // justify-self: right;
-      }
-    }
   }
 }

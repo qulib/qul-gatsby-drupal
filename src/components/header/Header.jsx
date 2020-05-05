@@ -10,7 +10,7 @@ import MainMenu from './MainMenu'
 const Header = () => (
   <header id="site-header">
     <section className="container">
-      <Link id="qul-logo" to="/" title="Home">
+      <Link id="qul-logo" to="/">
         <img src={QULlogo} alt="Queen's University Library" />
       </Link>
       <UserMenu />
