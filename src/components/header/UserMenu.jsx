@@ -7,12 +7,9 @@ import { BsChatFill } from 'react-icons/bs'
 const menu = (
   <Menu>
     <Menu.Item key="0">
-    <a href="https://ocul-qu.primo.exlibrisgroup.com/discovery/account?vid=01OCUL_QU:QU_DEFAULT&amp;section=overview&amp;lang=en">My Library Account</a>
+      <a href="https://ocul-qu.primo.exlibrisgroup.com/discovery/account?vid=01OCUL_QU:QU_DEFAULT&amp;section=overview&amp;lang=en">My Library Account</a>
     </Menu.Item>
-    <Menu.Item key="1">
-      <a href="/">2nd menu item</a>
-    </Menu.Item>
-    <Menu.Item key="2">3rd menu item</Menu.Item>
+    <Menu.Item key="2">2nd menu item</Menu.Item>
   </Menu>
 )
 
@@ -21,7 +18,7 @@ const UserMenu = () => (
   <nav id="user-menu">
     <ul>
       <li>
-        <a href="/">
+        <a href="https://proxy.queensu.ca/">
           <FaKey />
           <span>Off-campus Access</span>
         </a>

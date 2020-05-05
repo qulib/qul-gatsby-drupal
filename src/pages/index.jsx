@@ -1,6 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { graphql } from 'gatsby'
+// import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout.jsx'
 import Banner from '../components/homepage/Banner.jsx'
@@ -13,7 +13,7 @@ import FeaturedSlider from '../components/homepage/FeaturedSlider.jsx'
 
 class Home extends React.Component {
   render() {
-    const allPages = this.props.data.allNodePage
+    // const allPages = this.props.data.allNodePage
 
     return (
       <Layout>
@@ -37,19 +37,19 @@ class Home extends React.Component {
 
 export default Home
 
-export const query = graphql`
-  query allNodePage {
-    allNodePage {
-      totalCount
-      edges {
-        node {
-          title
-          path {
-            alias
-          }
-          drupal_internal__nid
-        }
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query allNodePage {
+//     allNodePage {
+//       totalCount
+//       edges {
+//         node {
+//           title
+//           path {
+//             alias
+//           }
+//           drupal_internal__nid
+//         }
+//       }
+//     }
+//   }
+// `

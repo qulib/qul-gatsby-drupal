@@ -27,7 +27,7 @@ const Footer = () => (
       </section>
 
 
-      <a class="queens-logo" title="Queen's University" href="https://queensu.ca">
+      <a className="queens-logo" title="Queen's University" href="https://queensu.ca">
         <img src={QueensLogo} alt="Queen's University" width="200" height="152" />
       </a>
 

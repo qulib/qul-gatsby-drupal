@@ -1,13 +1,11 @@
 import React from "react"
-
-import QueensLogo from "../../images/qu-logo.svg"
 import SocialTwitter from "../../images/social-twitter.svg"
 import SocialFacebook from "../../images/social-facebook.svg"
 import SocialInstagram from "../../images/social-instagram.svg"
 import SocialYouTube from "../../images/social-youtube.svg"
 
 const SocialLinks = () => (
-  <ul class="social-links">
+  <ul className="social-links">
     <li className="social-icon"><a href="https://twitter.com/QueensULibrary">
       <img src={SocialTwitter} alt="Twitter" />
     </a></li>

@@ -2,15 +2,15 @@ body {
   background-color: gainsboro;
 
   //mobile
-  border-top: 3px solid royalblue;
+  // border-top: 3px solid royalblue;
 
-  @include breakpoint($tablet) {
-    border-top: 3px solid greenyellow;
-  }
+  // @include breakpoint($tablet) {
+  //   border-top: 3px solid greenyellow;
+  // }
 
-  @include breakpoint($desktop) {
-    border-top: 3px solid orangered;
-  }
+  // @include breakpoint($desktop) {
+  //   border-top: 3px solid orangered;
+  // }
 }
 
 @mixin debug {
