@@ -23,8 +23,10 @@ class Home extends React.Component {
           </Helmet>
           <h1>Home</h1>
           <Banner />
-          <OmniWidget />
-          <AskUsWidget />
+          <section className="omni-ask-us">
+            <OmniWidget />
+            <AskUsWidget />
+          </section>
           <Hours />
           <QuickLinks />
           <NewsEvents />

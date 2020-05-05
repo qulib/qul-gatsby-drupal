@@ -1,12 +1,7 @@
 .omni-widget {
   background: url("../images/omni-widget-bg.svg") no-repeat;
   background-size: cover;
-  margin: 0 0 3rem;
   padding: 1rem;
-
-  section {
-    // padding: 1rem;
-  }
 
   .omni-branding {
     color: $clr-primary;
@@ -30,6 +25,7 @@
 
   .omni-links {
     display: grid;
+    grid-template-columns: repeat(2, auto);
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -44,8 +40,8 @@
   }
 
   @include breakpoint($tablet) {
-    max-width: 700px;
-    margin: 0 auto;
+    width: 600px;
+    margin: 1rem auto;
 
     .omni-branding {
       svg {
@@ -69,5 +65,9 @@
         }
       }
     }
+  }
+
+  @include breakpoint($desktop) {
+    width: 700px;
   }
 }
