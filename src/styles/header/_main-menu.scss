@@ -23,16 +23,25 @@
   }
 
   @include breakpoint($tablet) {
+    // padding-top: 0;
+
     ul {
       grid-template-columns: repeat(4, auto);
 
       li {
         padding: 0;
         justify-self: center;
-      };
+      }
     }
   }
 
   @include breakpoint($desktop) {
+    padding-top: 0;
+
+    ul {
+      li {
+        // justify-self: right;
+      }
+    }
   }
 }
