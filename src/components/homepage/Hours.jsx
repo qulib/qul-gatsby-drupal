@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from 'gatsby'
 import AnalogClock from 'analog-clock-react';
 
 let options = {
@@ -16,8 +17,43 @@ let options = {
 
 const Hours = () => (
   <section className="hours">
-    <section className="clock"><AnalogClock {...options} className="qul-clock"/></section>
-    <section className="todays-hours">todays-hours</section>
+    <section className="clock"><AnalogClock {...options} className="qul-clock" /></section>
+
+    <section className="todays-hours">
+      <ul>
+        <li>
+          <Link to="/">Stauffer Library</Link>
+          <span>10:00am - 11:00pm</span>
+        </li>
+        <li>
+          <Link to="/">Douglas Library</Link>
+          <span>10:00am - 11:00pm</span>
+        </li>
+        <li>
+          <Link to="/">Bracken Health Sciences Library</Link>
+          <span>10:00am - 11:00pm</span>
+        </li>
+        <li>
+          <Link to="/">Education Library</Link>
+          <span>9:00am - 11:00pm</span>
+        </li>
+        <li>
+          <Link to="/">Jordan Special Collections</Link>
+          <span>10:00am - 11:00pm</span>
+        </li>
+        <li>
+          <Link to="/">Lederman Law Library</Link>
+          <span>10:00am - 11:00pm</span>
+        </li>
+        <li>
+          <Link to="/">University Archives</Link>
+          <span>10:00am - 11:00pm</span>
+        </li>
+      </ul>
+      <button><Link to="/">All Locations & Hours</Link></button>
+    </section>
+
+
     <section className="people-counter">people-counter</section>
   </section>
 )

@@ -1,9 +1,12 @@
 .hours {
+  display: grid;
   background: url("../images/hours-bg.svg") no-repeat;
   background-size: cover;
   padding: 1rem;
+  align-items: center;
 
   .clock {
+    // @include debug;
     display: none;
     width: 220px;
     height: 220px;
@@ -18,23 +21,71 @@
         display: none;
       }
     }
-
-    @include breakpoint($desktop) {
-      display: grid;
-    }
   }
 
   .todays-hours {
-    @include debug;
+    // @include debug;
+    display: grid;
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        padding-bottom: 0.5rem;
+
+        a {
+          color: $clr-primary;
+        }
+
+        span {
+          color: $clr-primary;
+          display: block;
+        }
+      }
+    }
+
+    button {
+      justify-self: center;
+    }
   }
 
   .people-counter {
-    @include debug;
+    // @include debug;
+    padding: 1rem;
+    display: none;
+  }
+
+  @include breakpoint($tablet) {
+    grid-template-columns: 1fr 1fr;
+
+    .todays-hours {
+      ul {
+        li {
+          span {
+            display: inline;
+            float: right;
+          }
+        }
+      }
+    }
+
+    .people-counter {
+      display: grid;
+      justify-self: center;
+    }
   }
 
   @include breakpoint($desktop) {
-    display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    justify-items: center;
+
+    .clock {
+      display: grid;
+      padding: 0;
+    }
+
+    .todays-hours {
+      // padding: 1rem;
+    }
   }
 }
