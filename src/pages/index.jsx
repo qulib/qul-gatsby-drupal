@@ -22,7 +22,7 @@ class Home extends React.Component {
             <title>QUL - Home</title>
           </Helmet>
           <h1>Home</h1>
-          <Banner />
+          {/* <Banner /> */}
           <section className="omni-ask-us">
             <OmniWidget />
             <AskUsWidget />
