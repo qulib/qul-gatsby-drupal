@@ -20,6 +20,8 @@ $clr-qul-link-blue: #1d70ad;
 
 /* Yellows */
 $clr-qul-yellow: #fcc34c;
+$clr-qul-yellow-lighter: lighten($clr-qul-yellow, 10%);
+$clr-qul-yellow-darker: darken($queens-logo-gold, 10%);
 
 /* Grays */
 $clr-qul-gray: #8c8c8c;
@@ -37,7 +39,7 @@ $clr-link-visited: $queens-logo-purple;
 
 /* Other Usage */
 $clr-filters: $clr-qul-yellow;
-$clr-filters-lighter: lighten($clr-filters, 10%);
+$clr-filters-lighter: $clr-qul-yellow-lighter;
 $clr-quote: $queens-logo-red;
 
 /* Responsive Widths */

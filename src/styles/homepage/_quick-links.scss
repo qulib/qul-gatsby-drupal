@@ -1,4 +1,65 @@
 .quick-links {
   background-color: $clr-qul-yellow;
-}
+  display: grid;
 
+  section {
+    padding-top: 1rem;
+
+    &:nth-of-type(2n) {
+      background-color: $clr-qul-yellow-lighter;
+
+      h2 {
+        border-bottom: 3px solid $clr-qul-yellow;
+      }
+    }
+
+    h2 {
+      padding-bottom: 0.5rem;
+      border-bottom: 3px solid $clr-qul-yellow-lighter;
+      text-align: center;
+    }
+
+    ul {
+      text-align: center;
+      li {
+        // text-align: center;
+        padding-bottom: 0.5rem;
+      }
+    }
+
+    a {
+      color: $clr-primary;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .link-symbol {
+    padding: 1rem;
+    display: none;
+  }
+
+  @include breakpoint($tablet) {
+    grid-template-columns: repeat(3, 1fr);
+
+    h2 {
+      font-size: 1.4rem;
+    }
+  }
+
+  @include breakpoint($desktop) {
+    grid-template-columns: repeat(4, 1fr);
+
+    .link-symbol {
+      display: grid;
+
+      img {
+        justify-self: center;
+      }
+    }
+
+
+  }
+}
