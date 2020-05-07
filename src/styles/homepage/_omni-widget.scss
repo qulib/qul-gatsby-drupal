@@ -1,8 +1,7 @@
 .omni-widget {
   background: url("../images/omni-widget-bg.svg") no-repeat;
   background-size: cover;
-  padding: 1rem;
-  margin-bottom: 1rem;
+  padding: 1rem 2rem;
 
   .omni-branding {
     color: $clr-primary;
@@ -19,9 +18,9 @@
   .omni-search {
     padding: 1rem 0;
 
-    .ant-btn-lg {
-      font-size: 14px !important;
-    }
+    // .ant-btn-lg {
+    //   font-size: 14px !important;
+    // }
   }
 
   .omni-links {

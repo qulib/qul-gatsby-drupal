@@ -28,13 +28,17 @@
     }
   }
 
-  @include breakpoint($tablet) {
-  }
+  // @include breakpoint($tablet) {
+  // }
 
   @include breakpoint($desktop) {
     padding: 0;
     ul {
+      padding-left: 2rem;
+      
       li {
+        padding: 1rem;
+
         span {
           display: inline;
         }

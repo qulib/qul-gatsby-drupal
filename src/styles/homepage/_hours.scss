@@ -47,6 +47,7 @@
 
     button {
       justify-self: center;
+      @include button-style($clr-primary);
     }
   }
 

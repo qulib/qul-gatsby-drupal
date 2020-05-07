@@ -3,15 +3,4 @@
   color: $clr-primary;
   align-self: center;
   padding: 1rem;
-
-  .ant-input-affix-wrapper {
-    color: $clr-primary;
-  }
-
-  @include breakpoint($tablet) {
-  }
-
-  @include breakpoint($desktop) {
-    // padding: 0;
-  }
 }

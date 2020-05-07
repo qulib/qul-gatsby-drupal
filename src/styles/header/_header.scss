@@ -44,7 +44,7 @@
 
   @include breakpoint($desktop) {
     .container {
-      grid-template-columns: 450px auto auto;
+      grid-template-columns: 500px 2fr 1fr;
 
       #qul-logo {
         display: grid;
@@ -53,11 +53,6 @@
         grid-row-start: 1;
         grid-row-end: 3;
       }
-
-      // #user-menu {
-      //   grid-column-start: 2;
-      //   grid-column-end: 3;
-      // }
 
       #site-search {
         grid-column-start: 3;

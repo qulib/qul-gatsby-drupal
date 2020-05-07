@@ -23,12 +23,7 @@ const OmniWidget = () => (
       </Popover>
     </section>
     <section className="omni-search">
-      <Search
-        placeholder="Search anything"
-        enterButton="Search"
-        size="large"
-        onSearch={value => console.log(value)}
-      />
+      <Search placeholder="Search anything" onSearch={value => console.log(value)} enterButton allowClear/>
     </section>
 
     <ul className="omni-links">

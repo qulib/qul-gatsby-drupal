@@ -1,3 +1,14 @@
+//overides for Ant Design
+
 .ant-popover {
   color: $clr-text-main;
+}
+
+.ant-input-group-addon {
+  button {
+    display: grid;
+    border: 0;
+    background-color: $clr-primary;
+    align-items: center;
+  }
 }

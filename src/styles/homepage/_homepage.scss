@@ -6,9 +6,9 @@
     left: -1000px;
   }
 
-  button {
-    @include button-style($clr-primary);
-  }
+  // button {
+  //   @include button-style($clr-primary);
+  // }
 
   .omni-ask-us {
     display: grid;

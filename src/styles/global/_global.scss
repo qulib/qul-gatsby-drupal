@@ -34,11 +34,9 @@ a {
 }
 
 .container {
-  // border: 1px solid cornflowerblue; // debug
-
-  display: grid;
-  grid-gap: 1rem;
   margin: 0 auto;
   max-width: $desktop;
   width: 100%;
 }
+
+@import 'news-card'; 
