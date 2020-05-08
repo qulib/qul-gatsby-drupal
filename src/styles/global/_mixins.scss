@@ -1,23 +1,13 @@
-// Wraps @content in a @media block using a given query.
-// @param $pixels pixel width of breakpoint
-// @ param  $mobile-only set to false for max-with
-// see _vars.scss for breakpoint definitions
-// @mixin breakpoint($pixels, $mobile-only: false) {
-//   @if $mobile-only != true {
-//     @media screen and (min-width: $pixels) {
-//       @content;
-//     }
-//   } @else {
-//     @media screen and (max-width: $pixels) {
-//       @content;
-//     }
-//   }
-// }
-
+// used for mobile breakpoints
 @mixin breakpoint($pixels) {
   @media screen and (min-width: $pixels) {
     @content;
   }
+}
+
+// used for fade transition effects
+@mixin fade {
+  transition: 0.3s ease-in-out;
 }
 
 // used to set button styles
@@ -41,6 +31,8 @@
 
   &:hover {
     background-color: darken($baseColour, 5%);
-    transition: 0.3s ease-in-out;
+    @include fade;
   }
 }
+
+

@@ -1,10 +1,7 @@
 @import '~sanitize.css';
 @import '~antd/dist/antd.css';
-
-@import 'vars';
-@import 'mixins';
-@import 'antd';
-@import 'debug';
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
 
 @import 'global/global';
 @import 'header/header';

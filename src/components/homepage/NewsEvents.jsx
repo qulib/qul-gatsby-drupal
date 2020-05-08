@@ -6,6 +6,7 @@ import NewsCard from '../global/NewsCard.jsx'
 
 const NewsEvents = () => (
   <section className="news-events">
+    <h2 className="section-title">News & Events</h2>
     <section className="news-grid">
       <NewsCard />
       <NewsCard />

@@ -1,5 +1,41 @@
 .featured-slider {
+  // display: grid;
+  // align-items: center;
   background: url("../images/featured-slider-bg.svg") no-repeat;
   background-size: cover;
-}
+  padding: 2rem;
 
+  .slide {
+    display: grid;
+    justify-items: center;
+    padding: 0;
+    color: white;
+
+    h2 {
+      color: white;
+    }
+
+    button {
+      @include button-style($clr-secondary);
+    }
+  }
+
+  .bell-symbol {
+    padding: 1rem;
+    display: none;
+  }
+
+  @include breakpoint($desktop) {
+    // grid-template-columns: repeat(4, 1fr);
+
+    .bell-symbol {
+      display: grid;
+
+      img {
+        justify-self: center;
+      }
+    }
+  }
+
+
+}

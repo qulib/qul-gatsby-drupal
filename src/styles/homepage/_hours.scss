@@ -29,8 +29,7 @@
 
     h2 {
       justify-self: center;
-      //  text-transform: uppercase;
-      //  color: $clr-secondary;
+      text-transform: uppercase;
     }
 
     ul {
@@ -67,11 +66,6 @@
     grid-template-columns: 1fr 1fr;
 
     .todays-hours {
-      h2 {
-        font-size: 1.4rem;
-        text-transform: uppercase;
-      }
-
       ul {
         li {
           span {
@@ -94,10 +88,6 @@
     .clock {
       display: grid;
       padding: 0;
-    }
-
-    .todays-hours {
-      // padding: 1rem;
     }
   }
 }

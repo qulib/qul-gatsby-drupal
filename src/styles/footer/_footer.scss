@@ -4,18 +4,19 @@
   .footer-top {
     background: url("../images/footer-bg.svg") no-repeat;
     background-size: cover;
+    padding: 2rem;
 
     @import "footer-menu";
   }
 
   .footer-bottom {
     display: grid;
-    padding: 0 2rem;
+    padding: 1rem 2rem;
 
     @import "social-links";
 
     .footer-blurb {
-      padding: 0 1rem;
+      padding: 1rem;
     }
 
     .queens-logo {
@@ -30,23 +31,18 @@
     }
 
     .footer-bottom {
-      margin-top: -3.1rem;;
+      padding-top: 0;
       grid-template-columns: 2fr 1fr;
       grid-gap: 0;
       align-items: center;
 
       .social-links {
-        padding-bottom: 0;
-        margin-bottom: 0;
+        margin-top: -4rem;
       }
 
       .footer-blurb {
         grid-column-start: 1;
         grid-column-end: 2;
-      }
-
-      .queens-logo {
-        padding-top: 0;
       }
     }
   }

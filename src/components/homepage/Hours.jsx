@@ -20,7 +20,7 @@ const Hours = () => (
     <section className="clock"><AnalogClock {...options} className="qul-clock" /></section>
 
     <section className="todays-hours">
-      <h2>Today's Hours</h2>
+      <h2 className="section-title">Today's Hours</h2>
       <ul>
         <li>
           <Link to="/">Stauffer Library</Link>

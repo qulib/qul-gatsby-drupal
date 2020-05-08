@@ -25,7 +25,8 @@ $clr-qul-yellow-darker: darken($queens-logo-gold, 10%);
 
 /* Grays */
 $clr-qul-gray: #8c8c8c;
-$clr-qul-light-gray: #E0E0E0;
+$clr-qul-gray-lighter: lighten($clr-qul-gray, 10%);
+$clr-qul-gray-darker: darken($clr-qul-gray, 20%);
 
 /* Primary Pallete */
 $clr-primary: $queens-logo-blue;

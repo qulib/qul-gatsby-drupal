@@ -1,24 +1,30 @@
 .news-events {
   display: grid;
-  // justify-items: center;
   background: url("../images/news-bg.svg") no-repeat;
   background-size: cover;
   padding: 2rem;
 
+  h2.section-title {
+    color: $clr-qul-gray-darker;
+  }
+
   .news-grid {
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    // grid-template-rows: 200px; is it possible hide some rows on mobile? 
     grid-gap: 2rem;
+    overflow: hidden;
   }
 
   button {
-    @include button-style($clr-qul-gray);
+    @include button-style($clr-qul-gray-darker);
     justify-self: center;
     margin-top: 2rem;
   }
 
   @include breakpoint($desktop) {
     .news-grid {
-      grid-template-columns: repeat(3, 1fr);
+      // grid-template-columns: repeat(3, minmax(min-content, 400px));
     }
   }
 }
