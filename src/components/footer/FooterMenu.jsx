@@ -46,7 +46,7 @@ const FooterMenu = () => (
       </ul>
     </section>
 
-    <ul>
+    <ul className="buttons">
       <button>
         <Link to="/">Support Your Library</Link>
       </button>

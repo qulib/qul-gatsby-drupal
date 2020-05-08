@@ -26,8 +26,13 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 
-    button:first-of-type {
-      margin-top: 0;
+    .buttons {
+      display: grid;
+      justify-items: center;
+
+      button:first-of-type {
+        margin-top: 0;
+      }
     }
   }
 

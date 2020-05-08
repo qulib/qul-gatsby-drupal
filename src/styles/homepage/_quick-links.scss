@@ -3,7 +3,7 @@
   display: grid;
 
   section {
-    padding-top: 1rem;
+    padding-top: 2rem;
 
     &:nth-of-type(2n) {
       background-color: $clr-qul-yellow-lighter;
@@ -17,6 +17,7 @@
       padding-bottom: 0.5rem;
       border-bottom: 3px solid $clr-qul-yellow-lighter;
       text-align: center;
+      text-transform: uppercase;
     }
 
     ul {

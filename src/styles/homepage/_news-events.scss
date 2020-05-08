@@ -1,12 +1,24 @@
-.news-events{
+.news-events {
   display: grid;
-  grid-gap: 1rem;
+  // justify-items: center;
   background: url("../images/news-bg.svg") no-repeat;
   background-size: cover;
-  padding: 1rem 2rem;
+  padding: 2rem;
+
+  .news-grid {
+    display: grid;
+    grid-gap: 2rem;
+  }
+
+  button {
+    @include button-style($clr-qul-gray);
+    justify-self: center;
+    margin-top: 2rem;
+  }
 
   @include breakpoint($desktop) {
-    grid-template-columns: repeat(3, 1fr);
+    .news-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 }
-

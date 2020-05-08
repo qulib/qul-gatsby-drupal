@@ -2,7 +2,7 @@
   display: grid;
   background: url("../images/hours-bg.svg") no-repeat;
   background-size: cover;
-  padding: 1rem 2rem;
+  padding: 2rem;
   align-items: center;
 
   .clock {
@@ -26,6 +26,12 @@
   .todays-hours {
     // @include debug;
     display: grid;
+
+    h2 {
+      justify-self: center;
+      //  text-transform: uppercase;
+      //  color: $clr-secondary;
+    }
 
     ul {
       list-style: none;
@@ -61,6 +67,11 @@
     grid-template-columns: 1fr 1fr;
 
     .todays-hours {
+      h2 {
+        font-size: 1.4rem;
+        text-transform: uppercase;
+      }
+
       ul {
         li {
           span {
