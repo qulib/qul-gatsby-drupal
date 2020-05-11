@@ -1,34 +1,42 @@
 .featured-slider {
-  background: url('../images/featured-slider-bg.svg') no-repeat;
+  background: url("../images/featured-slider-bg.svg") no-repeat;
   background-size: cover;
+  // display: grid;
 
   .slider {
     padding: 2rem;
     position: relative;
 
-    button.slider-nav {
-      border: none;
-      background-color: transparent;
-      font-size: 2rem;
-      position: absolute;
-      bottom: 0;
-      padding: 1rem;
-      // margin: 1rem;
+    // button.slider-nav {
+    //   border: none;
+    //   background-color: transparent;
+    //   font-size: 2rem;
+    //   position: absolute;
+    //   bottom: 0;
+    //   padding: 1rem;
 
-      svg {
-        fill: white;
-      }
+    //   svg {
+    //     fill: white;
+    //   }
 
-      &.prev {
-        left: 0;
-      }
+    //   &.prev {
+    //     left: 0;
+    //   }
 
-      &.next {
-        right: 0;
-      }
-    }
+    //   &.next {
+    //     right: 0;
+    //   }
+    // }
 
     .ant-carousel {
+      // display: flex;
+
+      .slick-arrow {
+        // background-color: yellow;
+        height: 100%;
+        top: 0;
+      }
+
       .slick-dots {
         position: static;
         margin: 0;
@@ -47,6 +55,11 @@
         color: white;
       }
 
+      p {
+        // margin: 0;
+        padding: 1rem;
+      }
+
       button {
         @include button-style($clr-secondary);
       }
@@ -59,14 +72,14 @@
   }
 
   @include breakpoint($desktop) {
-    // grid-template-columns: 2fr 1fr;
+    grid-template-columns: 2fr 1fr;
 
-    // .bell-symbol {
-    //   display: grid;
+    .bell-symbol {
+      display: grid;
 
-    //   img {
-    //     justify-self: center;
-    //   }
-    // }
+      img {
+        justify-self: center;
+      }
+    }
   }
 }

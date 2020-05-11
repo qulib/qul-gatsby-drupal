@@ -5,7 +5,7 @@ import AskUsSymbol from '../../images/ask-us-symbol.svg'
 
 const AskUsWidget = () => (
   <section className="ask-us-widget">
-    <Link to="/">
+    <Link to="/test-page">
       <img src={AskUsSymbol} alt="Ask Us" />
     </Link>
   </section>

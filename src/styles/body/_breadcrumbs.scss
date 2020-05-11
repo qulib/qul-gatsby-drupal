@@ -1,29 +1,18 @@
 #site-breadcrumbs {
   background-color: $clr-primary;
-  // padding: 0 1rem;
+  padding: 1rem;
 
-  ol {
-    font-size: 0.9rem;
-    // display: flex;
-    margin: 0;
-    // padding: 0.5rem;
+  span {
+    color: white;
 
-    li {
-      & + li::before {
-        content: "/ ";
-        // padding: 0 5px;
-        color: white;
-      }
+    a {
+      color: white;
+      text-decoration: underline;
 
-      a {
-        color: white;
-        text-decoration: underline;
-
-        &[aria-current="page"] {
-          pointer-events: none;
-          cursor: default;
-          text-decoration: none;
-        }
+      &[aria-current="page"] {
+        pointer-events: none;
+        cursor: default;
+        text-decoration: none;
       }
     }
   }

@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 // import Img from 'gatsby-image'
 
 import Layout from '../components/Layout.jsx'
-import Breadcrumbs from '../components/body/Breadcrumbs.jsx'
+import Breadcrumbs from '../components/global/Breadcrumbs.jsx'
 
 // add error checking to data assignments
 
@@ -21,11 +21,11 @@ class PageTemplate extends Component {
           </Helmet>
           <Breadcrumbs />
 
-          <main id="site-main">
-            <article className="content">
+          <section className="basic-page">
+            <main className="content">
               <h1>{post.title}</h1>
               <div dangerouslySetInnerHTML={{ __html: post.body.processed }} />
-            </article>
+            </main>
 
             <aside className="sidebar">
               <section>
@@ -37,7 +37,7 @@ class PageTemplate extends Component {
                 <button>Button</button>
               </section>
             </aside>
-          </main>
+          </section>
         </div>
       </Layout>
     )

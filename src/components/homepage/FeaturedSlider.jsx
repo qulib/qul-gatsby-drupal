@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Carousel } from 'antd'
-import { BsChevronLeft, BsChevronRight } from 'react-icons/bs'
 import BellSymbol from '../../images/bell-symbol.svg'
 
 // see https://react-slick.neostack.com/
@@ -46,13 +45,6 @@ class FeaturedSlider extends Component {
     return (
       <section className="featured-slider">
         <section className="slider">
-
-          {/* <button className="slider-nav prev" onClick={this.previous}>
-            <BsChevronLeft />
-          </button>
-          <button className="slider-nav next" onClick={this.next}>
-            <BsChevronRight />
-          </button> */}
 
           <Carousel ref={node => (this.carousel = node)} {...props} autoplay>
             <article className="slide">
