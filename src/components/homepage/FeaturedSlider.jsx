@@ -33,23 +33,28 @@ class FeaturedSlider extends Component {
 
   render() {
     const props = {
+      arrows: true,
       dots: true,
+      lazyLoad: true,
       infinite: true,
-      speed: 500,
+      pauseOnHover: true,
+      speed: 1000,
+      autoplaySpeed: 5000,
       slidesToShow: 1,
       slidesToScroll: 1,
     }
     return (
       <section className="featured-slider">
         <section className="slider">
-          <button className="slider-nav prev" onClick={this.previous}>
+
+          {/* <button className="slider-nav prev" onClick={this.previous}>
             <BsChevronLeft />
           </button>
           <button className="slider-nav next" onClick={this.next}>
             <BsChevronRight />
-          </button>
+          </button> */}
 
-          <Carousel ref={node => (this.carousel = node)} {...props}>
+          <Carousel ref={node => (this.carousel = node)} {...props} autoplay>
             <article className="slide">
               <h2>Did You Know 1</h2>
               <p>
