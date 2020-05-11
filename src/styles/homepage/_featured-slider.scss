@@ -1,22 +1,55 @@
 .featured-slider {
-  // display: grid;
-  // align-items: center;
-  background: url("../images/featured-slider-bg.svg") no-repeat;
+  background: url('../images/featured-slider-bg.svg') no-repeat;
   background-size: cover;
-  padding: 2rem;
 
-  .slide {
-    display: grid;
-    justify-items: center;
-    padding: 0;
-    color: white;
+  .slider {
+    padding: 2rem;
+    position: relative;
 
-    h2 {
-      color: white;
+    button.slider-nav {
+      border: none;
+      background-color: transparent;
+      font-size: 2rem;
+      position: absolute;
+      bottom: 0;
+      padding: 1rem;
+      // margin: 1rem;
+
+      svg {
+        fill: white;
+      }
+
+      &.prev {
+        left: 0;
+      }
+
+      &.next {
+        right: 0;
+      }
     }
 
-    button {
-      @include button-style($clr-secondary);
+    .ant-carousel {
+      .slick-dots {
+        position: static;
+        margin: 0;
+        padding: 2rem 0 0 0;
+        z-index: 15;
+        display: flex !important;
+        justify-content: center;
+      }
+    }
+
+    .slide {
+      text-align: center;
+      color: white;
+
+      h2 {
+        color: white;
+      }
+
+      button {
+        @include button-style($clr-secondary);
+      }
     }
   }
 
@@ -26,16 +59,14 @@
   }
 
   @include breakpoint($desktop) {
-    // grid-template-columns: repeat(4, 1fr);
+    // grid-template-columns: 2fr 1fr;
 
-    .bell-symbol {
-      display: grid;
+    // .bell-symbol {
+    //   display: grid;
 
-      img {
-        justify-self: center;
-      }
-    }
+    //   img {
+    //     justify-self: center;
+    //   }
+    // }
   }
-
-
 }
