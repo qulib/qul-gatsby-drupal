@@ -28,6 +28,7 @@
     height: 100px;
     padding: 0;
     justify-self: center;
+    @include fade;
   
     a {
       display: inline-block;

@@ -7,7 +7,7 @@
 
 // used for fade transition effects
 @mixin fade {
-  transition: 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 // used to set button styles

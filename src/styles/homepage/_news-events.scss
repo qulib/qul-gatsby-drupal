@@ -2,7 +2,7 @@
   display: grid;
   background: url("../images/news-bg.svg") no-repeat;
   background-size: cover;
-  padding: 2rem;
+  padding: 2rem 0;
 
   h2.section-title {
     color: $clr-qul-gray-darker;
@@ -14,7 +14,8 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     // grid-template-rows: 200px; is it possible hide some rows on mobile?
     grid-gap: 2rem;
-    overflow: hidden;
+    padding: 0 2rem;
+    // overflow: hidden;
   }
 
   button {
