@@ -2,19 +2,6 @@ import React, { Component } from 'react'
 import { Carousel } from 'antd'
 import BellSymbol from '../../images/bell-symbol.svg'
 
-// see https://react-slick.neostack.com/
-// const settings = {
-//   dots: true,
-//   fade: true,
-//   lazyLoad: true,
-//   infinite: true,
-//   pauseOnHover: true,
-//   speed: 500,
-//   autoplaySpeed: 500,
-//   slidesToShow: 1,
-//   slidesToScroll: 1
-// }
-
 class FeaturedSlider extends Component {
   constructor(props) {
     super(props)
@@ -26,6 +13,7 @@ class FeaturedSlider extends Component {
   next() {
     this.carousel.next()
   }
+
   previous() {
     this.carousel.prev()
   }
@@ -43,9 +31,9 @@ class FeaturedSlider extends Component {
       slidesToScroll: 1,
     }
     return (
-      <section className="featured-slider">
-        <section className="slider">
+      <section className="featured-slider-area">
 
+        <section className="slider">
           <Carousel ref={node => (this.carousel = node)} {...props} autoplay>
             <article className="slide">
               <h2>Did You Know 1</h2>
@@ -71,17 +59,17 @@ class FeaturedSlider extends Component {
               <button>Read More</button>
             </article>
           </Carousel>
-
         </section>
 
         <section className="bell-symbol">
           <img
             src={BellSymbol}
-            width=""
-            height=""
+            width="200"
+            height="200"
             alt="featured slider section"
           />
         </section>
+
       </section>
     )
   }

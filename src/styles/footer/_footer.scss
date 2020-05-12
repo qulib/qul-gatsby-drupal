@@ -11,9 +11,14 @@
 
   .footer-bottom {
     display: grid;
-    padding: 1rem 2rem;
+    padding: 2rem;
+    position: relative;
 
     @import "social-links";
+
+    .social-links {
+      padding-top: 0;
+    }
 
     .footer-blurb {
       padding: 1rem;
@@ -31,13 +36,13 @@
     }
 
     .footer-bottom {
-      padding-top: 0;
       grid-template-columns: 2fr 1fr;
       grid-gap: 0;
       align-items: center;
 
       .social-links {
-        margin-top: -4rem;
+        position: absolute;
+        top: -3rem;
       }
 
       .footer-blurb {

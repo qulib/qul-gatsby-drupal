@@ -10,8 +10,9 @@
 
   .news-grid {
     display: grid;
+    justify-content: center;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    // grid-template-rows: 200px; is it possible hide some rows on mobile? 
+    // grid-template-rows: 200px; is it possible hide some rows on mobile?
     grid-gap: 2rem;
     overflow: hidden;
   }
@@ -22,9 +23,9 @@
     margin-top: 2rem;
   }
 
-  @include breakpoint($desktop) {
-    .news-grid {
-      // grid-template-columns: repeat(3, minmax(min-content, 400px));
-    }
-  }
+  // @include breakpoint($tablet) {
+  //   .news-grid {
+  //     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  //   }
+  // }
 }

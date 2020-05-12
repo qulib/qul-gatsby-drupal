@@ -1,40 +1,38 @@
-.featured-slider {
+.featured-slider-area {
   background: url("../images/featured-slider-bg.svg") no-repeat;
   background-size: cover;
-  // display: grid;
+  display: grid;
+  align-items: center;
 
   .slider {
     padding: 2rem;
     position: relative;
 
-    // button.slider-nav {
-    //   border: none;
-    //   background-color: transparent;
-    //   font-size: 2rem;
-    //   position: absolute;
-    //   bottom: 0;
-    //   padding: 1rem;
+    .ant-carousel .slick-slider {
+      display: grid;
 
-    //   svg {
-    //     fill: white;
-    //   }
+      // .slick-arrow {
+      //   // background-color: yellow;
+      //   height: 100%;
+      //   top: 0;
+      // }
 
-    //   &.prev {
-    //     left: 0;
-    //   }
+      .slide {
+        text-align: center;
+        color: white;
 
-    //   &.next {
-    //     right: 0;
-    //   }
-    // }
+        h2 {
+          color: white;
+          // text-transform: uppercase;
+        }
 
-    .ant-carousel {
-      // display: flex;
+        p {
+          padding: 1rem;
+        }
 
-      .slick-arrow {
-        // background-color: yellow;
-        height: 100%;
-        top: 0;
+        button {
+          @include button-style($clr-secondary);
+        }
       }
 
       .slick-dots {
@@ -46,24 +44,6 @@
         justify-content: center;
       }
     }
-
-    .slide {
-      text-align: center;
-      color: white;
-
-      h2 {
-        color: white;
-      }
-
-      p {
-        // margin: 0;
-        padding: 1rem;
-      }
-
-      button {
-        @include button-style($clr-secondary);
-      }
-    }
   }
 
   .bell-symbol {
@@ -71,8 +51,14 @@
     display: none;
   }
 
+  @include breakpoint($tablet) {
+    h2 {
+      font-size: 1.4rem;
+    }
+  }
+
   @include breakpoint($desktop) {
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 3fr 1fr;
 
     .bell-symbol {
       display: grid;

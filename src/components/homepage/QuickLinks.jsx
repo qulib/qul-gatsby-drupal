@@ -67,7 +67,7 @@ const QuickLinks = () => (
       </ul>
     </section>
     <section className="link-symbol">
-      <img src={LinkSymbol} width="" height="" alt="quick links section" />
+      <img src={LinkSymbol} width="200" height="200" alt="quick links section" />
     </section>
   </nav>
 )

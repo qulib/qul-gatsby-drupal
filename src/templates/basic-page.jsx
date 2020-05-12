@@ -36,6 +36,8 @@ class PageTemplate extends Component {
                 </p>
                 <button>Button</button>
               </section>
+
+              {/* if sidebar content exists in Drupal node, then optionally display here */}
             </aside>
           </section>
         </div>
