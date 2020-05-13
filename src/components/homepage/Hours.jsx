@@ -1,6 +1,8 @@
 import React from "react"
 import { Link } from 'gatsby'
+import { Progress } from 'antd';
 import AnalogClock from 'analog-clock-react';
+import PeopleCounterWidget from './PeopleCounterWidget.jsx'
 
 let options = {
   width: "120px",
@@ -55,7 +57,7 @@ const Hours = () => (
     </section>
 
 
-    <section className="people-counter">people-counter</section>
+    <section className="people-counter"><Progress type="circle" percent={75} /></section>
   </section>
 )
 

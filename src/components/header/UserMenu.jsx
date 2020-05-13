@@ -24,16 +24,16 @@ const UserMenu = () => (
         </a>
       </li>
       <li>
-        <Link to="/">
+        <Link to="https://library.queensu.ca/help-services/ask-us">
           <BsChatFill />
           <span>Ask Us</span>
         </Link>
       </li>
       <li>
         <Dropdown overlay={menu} trigger={['click']}>
-          <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+          <button className="ant-dropdown-link" onClick={e => e.preventDefault()}>
             <FaUserAlt /><span>My Account</span>
-          </a>
+          </button>
         </Dropdown>
       </li>
     </ul>

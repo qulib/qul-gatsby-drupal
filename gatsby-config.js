@@ -13,7 +13,7 @@ module.exports = {
         background_color: "#406486",
         theme_color: "#00305e",
         display: "minimal-ui",
-        icon: "src/images/qul-squares.png", 
+        icon: "src/images/qul-squares.png",
       }
     },
     {
@@ -23,6 +23,12 @@ module.exports = {
         apiBase: 'jsonapi',
       },
     },
+
+    {
+      resolve: 'gatsby-plugin-antd'
+    },
+
+
     // {
     //   resolve: "gatsby-plugin-google-analytics",
     //   options: {
@@ -32,6 +38,7 @@ module.exports = {
     //     respectDNT: true 
     //   }
     // },
+    
     "gatsby-plugin-offline"
   ]
 }

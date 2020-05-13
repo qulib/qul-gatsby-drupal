@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 // import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout.jsx'
-import Banner from '../components/homepage/Banner.jsx'
+// import Banner from '../components/homepage/Banner.jsx'
 import OmniWidget from '../components/homepage/OmniWidget.jsx'
 import AskUsWidget from '../components/homepage/AskUsWidget.jsx'
 import Hours from '../components/homepage/Hours.jsx'
