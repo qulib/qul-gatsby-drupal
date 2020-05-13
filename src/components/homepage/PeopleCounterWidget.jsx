@@ -4,7 +4,7 @@ import { Progress } from 'antd';
 
 const PeopleCounterWidget = () => (
   <section className="people-counter">
-    <Progress type="circle" percent={75} />
+    <Progress type="circle" strokeWidth="10" percent={65} />
     <Link to="/test-page">
       Stauffer Library Capacity
     </Link>

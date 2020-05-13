@@ -56,8 +56,7 @@ const Hours = () => (
       <button><Link to="/">All Locations & Hours</Link></button>
     </section>
 
-
-    <section className="people-counter"><Progress type="circle" percent={75} /></section>
+    <PeopleCounterWidget />
   </section>
 )
 

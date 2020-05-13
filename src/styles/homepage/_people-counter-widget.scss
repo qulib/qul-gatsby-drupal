@@ -1,0 +1,16 @@
+.people-counter {
+  display: grid;
+  justify-content: center;
+  grid-gap: 1rem;
+  background-color: gold;
+
+  .ant-progress-inner {
+    background-color: white;
+    width: 180px !important;
+    height: 180px !important;
+  }
+
+  .ant-progress-circle {
+    // background-color: white;
+  }
+}
