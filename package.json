@@ -8,6 +8,7 @@
     "analog-clock-react": "^1.1.0",
     "antd": "^4.2.0",
     "gatsby": "^2.20.9",
+    "gatsby-awesome-pagination": "^0.3.6",
     "gatsby-image": "^2.3.1",
     "gatsby-plugin-antd": "^2.2.0",
     "gatsby-plugin-google-analytics": "^2.2.2",

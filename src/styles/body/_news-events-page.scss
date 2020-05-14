@@ -1,0 +1,22 @@
+.news-events-page {
+  display: grid;
+
+  .filters {
+    @include debug;
+    background-color: $clr-qul-yellow;
+  }
+
+  .news-grid {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 2rem;
+    padding: 2rem 0;
+  }
+
+  .pagination {
+    @include debug;
+  }
+
+
+}

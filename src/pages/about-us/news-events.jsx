@@ -3,6 +3,8 @@ import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
 // import { Input } from 'antd'
 import Layout from '../../components/Layout.jsx'
+import Breadcrumbs from '../../components/global/Breadcrumbs.jsx'
+import NewsCard from '../../components/global/NewsCard.jsx'
 
 const pageTitle = "News & Events"
 
@@ -36,9 +38,22 @@ export default class AllNewsAndEvents extends React.Component {
             <title>QUL - {pageTitle}</title>
           </Helmet>
 
-
-          <main className="content">
+          <Breadcrumbs />
+          <main className="content news-events-page">
             <h1>{pageTitle}</h1>
+            <section className="filters">filters go here</section>
+            <section className="news-grid">
+              <NewsCard />
+              <NewsCard />
+              <NewsCard />
+              <NewsCard />
+              <NewsCard />
+              <NewsCard />
+              <NewsCard />
+              <NewsCard />
+              <NewsCard />
+            </section>
+            <nav className="pagination">pagination goes here</nav>
           </main>
 
 
