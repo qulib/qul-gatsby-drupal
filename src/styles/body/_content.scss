@@ -1,0 +1,88 @@
+.content {
+  padding: 2rem;
+
+  // using "minor third" type scale (https://type-scale.com/)
+  h1 {
+    font-size: 2.488em;
+    margin-top: 0;
+  }
+
+  h2 {
+    font-size: 2.074em;
+  }
+
+  h3 {
+    font-size: 1.728em;
+  }
+
+  h4 {
+    font-size: 1.44em;
+  }
+
+  h5 {
+    font-size: 1.2em;
+  }
+
+  // using "major third" type scale for desktop
+  @include breakpoint($desktop) {
+    h1 {
+      font-size: 3.052em;
+    }
+
+    h2 {
+      font-size: 2.441em;
+    }
+
+    h3 {
+      font-size: 1.953em;
+    }
+
+    h4 {
+      font-size: 1.563em;
+    }
+
+    h5 {
+      font-size: 1.25em;
+    }
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  a {
+    font-weight: bold;
+
+    &:hover {
+      color: $clr-secondary;
+      text-decoration: underline;
+    }
+  }
+
+  ul,
+  ol {
+    padding: 0 0 0 1rem;
+  }
+
+  ul {
+    font-size: 1rem;
+    list-style: url(../images/list-bullet.svg);
+  }
+
+  li {
+    padding-bottom: 0.5rem;
+  }
+
+  blockquote {
+    background: url(../images/blockquote.svg) no-repeat;
+    // padding: 30px 0 15px 90px;
+    // min-height: 100px;
+
+    p {
+      color: $clr-secondary;
+      font-style: italic;
+      font-size: large;
+      font-weight: 300;
+    }
+  }
+}

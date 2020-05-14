@@ -1,8 +1,6 @@
 .people-counter {
   display: grid;
-  justify-content: center;
   grid-gap: 1rem;
-  background-color: gold;
 
   .ant-progress-inner {
     background-color: white;
@@ -10,7 +8,8 @@
     height: 180px !important;
   }
 
-  .ant-progress-circle {
-    // background-color: white;
+  a {
+    justify-self: center;
+    color: $clr-primary;
   }
 }

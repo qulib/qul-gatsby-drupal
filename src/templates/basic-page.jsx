@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 // import Img from 'gatsby-image'
@@ -10,7 +10,7 @@ import Breadcrumbs from '../components/global/Breadcrumbs.jsx'
 
 // add error checking to data assignments
 
-class PageTemplate extends Component {
+class PageTemplate extends React.Component {
   render() {
     const post = this.props.data.nodePage
     // console.log(post)

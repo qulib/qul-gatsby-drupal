@@ -15,7 +15,7 @@ const NewsEvents = () => (
       <NewsCard />
       <NewsCard />
     </section>
-    <button><Link to="/">More News & Events</Link></button>
+    <button><Link to="/about-us/news-events">More News & Events</Link></button>
   </section>
 
 )

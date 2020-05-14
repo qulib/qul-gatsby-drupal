@@ -1,5 +1,6 @@
 #site-footer {
-  background-color: white;
+  // background-color: white;
+  // margin-bottom: 3rem;
 
   .footer-top {
     background: url("../images/footer-bg.svg") no-repeat;
@@ -10,6 +11,7 @@
   }
 
   .footer-bottom {
+    background-color: white;
     display: grid;
     padding: 2rem;
     position: relative;

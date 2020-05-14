@@ -1,16 +1,18 @@
 #main-menu {
   // @include debug;
-  padding: 1rem;
+  padding: 0 1rem 1rem;
 
   ul {
     display: grid;
-    grid-template-columns: repeat(auto-fit,  minmax(155px, 1fr));
+    // grid-template-columns: repeat(auto-fit,  minmax(155px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     margin: 0;
+    // padding: 1rem;
 
     li {
       // background-color: $clr-qul-yellow;
-      
-      margin-right: 1rem;
+      align-self: center;
+      margin: 0 1rem 0 0;
       font-size: 0.8rem;
       padding-bottom: 0.5rem;
 
@@ -34,13 +36,15 @@
 
   @include breakpoint($tablet) {
     padding-top: 0;
+    justify-self: right;
 
     ul {
       grid-template-columns: repeat(4, auto);
 
       li {
         font-size: 1rem;
-        text-align: center;
+        margin-right: 2rem;
+        // text-align: center;
         // padding: 0;
         // justify-self: center;
       }
@@ -48,6 +52,6 @@
   }
 
   @include breakpoint($desktop) {
-   padding-right: 0;
+  //  padding-right: 0;
   }
 }
