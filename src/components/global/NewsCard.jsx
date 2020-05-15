@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 
 const NewsCard = () => (
   <Link to="/" className="news-card">
-    <img src="https://loremflickr.com/300/200/impressionist" alt="alt goes here" />
+    <img src="https://loremflickr.com/300/200/bird" alt="alt goes here" />
     <footer>
       <h2>Card title</h2>
     </footer>

@@ -1,22 +1,23 @@
+.filters {
+  display: grid;
+  grid-gap: 1rem;
+
+  @include breakpoint($tablet) {
+    grid-template-columns: repeat(3, auto);
+  }
+
+  @include breakpoint($desktop) {
+  }
+}
+
 .news-events-page {
   display: grid;
-
-  .filters {
-    @include debug;
-    background-color: $clr-qul-yellow;
-  }
+  padding: 2rem;
 
   .news-grid {
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 2rem;
-    padding: 2rem 0;
   }
-
-  .pagination {
-    @include debug;
-  }
-
-
 }

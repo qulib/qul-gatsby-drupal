@@ -1,11 +1,16 @@
 .filters {
+  background-color: $clr-qul-yellow;
+  padding: 1rem 2rem;
+
   label,
   input {
     margin-right: 1rem;
   }
 
-  label {
+  label, .ant-pagination-total-text {
     color: $clr-primary;
+    font-weight: 300;
+    font-size: 1rem;
   }
 
   input {
