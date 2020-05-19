@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from 'gatsby'
-import { Progress } from 'antd';
 import AnalogClock from 'analog-clock-react';
 import PeopleCounterWidget from './PeopleCounterWidget.jsx'
 

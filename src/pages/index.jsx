@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 // import { graphql } from 'gatsby'
 
-import Layout from '../components/Layout.jsx'
+import HomepageLayout from '../components/HomepageLayout.jsx'
 // import Banner from '../components/homepage/Banner.jsx'
 import OmniWidget from '../components/homepage/OmniWidget.jsx'
 import AskUsWidget from '../components/homepage/AskUsWidget.jsx'
@@ -16,23 +16,21 @@ class Home extends React.Component {
     // const allPages = this.props.data.allNodePage
 
     return (
-      <Layout>
-        <div id="home" className="container">
-          <Helmet>
-            <title>QUL - Home</title>
-          </Helmet>
-          <h1>Home</h1>
-          {/* <Banner /> */}
-          <section className="omni-ask-us">
-            <OmniWidget />
-            <AskUsWidget />
-          </section>
-          <Hours />
-          <QuickLinks />
-          <NewsEvents />
-          <FeaturedSlider />
-        </div>
-      </Layout>
+      <HomepageLayout>
+        <Helmet>
+          <title>QUL - Home</title>
+        </Helmet>
+        <h1>Home</h1>
+        {/* <Banner /> */}
+        <section className="omni-ask-us">
+          <OmniWidget />
+          <AskUsWidget />
+        </section>
+        <Hours />
+        <QuickLinks />
+        <NewsEvents />
+        <FeaturedSlider />
+      </HomepageLayout>
     )
   }
 }

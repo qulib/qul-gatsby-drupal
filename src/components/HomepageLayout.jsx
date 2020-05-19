@@ -12,7 +12,7 @@ export default ({ children }) => (
       <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
     </Helmet>
     <Header />
-    <div id="site-body" className="container">
+    <div id="home" className="container">
       {children}
     </div>
     <Footer />

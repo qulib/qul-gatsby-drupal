@@ -5,7 +5,7 @@ exports.createPages = ({ actions, graphql }) => {
     const { createPage } = actions
 
     /* basic page */
-    const pageTemplate = path.resolve(`./src/templates/basic-page.jsx`)
+    const pageTemplate = path.resolve(`./src/templates/basic-page-template.jsx`)
 
     return graphql(`
       {

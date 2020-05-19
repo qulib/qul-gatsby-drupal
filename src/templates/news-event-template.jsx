@@ -49,7 +49,7 @@ export default class NewsEventTemplate extends Component {
                 <button>All News & Events</button>
               </section>
 
-              {/* if sidebar content exists in Drupal node, then optionally display here */}
+              {/* news have fixed sidebar content here */}
 
             </aside>
           </section>

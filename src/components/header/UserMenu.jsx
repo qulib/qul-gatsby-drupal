@@ -19,20 +19,20 @@ const UserMenu = () => (
     <ul>
       <li>
         <a href="https://proxy.queensu.ca/">
-          <FaKey />
-          <span>Off-campus Access</span>
+          <FaKey aria-labelledby="off-campus-access-label"/>
+          <span id="off-campus-access-label">Off-campus Access</span>
         </a>
       </li>
       <li>
         <Link to="https://library.queensu.ca/help-services/ask-us">
-          <BsChatFill />
-          <span>Ask Us</span>
+          <BsChatFill aria-labelledby="ask-us-label" />
+          <span id="ask-us-label">Ask Us</span>
         </Link>
       </li>
       <li>
         <Dropdown overlay={menu} trigger={['click']}>
           <button className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-            <FaUserAlt /><span>My Account</span>
+            <FaUserAlt aria-labelledby="my-account-label" /><span id="my-account-label">My Account</span>
           </button>
         </Dropdown>
       </li>
