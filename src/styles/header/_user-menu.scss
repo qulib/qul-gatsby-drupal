@@ -3,16 +3,16 @@
   display: grid;
 
   ul {
-    margin: 0;
     display: grid;
     grid-template-columns: repeat(3, auto);
+    justify-items: center;
+    margin: 0;
     padding: 1rem;
 
     li {
-      // align-self: center;
-      // justify-self: center;
-      // background-color: yellowgreen;
-      margin: 0 1rem 0 0;
+      // @include debug;
+      align-self: center;
+      padding: 0.5rem;
 
       &:last-of-type {
         margin-right: 0;
@@ -37,10 +37,10 @@
         background-color: transparent;
         color: $clr-primary;
         border: 0;
-        padding: 4px 11px;
+        // border: 1px solid $clr-primary;
 
         &:hover {
-
+          cursor: pointer;
         }
       }
     }

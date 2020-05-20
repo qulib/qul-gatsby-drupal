@@ -5,7 +5,7 @@ import { FaKey, FaUserAlt, FaChevronDown } from 'react-icons/fa'
 import { BsChatFill } from 'react-icons/bs'
 
 const menu = (
-  <Menu>
+  <Menu className="user-menu-dropdown">
     <Menu.Item key="0">
       <a href="https://ocul-qu.primo.exlibrisgroup.com/discovery/account?vid=01OCUL_QU:QU_DEFAULT&amp;section=overview&amp;lang=en">My Library Account</a>
     </Menu.Item>
