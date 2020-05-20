@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 // import Img from 'gatsby-image'
-import { Link } from 'gatsby'
+// import { Link } from 'gatsby'
 import AskUsWidget from '../components/homepage/AskUsWidget.jsx'
 
 import Layout from '../components/Layout.jsx'

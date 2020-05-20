@@ -20,7 +20,7 @@ const HelpServicesPage = () => (
                 <h1>{title}</h1>
                 <p>hot blurb!</p>
 
-                <section className="equal-columns">
+                <section className="four-columns">
 
                     <section>
                         <h2>Overview</h2>

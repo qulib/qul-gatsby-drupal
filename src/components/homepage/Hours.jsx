@@ -52,7 +52,7 @@ const Hours = () => (
           <span>10:00am - 11:00pm</span>
         </li>
       </ul>
-      <button><Link to="/">All Locations & Hours</Link></button>
+      <button><Link to="/locations-hours/all">All Locations & Hours</Link></button>
     </section>
 
     <PeopleCounterWidget />

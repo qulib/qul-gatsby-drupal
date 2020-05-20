@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { Menu, Dropdown } from 'antd'
-import { FaKey, FaUserAlt } from 'react-icons/fa'
+import { FaKey, FaUserAlt, FaChevronDown } from 'react-icons/fa'
 import { BsChatFill } from 'react-icons/bs'
 
 const menu = (
@@ -9,7 +9,8 @@ const menu = (
     <Menu.Item key="0">
       <a href="https://ocul-qu.primo.exlibrisgroup.com/discovery/account?vid=01OCUL_QU:QU_DEFAULT&amp;section=overview&amp;lang=en">My Library Account</a>
     </Menu.Item>
-    <Menu.Item key="2">2nd menu item</Menu.Item>
+    <Menu.Divider />
+    <Menu.Item key="1"><a href="https://office.com/signin">Office 365</a></Menu.Item>
   </Menu>
 )
 
@@ -32,7 +33,7 @@ const UserMenu = () => (
       <li>
         <Dropdown overlay={menu} trigger={['click']}>
           <button className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-            <FaUserAlt aria-labelledby="my-account-label" /><span id="my-account-label">My Account</span>
+            <FaUserAlt aria-labelledby="my-account-label" /><span id="my-account-label">My Account <FaChevronDown /></span>
           </button>
         </Dropdown>
       </li>

@@ -20,7 +20,7 @@ const SearchPage = () => (
         <h1>{title}</h1>
         <p>Check out our hot hot search tools, types of information, subject and course info!</p>
 
-        <section className="equal-columns">
+        <section className="three-columns">
 
           <section>
             <h2>Search Tools</h2>

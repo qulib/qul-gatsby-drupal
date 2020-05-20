@@ -20,7 +20,7 @@ const LocationsPage = () => (
                 <h1>{title}</h1>
                 <p>hot blurb!</p>
 
-                <section className="equal-columns">
+                <section className="three-columns">
 
                     <section>
                         <h2>Locations</h2>
