@@ -1,47 +1,86 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { Input, Popover } from 'antd';
-
+import { Form, Input, Tooltip, Button } from 'antd';
 import { FaQuestionCircle } from "react-icons/fa";
-
 import OmniSymbol from '../../images/qul-omni-logo.svg'
 
-const { Search } = Input;
-
-const OmniPopover = (
-  <aside className="omni-popover">
-    <p>Find full-text articles, books and ebooks, journals, media, and more in a single search</p>
-  </aside>
-);
-
-const OmniWidget = () => (
-  <section className="omni-widget">
-    <section className="omni-branding">
-      <img src={OmniSymbol} width="200" height="62" alt="Omni logo" />
-      <Popover placement="left" content={OmniPopover}>
-        <FaQuestionCircle />
-      </Popover>
-    </section>
-    <section className="omni-search">
-      <Search placeholder="Search anything" onSearch={value => console.log(value)} enterButton allowClear/>
-    </section>
-
-    <ul className="omni-links">
-      <li>
-        <a href="https://ocul-qu.primo.exlibrisgroup.com/discovery/search?vid=01OCUL_QU:QU_DEFAULT&amp;lang=en&amp;mode=advanced">Advanced Search</a>
-      </li>
-      <li>
-        <a href="https://ocul-qu.primo.exlibrisgroup.com/discovery/jsearch?vid=01OCUL_QU:QU_DEFAULT&amp;lang=en">Journals</a>
-      </li>
-      <li>
-        <Link to="/search/databases/browse">Databases</Link>
-      </li>
-      <li>
-        <Link to="/search/omni">Help</Link>
-      </li>
-    </ul>
-
-  </section >
+const OmniTooltip = (
+  <span className="omni-tooltip">Find full-text articles, books and ebooks, journals, media, and more in a single search</span>
 )
+
+class OmniWidget extends React.Component {
+  constructor(props) {
+    super(props)
+    this.searchPrimo = this.searchPrimo.bind(this)
+  }
+
+  searchPrimo() {
+    document.getElementById("primoQuery").value = "any,contains," + document.getElementById("primoQueryTemp").value.replace(/[,]/g, " ")
+    document.forms["searchForm"].submit()
+  }
+
+  render() {
+    return (
+      <section className="omni-widget">
+
+        <section className="omni-branding">
+          <img src={OmniSymbol} width="200" height="62" alt="Omni logo" />
+          <Tooltip placement="right" title={OmniTooltip}>
+            <FaQuestionCircle />
+          </Tooltip>
+        </section>
+
+        <section className="omni-search">
+          <form
+            action="https://ocul-qu.primo.exlibrisgroup.com/discovery/search"
+            encType="application/x-www-form-urlencoded; charset=utf-8"
+            id="simple"
+            method="get"
+            name="OnesearchForm"
+            onSubmit={this.searchPrimo}
+            target="_self"
+          >
+            <input name="institution" type="hidden" value="01OCUL_QU" />
+            <input name="vid" type="hidden" value="01OCUL_QU:QU_DEFAULT" />
+            <input id="primoTab" name="tab" type="hidden" value="Everything" />
+            <input
+              id="primoScope"
+              name="search_scope"
+              type="hidden"
+              value="MyInst_and_CI"
+            />
+            <input name="mode" type="hidden" value="Basic" />
+            <input name="displayMode" type="hidden" value="full" />
+            <input name="bulkSize" type="hidden" value="10" />
+            <input name="highlight" type="hidden" value="true" />
+            <input name="dum" type="hidden" value="true" />
+            <input id="primoQuery" name="query" type="hidden" />
+            <input name="displayField" type="hidden" value="all" />
+            <input name="pcAvailabiltyMode" type="hidden" value="true" />
+            {/* <Search id="primoQueryTemp" placeholder="Search anything" onSearch={this.searchPrimo} enterButton allowClear /> */}
+            <Input id="primoQueryTemp" placeholder="Search anything" allowClear />
+            <Button type="primary" htmlType="submit">Search</Button>
+          </form>
+        </section>
+
+        <ul className="omni-links">
+          <li>
+            <a href="https://ocul-qu.primo.exlibrisgroup.com/discovery/search?vid=01OCUL_QU:QU_DEFAULT&amp;lang=en&amp;mode=advanced">Advanced Search</a>
+          </li>
+          <li>
+            <a href="https://ocul-qu.primo.exlibrisgroup.com/discovery/jsearch?vid=01OCUL_QU:QU_DEFAULT&amp;lang=en">Journals</a>
+          </li>
+          <li>
+            <Link to="/search/databases/browse">Databases</Link>
+          </li>
+          <li>
+            <Link to="/search/omni">Help</Link>
+          </li>
+        </ul>
+
+      </section >
+    )
+  }
+}
 
 export default OmniWidget

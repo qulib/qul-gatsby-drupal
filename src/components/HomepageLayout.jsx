@@ -10,6 +10,7 @@ export default ({ children }) => (
     <Helmet htmlAttributes={{ lang: 'en' }}>
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+      {/* <script src="../../js/omni-search.js" type="text/javascript" /> */}
     </Helmet>
     <Header />
     <div id="home" className="container">

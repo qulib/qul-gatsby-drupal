@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { Link } from 'gatsby'
 import Layout from '../../components/Layout.jsx'
-import Breadcrumbs from '../../components/global/Breadcrumbs.jsx'
+// import Breadcrumbs from '../../components/global/Breadcrumbs.jsx'
 
 const title = "About Us"
 
@@ -12,7 +12,7 @@ const HelpServicesPage = () => (
         <Helmet>
             <title>{title}</title>
         </Helmet>
-        <Breadcrumbs />
+
         <div id="about-us-page">
 
             <main className="content">

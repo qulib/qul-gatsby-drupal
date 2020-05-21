@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { Link } from 'gatsby'
 import Layout from '../../components/Layout.jsx'
-import Breadcrumbs from '../../components/global/Breadcrumbs.jsx'
+// import Breadcrumbs from '../../components/global/Breadcrumbs.jsx'
 
 const title = "Search"
 
@@ -12,13 +12,12 @@ const SearchPage = () => (
     <Helmet>
       <title>{title}</title>
     </Helmet>
-    <Breadcrumbs />
+
     <div id="search-page">
 
       <main className="content">
 
         <h1>{title}</h1>
-        <p>Check out our hot hot search tools, types of information, subject and course info!</p>
 
         <section className="three-columns">
 

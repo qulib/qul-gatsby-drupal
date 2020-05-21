@@ -38,6 +38,11 @@
   }
 
   @include breakpoint($tablet) {
+    .omni-branding {
+      svg {
+        display: inline;
+      }
+    }
 
     .omni-links {
       grid-template-columns: repeat(4, auto);

@@ -25,7 +25,7 @@ const UserMenu = () => (
         </a>
       </li>
       <li>
-        <Link to="https://library.queensu.ca/help-services/ask-us">
+        <Link to="/help-services/ask-us">
           <BsChatFill aria-labelledby="ask-us-label" />
           <span id="ask-us-label">Ask Us</span>
         </Link>

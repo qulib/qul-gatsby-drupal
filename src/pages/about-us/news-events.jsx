@@ -1,6 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import { Input, Select, Pagination } from 'antd';
 import Layout from '../../components/Layout.jsx'
 import Breadcrumbs from '../../components/global/Breadcrumbs.jsx'
@@ -71,7 +71,6 @@ export default class AllNewsAndEvents extends React.Component {
               />
 
               <section>
-                <label for="news-event-category">Category</label>
                 <Select
                   name="news-event-category"
                   showSearch
@@ -92,7 +91,6 @@ export default class AllNewsAndEvents extends React.Component {
               </section>
 
               <section>
-                <label for="news-event-category">Title</label>
                 <Search
                   placeholder=""
                   onSearch={value => console.log(value)}
