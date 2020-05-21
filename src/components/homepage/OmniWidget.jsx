@@ -1,11 +1,18 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { Form, Input, Tooltip, Button } from 'antd';
+import { Input, Tooltip, Button } from 'antd';
 import { FaQuestionCircle } from "react-icons/fa";
+import { AiOutlineSearch } from "react-icons/ai";
 import OmniSymbol from '../../images/qul-omni-logo.svg'
 
 const OmniTooltip = (
   <span className="omni-tooltip">Find full-text articles, books and ebooks, journals, media, and more in a single search</span>
+)
+
+const { Search } = Input;
+
+const OmniSearchButton = (
+  <Button className="ant-btn ant-input-search-button ant-btn-primary" type="primary" htmlType="submit"><AiOutlineSearch /></Button>
 )
 
 class OmniWidget extends React.Component {
@@ -57,9 +64,12 @@ class OmniWidget extends React.Component {
             <input id="primoQuery" name="query" type="hidden" />
             <input name="displayField" type="hidden" value="all" />
             <input name="pcAvailabiltyMode" type="hidden" value="true" />
-            {/* <Search id="primoQueryTemp" placeholder="Search anything" onSearch={this.searchPrimo} enterButton allowClear /> */}
-            <Input id="primoQueryTemp" placeholder="Search anything" allowClear />
-            <Button type="primary" htmlType="submit">Search</Button>
+            <Search
+              id="primoQueryTemp"
+              placeholder="Search anything"
+              enterButton={OmniSearchButton}
+              allowClear
+            />
           </form>
         </section>
 
