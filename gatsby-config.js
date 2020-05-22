@@ -1,7 +1,12 @@
 const lessToJson = require('less-to-json')
 
 module.exports = {
+  siteMetadata: {
+    title: `QUL`,
+    siteUrl: `https://library.queensu.ca`,
+  },
   plugins: [
+    `gatsby-plugin-sitemap`,
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-antd',
@@ -49,6 +54,6 @@ module.exports = {
     //   }
     // },
 
-    'gatsby-plugin-offline',
+    // 'gatsby-plugin-offline',
   ],
 }
