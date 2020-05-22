@@ -32,7 +32,7 @@ class OmniWidget extends React.Component {
 
         <section className="omni-branding">
           <img src={OmniSymbol} width="200" height="62" alt="Omni logo" />
-          <Tooltip placement="right" title={OmniTooltip}>
+          <Tooltip placement="right" title={OmniTooltip} overlayClassName="omni-tooltip">
             <FaQuestionCircle />
           </Tooltip>
         </section>
