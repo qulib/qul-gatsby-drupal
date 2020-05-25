@@ -1,9 +1,17 @@
 .filters {
   display: grid;
-  grid-gap: 1rem;
+  grid-gap: 2rem;
+
+  .pagination {
+    .ant-pagination-total-text {
+      font-weight: bold;
+      margin-right: 1rem;
+    }
+  }
 
   @include breakpoint($tablet) {
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: 2fr 1fr 1fr;
+    // align-content: center;
   }
 
   @include breakpoint($desktop) {

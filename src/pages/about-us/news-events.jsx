@@ -10,37 +10,35 @@ const pageTitle = "News & Events"
 const { Option } = Select;
 const { Search } = Input;
 
-function onChange(value) {
+
+function categoryChange(value) {
   console.log(`selected ${value}`);
 }
 
-function onBlur() {
-  console.log('blur');
-}
-
-function onFocus() {
-  console.log('focus');
-}
-
-function onSearch(val) {
-  console.log('search:', val);
-}
-
-export default class AllNewsAndEvents extends React.Component {
+class AllNewsEventsPage extends React.Component {
   constructor() {
     super()
     this.state = {
-      search: '',
+      // category: '',
+      search: ''
     }
   }
 
-  updateSearch(event) {
-    this.setState({ search: event.target.value })
-  }
+  // updateSearch(event) {
+  //   this.setState({ search: event.target.value })
+  // }
 
   render() {
+    const data = this.props.data
+    console.log("data:", data)
+    const siteTitle = data.site.siteMetadata.title
 
-    // const data = this.props.data
+    // categories filter
+    const categories = [];
+    data.allTaxonomyTermNewsEventsCategory.edges.forEach(({ node }) => {
+      categories.push(<Option value={node.drupal_internal__tid}>{node.name}</Option>);
+    })
+
     // let filteredStaff = data.allNodeStaff.nodes.filter(node => {
     //   return (
     //     node.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
@@ -53,7 +51,8 @@ export default class AllNewsAndEvents extends React.Component {
       <Layout>
         <div id="site-body" className="container">
           <Helmet>
-            <title>QUL - {pageTitle}</title>
+            <title>{siteTitle} - {pageTitle}</title>
+
           </Helmet>
 
           <Breadcrumbs />
@@ -64,38 +63,30 @@ export default class AllNewsAndEvents extends React.Component {
             <section className="filters">
 
               <Pagination
-                total={220}
+                total={data.allNodeNewsEvents.totalCount}
                 showTotal={(total, range) => `${range[0]}-${range[1]} of ${total} items`}
                 showSizeChanger={false}
                 pageSize={9}
+                className="pagination"
               />
 
-              <section>
+              <section className="category-filter">
                 <Select
-                  name="news-event-category"
-                  showSearch
-                  placeholder="type or select"
-                  optionFilterProp="children"
-                  onChange={onChange}
-                  onFocus={onFocus}
-                  onBlur={onBlur}
-                  onSearch={onSearch}
-                  filterOption={(input, option) =>
-                    option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-                  }
+                  placeholder="Category"
+                  mode="multiple"
+                  style={{ width: '100%' }}
+                  onChange={categoryChange}
                 >
-                  <Option value="jack">Jack</Option>
-                  <Option value="lucy">Lucy</Option>
-                  <Option value="tom">Tom</Option>
+                  {categories}
                 </Select>
               </section>
 
-              <section>
+              <section className="search-filter">
                 <Search
-                  placeholder=""
+                  placeholder="Title"
                   onSearch={value => console.log(value)}
-                  enterButton allowClear
-                  style={{ width: 200 }}
+                  enterButton
+                  allowClear
                 />
               </section>
 
@@ -116,26 +107,23 @@ export default class AllNewsAndEvents extends React.Component {
               <NewsCard />
               <NewsCard />
             </section>
-
-            {/* <nav className="pagination">
-
-
-
-
-            </nav> */}
-
           </main>
-
-
         </div>
       </Layout>
     )
   }
 }
 
+export default AllNewsEventsPage
+
 
 export const pageQuery = graphql`
-query AllNewsEvents {
+query AllNewsEventsPage {
+  site {
+    siteMetadata {
+      title
+    }
+  }
   allNodeNewsEvents {
     totalCount
     edges {
@@ -156,9 +144,6 @@ query AllNewsEvents {
         }
         relationships {
           field_featured_image {
-            uri {
-              url
-            }
             localFile {
               relativePath
             }
@@ -169,6 +154,14 @@ query AllNewsEvents {
         field_featured_image {
           alt
         }
+      }
+    }
+  }
+  allTaxonomyTermNewsEventsCategory {
+    edges {
+      node {
+        drupal_internal__tid
+        name
       }
     }
   }
