@@ -1,18 +1,17 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
-import { Input, Select, Pagination } from 'antd';
+import { Input, Select, Pagination } from 'antd'
 import Layout from '../../components/Layout.jsx'
 import Breadcrumbs from '../../components/global/Breadcrumbs.jsx'
 import NewsCard from '../../components/global/NewsCard.jsx'
 
-const pageTitle = "News & Events"
-const { Option } = Select;
-const { Search } = Input;
-
+const pageTitle = 'News & Events'
+const { Option } = Select
+const { Search } = Input
 
 function categoryChange(value) {
-  console.log(`selected ${value}`);
+  console.log(`selected ${value}`)
 }
 
 class AllNewsEventsPage extends React.Component {
@@ -20,7 +19,7 @@ class AllNewsEventsPage extends React.Component {
     super()
     this.state = {
       // category: '',
-      search: ''
+      search: '',
     }
   }
 
@@ -30,13 +29,20 @@ class AllNewsEventsPage extends React.Component {
 
   render() {
     const data = this.props.data
-    console.log("data:", data)
+    // console.log('data:', data)
     const siteTitle = data.site.siteMetadata.title
 
     // categories filter
-    const categories = [];
+    const categories = []
     data.allTaxonomyTermNewsEventsCategory.edges.forEach(({ node }) => {
-      categories.push(<Option value={node.drupal_internal__tid}>{node.name}</Option>);
+      categories.push(
+        <Option
+          key={node.drupal_internal__tid.toString()}
+          value={node.drupal_internal__tid}
+        >
+          {node.name}
+        </Option>
+      )
     })
 
     // let filteredStaff = data.allNodeStaff.nodes.filter(node => {
@@ -51,8 +57,9 @@ class AllNewsEventsPage extends React.Component {
       <Layout>
         <div id="site-body" className="container">
           <Helmet>
-            <title>{siteTitle} - {pageTitle}</title>
-
+            <title>
+              {siteTitle} - {pageTitle}
+            </title>
           </Helmet>
 
           <Breadcrumbs />
@@ -61,10 +68,11 @@ class AllNewsEventsPage extends React.Component {
             <h1>{pageTitle}</h1>
 
             <section className="filters">
-
               <Pagination
                 total={data.allNodeNewsEvents.totalCount}
-                showTotal={(total, range) => `${range[0]}-${range[1]} of ${total} items`}
+                showTotal={(total, range) =>
+                  `${range[0]}-${range[1]} of ${total} items`
+                }
                 showSizeChanger={false}
                 pageSize={9}
                 className="pagination"
@@ -89,23 +97,14 @@ class AllNewsEventsPage extends React.Component {
                   allowClear
                 />
               </section>
-
             </section>
-
           </header>
 
           <main className="news-events-page">
-
             <section className="news-grid">
-              <NewsCard />
-              <NewsCard />
-              <NewsCard />
-              <NewsCard />
-              <NewsCard />
-              <NewsCard />
-              <NewsCard />
-              <NewsCard />
-              <NewsCard />
+              {data.allNodeNewsEvents.edges.map(({ node }) => (
+                <NewsCard key={node.drupal_internal__nid.toString()} node={node} />
+              ))}
             </section>
           </main>
         </div>
@@ -116,54 +115,56 @@ class AllNewsEventsPage extends React.Component {
 
 export default AllNewsEventsPage
 
-
 export const pageQuery = graphql`
-query AllNewsEventsPage {
-  site {
-    siteMetadata {
-      title
-    }
-  }
-  allNodeNewsEvents {
-    totalCount
-    edges {
-      node {
+  query AllNewsEventsPage {
+    site {
+      siteMetadata {
         title
-        promote
-        path {
-          alias
-        }
-        field_event_time
-        field_event_location
-        field_event_date
-        drupal_id
-        drupal_internal__nid
-        created
-        body {
-          processed
-        }
-        relationships {
-          field_featured_image {
-            localFile {
-              relativePath
+      }
+    }
+    allNodeNewsEvents {
+      totalCount
+      edges {
+        node {
+          title
+          promote
+          path {
+            alias
+          }
+          field_event_time
+          field_event_location
+          field_event_date
+          drupal_id
+          drupal_internal__nid
+          created
+          body {
+            processed
+          }
+          relationships {
+            field_featured_image {
+              localFile {
+                childImageSharp {
+                  resize(width: 400, height: 200, cropFocus: CENTER) {
+                    src
+                  }
+                }
+              }
+              drupal_internal__fid
             }
-            drupal_id
-            drupal_internal__fid
+          }
+          field_featured_image {
+            alt
           }
         }
-        field_featured_image {
-          alt
+      }
+    }
+    allTaxonomyTermNewsEventsCategory {
+      edges {
+        node {
+          drupal_internal__tid
+          name
         }
       }
     }
   }
-  allTaxonomyTermNewsEventsCategory {
-    edges {
-      node {
-        drupal_internal__tid
-        name
-      }
-    }
-  }
-}
 `
