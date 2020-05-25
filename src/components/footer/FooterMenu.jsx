@@ -43,6 +43,12 @@ const FooterMenu = () => (
         <li>
           <Link to="/">Journals</Link>
         </li>
+        <li>
+          <Link to="/">QSpace</Link>
+        </li>
+        <li>
+          <Link to="/">AtoM (Archives)</Link>
+        </li>
       </ul>
     </section>
 
