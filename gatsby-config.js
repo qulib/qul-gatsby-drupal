@@ -2,12 +2,29 @@ const lessToJson = require('less-to-json')
 
 module.exports = {
   siteMetadata: {
-    title: `QUL`,
+    title: `Weens Unibersity Libary`,
     siteUrl: `https://library.queensu.ca`,
   },
   plugins: [
+    {
+      resolve: 'gatsby-source-drupal',
+      options: {
+        baseUrl: 'https://dev-qul-test.pantheonsite.io/',
+        apiBase: 'jsonapi',
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`, // in case we want to query local data
+      options: {
+        path: `./src/data/`,
+      },
+    },
+    `gatsby-transformer-json`,
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     `gatsby-plugin-sitemap`,
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sass',
     {
       resolve: 'gatsby-plugin-antd',
       options: {
@@ -19,16 +36,6 @@ module.exports = {
       options: {
         javascriptEnabled: true,
         modifyVars: lessToJson('src/styles/antd-theme/qul-antd-theme.less'),
-      },
-    },
-    'gatsby-plugin-sass',
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
-    {
-      resolve: 'gatsby-source-drupal',
-      options: {
-        baseUrl: 'https://dev-qul-test.pantheonsite.io/',
-        apiBase: 'jsonapi',
       },
     },
     {
@@ -43,17 +50,5 @@ module.exports = {
         icon: 'src/images/qul-squares.png',
       },
     },
-
-    // {
-    //   resolve: "gatsby-plugin-google-analytics",
-    //   options: {
-    //     trackingId: "UA-88346038-1",
-    //     head: false,
-    //     anonymize: true,
-    //     respectDNT: true
-    //   }
-    // },
-
-    // 'gatsby-plugin-offline',
   ],
 }
