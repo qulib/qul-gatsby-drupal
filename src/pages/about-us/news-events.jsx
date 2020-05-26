@@ -18,14 +18,11 @@ class AllNewsEventsPage extends React.Component {
   constructor() {
     super()
     this.state = {
-      // category: '',
+      category: '',
       search: '',
     }
   }
 
-  // updateSearch(event) {
-  //   this.setState({ search: event.target.value })
-  // }
 
   render() {
     const data = this.props.data
@@ -45,26 +42,17 @@ class AllNewsEventsPage extends React.Component {
       )
     })
 
-    // let filteredStaff = data.allNodeStaff.nodes.filter(node => {
-    //   return (
-    //     node.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
-    //   )
-    // })
-
-    // let resultString = filteredStaff.length === 1 ? 'result' : 'results'
-
     return (
       <Layout>
         <div id="site-body" className="container">
           <Helmet>
-            <title>
-              {siteTitle} - {pageTitle}
-            </title>
+            <title>{siteTitle} - {pageTitle}</title>
           </Helmet>
 
           <Breadcrumbs />
 
           <header className="full-width-header">
+
             <h1>{pageTitle}</h1>
 
             <section className="filters">
@@ -134,7 +122,6 @@ export const pageQuery = graphql`
           field_event_time
           field_event_location
           field_event_date
-          drupal_id
           drupal_internal__nid
           created
           body {
@@ -149,7 +136,6 @@ export const pageQuery = graphql`
                   }
                 }
               }
-              drupal_internal__fid
             }
           }
           field_featured_image {

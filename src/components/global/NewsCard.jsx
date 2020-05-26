@@ -6,7 +6,6 @@ class NewsCard extends React.Component {
 
   render() {
     const data = this.props.node
-    // console.log({data})
 
     return (
       <Link to={data.path.alias} className="news-card">
