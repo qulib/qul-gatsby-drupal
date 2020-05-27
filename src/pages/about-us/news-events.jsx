@@ -1,18 +1,15 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
-import { Input, Select, Pagination } from 'antd'
-import Layout from '../../components/Layout.jsx'
+import { Input, Select } from 'antd'
+import Layout, { siteTitle } from '../../components/Layout.jsx'
 import Breadcrumbs from '../../components/global/Breadcrumbs.jsx'
 import NewsCard from '../../components/global/NewsCard.jsx'
+import { node } from 'prop-types'
 
-const pageTitle = 'News & Events'
-const { Option } = Select
 const { Search } = Input
-
-function categoryChange(value) {
-  console.log(`selected ${value}`)
-}
+const { Option } = Select
+const pageTitle = 'News & Events'
 
 class AllNewsEventsPage extends React.Component {
   constructor() {
@@ -21,26 +18,64 @@ class AllNewsEventsPage extends React.Component {
       category: '',
       search: '',
     }
+    this.updateSearch = this.updateSearch.bind(this);
+    this.updateCategory = this.updateCategory.bind(this);
   }
 
+  updateCategory(value) {
+    this.setState({ category: value })
+
+  }
+
+  updateSearch(value) {
+    this.setState({ search: value })
+  }
 
   render() {
     const data = this.props.data
     // console.log('data:', data)
-    const siteTitle = data.site.siteMetadata.title
+    // console.log("cat is: ", this.state.category)
 
-    // categories filter
+    // create category filter
     const categories = []
     data.allTaxonomyTermNewsEventsCategory.edges.forEach(({ node }) => {
       categories.push(
-        <Option
-          key={node.drupal_internal__tid.toString()}
-          value={node.drupal_internal__tid}
-        >
-          {node.name}
-        </Option>
+        <Option key={node.drupal_internal__tid} value={node.drupal_internal__tid}>{node.name}</Option>
       )
     })
+
+    // title search filter
+    let filteredNewsEvents = data.allNodeNewsEvents.edges.filter(edge => {
+      return (
+        edge.node.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
+      )
+    })
+
+    // category filter
+
+    if (this.state.category) {
+      // console.log(filteredNewsEvents)
+      console.log("cat is: ", this.state.category)
+
+      {
+        filteredNewsEvents.map(({ node }) => (
+          console.log({ node })
+        ))
+      }
+
+      // console.log(node.relationships.field_category)
+
+      // filteredNewsEvents.filter(node => node.relationships.field_category.drupal_internal__tid === this.state.category)
+
+
+      // close ! see" https://stackoverflow.com/questions/8217419/how-to-determine-if-javascript-array-contains-an-object-with-an-attribute-that-e/8217584#8217584
+
+      // if (filteredNewsEvents.some(e => e.Name === this.state.category)) {
+      //   /* vendors contains the element we're looking for */
+      // }
+
+
+    }
 
     return (
       <Layout>
@@ -56,7 +91,7 @@ class AllNewsEventsPage extends React.Component {
             <h1>{pageTitle}</h1>
 
             <section className="filters">
-              <Pagination
+              {/* <Pagination
                 total={data.allNodeNewsEvents.totalCount}
                 showTotal={(total, range) =>
                   `${range[0]}-${range[1]} of ${total} items`
@@ -64,14 +99,14 @@ class AllNewsEventsPage extends React.Component {
                 showSizeChanger={false}
                 pageSize={9}
                 className="pagination"
-              />
+              /> */}
 
               <section className="category-filter">
                 <Select
                   placeholder="Category"
-                  mode="multiple"
                   style={{ width: '100%' }}
-                  onChange={categoryChange}
+                  onChange={this.updateCategory}
+                  allowClear
                 >
                   {categories}
                 </Select>
@@ -80,9 +115,9 @@ class AllNewsEventsPage extends React.Component {
               <section className="search-filter">
                 <Search
                   placeholder="Title"
-                  onSearch={value => console.log(value)}
-                  enterButton
                   allowClear
+                  enterButton
+                  onSearch={value => this.updateSearch(value)}
                 />
               </section>
             </section>
@@ -90,7 +125,7 @@ class AllNewsEventsPage extends React.Component {
 
           <main className="news-events-page">
             <section className="news-grid">
-              {data.allNodeNewsEvents.edges.map(({ node }) => (
+              {filteredNewsEvents.map(({ node }) => (
                 <NewsCard key={node.drupal_internal__nid.toString()} node={node} />
               ))}
             </section>
@@ -105,11 +140,6 @@ export default AllNewsEventsPage
 
 export const pageQuery = graphql`
   query AllNewsEventsPage {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allNodeNewsEvents {
       totalCount
       edges {
@@ -125,6 +155,9 @@ export const pageQuery = graphql`
           drupal_internal__nid
           created
           relationships {
+            field_category {
+              drupal_internal__tid
+            }
             field_featured_image {
               localFile {
                 childImageSharp {

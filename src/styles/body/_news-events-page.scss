@@ -1,16 +1,22 @@
 .filters {
   display: grid;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 2rem;
 
-  .pagination {
-    .ant-pagination-total-text {
-      font-weight: bold;
-      margin-right: 1rem;
-    }
-  }
+  // section {
+  //   max-width: 200px;
+  // }
+  // max-width: 500px;
+
+  // .pagination {
+  //   .ant-pagination-total-text {
+  //     font-weight: bold;
+  //     margin-right: 1rem;
+  //   }
+  // }
 
   @include breakpoint($tablet) {
-    grid-template-columns: 2fr 1fr 1fr;
+    // grid-template-columns: 2fr 1fr 1fr;
     // align-content: center;
   }
 
