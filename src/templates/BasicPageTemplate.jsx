@@ -9,7 +9,7 @@ import AskUsWidget from '../components/homepage/AskUsWidget.jsx'
 
 // add error checking to data assignments
 
-class PageTemplate extends React.Component {
+class BasicPageTemplate extends React.Component {
   render() {
     const post = this.props.data.nodePage
     // console.log(post)
@@ -51,7 +51,7 @@ class PageTemplate extends React.Component {
   }
 }
 
-export default PageTemplate
+export default BasicPageTemplate
 
 export const pageQuery = graphql`
   query($id: Int!) {

@@ -124,9 +124,6 @@ export const pageQuery = graphql`
           field_event_date
           drupal_internal__nid
           created
-          body {
-            processed
-          }
           relationships {
             field_featured_image {
               localFile {

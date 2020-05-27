@@ -35,7 +35,7 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
 
     createPage({
       path: page.path.alias,
-      component: require.resolve(`./src/templates/basic-page-template.jsx`),
+      component: require.resolve(`./src/templates/BasicPageTemplate.jsx`),
       context: {
         id: page.drupal_internal__nid
       },
@@ -48,7 +48,7 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
 
     createPage({
       path: newsEvent.path.alias,
-      component: require.resolve(`./src/templates/news-event-template.jsx`),
+      component: require.resolve(`./src/templates/NewsEventTemplate.jsx`),
       context: {
         id: newsEvent.drupal_internal__nid
       },
