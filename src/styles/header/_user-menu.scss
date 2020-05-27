@@ -13,6 +13,13 @@
       // @include debug;
       align-self: center;
       padding: 0.5rem;
+      border-bottom: 3px solid transparent;
+
+      &:hover {
+        text-decoration: none;
+        border-bottom: 3px solid $clr-primary;
+        @include fade;
+      }
 
       &:last-of-type {
         margin-right: 0;
@@ -28,8 +35,6 @@
 
         &:hover {
           text-decoration: none;
-          border-bottom: 3px solid $clr-primary;
-          @include fade;
         }
       }
 

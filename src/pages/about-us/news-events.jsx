@@ -128,8 +128,8 @@ export const pageQuery = graphql`
             field_featured_image {
               localFile {
                 childImageSharp {
-                  resize(width: 400, height: 200, cropFocus: CENTER) {
-                    src
+                  fluid(maxWidth: 500, maxHeight: 300) {
+                    ...GatsbyImageSharpFluid
                   }
                 }
               }
