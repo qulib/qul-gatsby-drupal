@@ -5,7 +5,7 @@ import { Input, Select } from 'antd'
 import Layout, { siteTitle } from '../../components/Layout.jsx'
 import Breadcrumbs from '../../components/global/Breadcrumbs.jsx'
 import NewsCard from '../../components/global/NewsCard.jsx'
-import { node } from 'prop-types'
+// import { node } from 'prop-types'
 
 const { Search } = Input
 const { Option } = Select
@@ -18,13 +18,12 @@ class AllNewsEventsPage extends React.Component {
       category: '',
       search: '',
     }
-    this.updateSearch = this.updateSearch.bind(this);
-    this.updateCategory = this.updateCategory.bind(this);
+    this.updateSearch = this.updateSearch.bind(this)
+    this.updateCategory = this.updateCategory.bind(this)
   }
 
   updateCategory(value) {
     this.setState({ category: value })
-
   }
 
   updateSearch(value) {
@@ -40,54 +39,54 @@ class AllNewsEventsPage extends React.Component {
     const categories = []
     data.allTaxonomyTermNewsEventsCategory.edges.forEach(({ node }) => {
       categories.push(
-        <Option key={node.drupal_internal__tid} value={node.drupal_internal__tid}>{node.name}</Option>
+        <Option
+          key={node.drupal_internal__tid}
+          value={node.drupal_internal__tid}
+        >
+          {node.name}
+        </Option>
       )
     })
 
     // title search filter
     let filteredNewsEvents = data.allNodeNewsEvents.edges.filter(edge => {
       return (
-        edge.node.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
+        edge.node.title
+          .toLowerCase()
+          .indexOf(this.state.search.toLowerCase()) !== -1
       )
     })
 
     // category filter
-
     if (this.state.category) {
       // console.log(filteredNewsEvents)
-      console.log("cat is: ", this.state.category)
+      console.log('cat is: ', this.state.category)
 
-      {
-        filteredNewsEvents.map(({ node }) => (
-          console.log({ node })
-        ))
-      }
+      // filteredNewsEvents.map(({ node }) => console.log({ node }))
 
       // console.log(node.relationships.field_category)
 
       // filteredNewsEvents.filter(node => node.relationships.field_category.drupal_internal__tid === this.state.category)
-
 
       // close ! see" https://stackoverflow.com/questions/8217419/how-to-determine-if-javascript-array-contains-an-object-with-an-attribute-that-e/8217584#8217584
 
       // if (filteredNewsEvents.some(e => e.Name === this.state.category)) {
       //   /* vendors contains the element we're looking for */
       // }
-
-
     }
 
     return (
       <Layout>
         <div id="site-body" className="container">
           <Helmet>
-            <title>{siteTitle} - {pageTitle}</title>
+            <title>
+              {siteTitle} - {pageTitle}
+            </title>
           </Helmet>
 
           <Breadcrumbs />
 
           <header className="full-width-header">
-
             <h1>{pageTitle}</h1>
 
             <section className="filters">
@@ -121,12 +120,21 @@ class AllNewsEventsPage extends React.Component {
                 />
               </section>
             </section>
+
+            <section className="filter-results">
+              <span>{filteredNewsEvents.length} items</span>
+            </section>
+
+
           </header>
 
           <main className="news-events-page">
             <section className="news-grid">
               {filteredNewsEvents.map(({ node }) => (
-                <NewsCard key={node.drupal_internal__nid.toString()} node={node} />
+                <NewsCard
+                  key={node.drupal_internal__nid.toString()}
+                  node={node}
+                />
               ))}
             </section>
           </main>

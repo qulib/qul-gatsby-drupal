@@ -24,6 +24,14 @@
   }
 }
 
+.filter-results {
+  padding: 1rem 2rem;
+  background-color: $clr-qul-yellow-lighter;
+  text-align: center;
+  border-bottom: 3px solid $clr-primary;
+  color: $clr-primary;
+}
+
 .news-events-page {
   display: grid;
   padding: 2rem;
