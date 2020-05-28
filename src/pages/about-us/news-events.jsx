@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
-import { Input, Select } from 'antd'
+import { Input, Select, Pagination } from 'antd'
 import Layout, { siteTitle } from '../../components/Layout.jsx'
 import Breadcrumbs from '../../components/global/Breadcrumbs.jsx'
 import NewsCard from '../../components/global/NewsCard.jsx'
@@ -22,16 +22,17 @@ class AllNewsEventsPage extends React.Component {
     this.updateCategory = this.updateCategory.bind(this)
   }
 
-  updateCategory(value) {
-    this.setState({ category: value })
-  }
-
   updateSearch(value) {
     this.setState({ search: value })
   }
 
+  updateCategory(value) {
+    this.setState({ category: value })
+  }
+
   render() {
     const data = this.props.data
+    let filteredNewsEvents = data.allNodeNewsEvents.edges //unfiltered
     // console.log('data:', data)
     // console.log("cat is: ", this.state.category)
 
@@ -49,7 +50,7 @@ class AllNewsEventsPage extends React.Component {
     })
 
     // title search filter
-    let filteredNewsEvents = data.allNodeNewsEvents.edges.filter(edge => {
+    filteredNewsEvents = filteredNewsEvents.filter(edge => {
       return (
         edge.node.title
           .toLowerCase()
@@ -90,16 +91,6 @@ class AllNewsEventsPage extends React.Component {
             <h1>{pageTitle}</h1>
 
             <section className="filters">
-              {/* <Pagination
-                total={data.allNodeNewsEvents.totalCount}
-                showTotal={(total, range) =>
-                  `${range[0]}-${range[1]} of ${total} items`
-                }
-                showSizeChanger={false}
-                pageSize={9}
-                className="pagination"
-              /> */}
-
               <section className="category-filter">
                 <Select
                   placeholder="Category"
@@ -122,10 +113,17 @@ class AllNewsEventsPage extends React.Component {
             </section>
 
             <section className="filter-results">
-              <span>{filteredNewsEvents.length} items</span>
+              {/* <span>{filteredNewsEvents.length} items</span> */}
+              <Pagination
+                total={filteredNewsEvents.length}
+                showTotal={(total, range) =>
+                  `${range[0]}-${range[1]} of ${total} items`
+                }
+                showSizeChanger={false}
+                pageSize={9}
+                className="pagination"
+              />
             </section>
-
-
           </header>
 
           <main className="news-events-page">
@@ -153,7 +151,6 @@ export const pageQuery = graphql`
       edges {
         node {
           title
-          promote
           path {
             alias
           }
