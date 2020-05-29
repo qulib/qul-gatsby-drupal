@@ -26,20 +26,13 @@ class AllNewsEventsPage extends React.Component {
     this.paginate = this.paginate.bind(this)
   }
 
-  updateSearch(value) {
-    this.setState({ 
-      search: value,
-      page: '1' // need to reset pagination somehow
-    })
-    // console.log(value)
-  }
 
-  // updateSearchEnter(event) {
-  //   this.setState({ 
-  //     search: event.target.value,
-  //     page: '1'
-  //   })
-  // }
+  updateSearch(value) {
+    this.setState({
+      search: value,
+      page: '1', // need to reset pagination somehow
+    })
+  }
 
   updateCategory(value) {
     this.setState({ category: value })
@@ -52,7 +45,7 @@ class AllNewsEventsPage extends React.Component {
   paginate(pages) {
     const begin = (this.state.page - 1) * cardsPerPage
     // check for overflow at end
-    const end = begin + cardsPerPage < pages.length ? begin + cardsPerPage : pages.length 
+    const end = begin + cardsPerPage < pages.length ? begin + cardsPerPage : pages.length
     return pages.slice(begin, end)
   }
 
@@ -84,10 +77,8 @@ class AllNewsEventsPage extends React.Component {
 
     // category filter
     if (this.state.category) {
-      // console.log(filteredNewsEvents)
       console.log('cat is: ', this.state.category)
 
-      // filteredNewsEvents.map(({ node }) => console.log({ node }))
 
       // console.log(node.relationships.field_category)
 
@@ -102,6 +93,7 @@ class AllNewsEventsPage extends React.Component {
 
     //pagination
     const pagedNewsEvents = this.paginate(filteredNewsEvents)
+    // console.log(pagedNewsEvents)
 
     return (
       <Layout>
@@ -134,7 +126,6 @@ class AllNewsEventsPage extends React.Component {
                   placeholder="Title"
                   allowClear
                   enterButton
-                  value={this.state.search}
                   onChange={e => this.updateSearch(e.target.value)}
                   onSearch={value => this.updateSearch(value)}
                 />
@@ -144,16 +135,14 @@ class AllNewsEventsPage extends React.Component {
             <section className="filter-results">
               {/* <span>{filteredNewsEvents.length} items</span> */}
               <Pagination
-                defaultCurrent='1'
                 total={filteredNewsEvents.length}
+                current={this.state.page}
                 showTotal={(total, range) =>
                   `${range[0]}-${range[1]} of ${total} items`
                 }
-                showSizeChanger={false}
                 pageSize={cardsPerPage}
                 className="pagination"
-                onChange={(page, pageSize) =>
-                  // console.log({page},":",{pageSize})
+                onChange={(page) =>
                   this.updatePage(page)
                 }
               />
