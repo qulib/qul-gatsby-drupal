@@ -1,23 +1,16 @@
-.filters {
+.header-top {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.filters {
+  display: grid;
   grid-gap: 2rem;
 
-  // section {
-  //   max-width: 200px;
-  // }
-  // max-width: 500px;
-
-  // .pagination {
-  //   .ant-pagination-total-text {
-  //     font-weight: bold;
-  //     margin-right: 1rem;
-  //   }
-  // }
 
   @include breakpoint($tablet) {
-    // grid-template-columns: 2fr 1fr 1fr;
-    // align-content: center;
+    grid-template-columns: 1fr 1fr;
   }
 
   @include breakpoint($desktop) {
@@ -25,11 +18,19 @@
 }
 
 .filter-results {
-  padding: 1rem 2rem;
+  padding: 0 2rem 1rem;
   background-color: $clr-qul-yellow-lighter;
-  text-align: center;
+  text-align: right;
   border-bottom: 3px solid $clr-primary;
   color: $clr-primary;
+
+  li {
+    margin: 1rem 8px 0 0;
+  }
+
+  svg {
+    vertical-align: baseline;
+  }
 }
 
 .news-events-page {

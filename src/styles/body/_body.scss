@@ -1,13 +1,27 @@
+@import 'breadcrumbs';
+@import 'filters';
+@import 'content';
+@import 'sidebar';
+
+// pages
+@import 'basic-page';
+@import 'news-events-page';
+
 #site-body {
   margin-top: 3rem;
   background-color: white;
 }
 
-@import 'breadcrumbs';
-@import 'full-width-header';
-@import 'filters';
-@import 'content';
-@import 'sidebar';
-@import 'basic-page';
-@import 'equal-columns';
-@import 'news-events-page';
+.full-width-header { // e.g. News & Events page
+  h1 {
+    font-size: 2.488em;
+    margin: 0;
+    padding: 2rem;
+  }
+
+  @include breakpoint($desktop) {
+    h1 {
+      font-size: 3.052em;
+    }
+  }
+}

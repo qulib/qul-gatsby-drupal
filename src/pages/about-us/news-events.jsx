@@ -10,7 +10,7 @@ import NewsCard from '../../components/global/NewsCard.jsx'
 const { Search } = Input
 const { Option } = Select
 const pageTitle = 'News & Events'
-const cardsPerPage = 6
+const cardsPerPage = 3
 
 class AllNewsEventsPage extends React.Component {
   constructor() {
@@ -18,14 +18,13 @@ class AllNewsEventsPage extends React.Component {
     this.state = {
       category: '',
       search: '',
-      page: '1'
+      page: '1',
     }
-    this.updateSearchPress = this.updateSearch.bind(this)
+    this.updateSearch = this.updateSearch.bind(this)
     this.updateCategory = this.updateCategory.bind(this)
     this.updatePage = this.updatePage.bind(this)
     this.paginate = this.paginate.bind(this)
   }
-
 
   updateSearch(value) {
     this.setState({
@@ -45,7 +44,8 @@ class AllNewsEventsPage extends React.Component {
   paginate(pages) {
     const begin = (this.state.page - 1) * cardsPerPage
     // check for overflow at end
-    const end = begin + cardsPerPage < pages.length ? begin + cardsPerPage : pages.length
+    const end =
+      begin + cardsPerPage < pages.length ? begin + cardsPerPage : pages.length
     return pages.slice(begin, end)
   }
 
@@ -79,7 +79,6 @@ class AllNewsEventsPage extends React.Component {
     if (this.state.category) {
       console.log('cat is: ', this.state.category)
 
-
       // console.log(node.relationships.field_category)
 
       // filteredNewsEvents.filter(node => node.relationships.field_category.drupal_internal__tid === this.state.category)
@@ -97,43 +96,41 @@ class AllNewsEventsPage extends React.Component {
 
     return (
       <Layout>
-        <div id="site-body" className="container">
-          <Helmet>
-            <title>
-              {siteTitle} - {pageTitle}
-            </title>
-          </Helmet>
+        <Helmet>
+          <title>
+            {siteTitle} - {pageTitle}
+          </title>
+        </Helmet>
 
-          <Breadcrumbs />
+        <Breadcrumbs />
 
-          <header className="full-width-header">
+        <header className="full-width-header">
             <h1>{pageTitle}</h1>
 
-            <section className="filters">
-              <section className="category-filter">
-                <Select
-                  placeholder="Category"
-                  style={{ width: '100%' }}
-                  onChange={this.updateCategory}
-                  allowClear
-                >
-                  {categories}
-                </Select>
-              </section>
-
-              <section className="search-filter">
-                <Search
-                  placeholder="Title"
-                  allowClear
-                  enterButton
-                  onChange={e => this.updateSearch(e.target.value)}
-                  onSearch={value => this.updateSearch(value)}
-                />
-              </section>
+          <section className="filters">
+            <section className="category-filter">
+              <Select
+                placeholder="Category"
+                style={{ width: '100%' }}
+                onChange={this.updateCategory}
+                allowClear
+              >
+                {categories}
+              </Select>
             </section>
 
-            <section className="filter-results">
-              {/* <span>{filteredNewsEvents.length} items</span> */}
+            <section className="search-filter">
+              <Search
+                placeholder="Title"
+                allowClear
+                enterButton
+                onChange={e => this.updateSearch(e.target.value)}
+                onSearch={value => this.updateSearch(value)}
+              />
+            </section>
+          </section>
+
+          <section className="filter-results">
               <Pagination
                 total={filteredNewsEvents.length}
                 current={this.state.page}
@@ -142,24 +139,21 @@ class AllNewsEventsPage extends React.Component {
                 }
                 pageSize={cardsPerPage}
                 className="pagination"
-                onChange={(page) =>
-                  this.updatePage(page)
-                }
+                onChange={page => this.updatePage(page)}
               />
             </section>
-          </header>
+        </header>
 
-          <main className="news-events-page">
-            <section className="news-grid">
-              {pagedNewsEvents.map(({ node }) => (
-                <NewsCard
-                  key={node.drupal_internal__nid.toString()}
-                  node={node}
-                />
-              ))}
-            </section>
-          </main>
-        </div>
+        <main className="news-events-page">
+          <section className="news-grid">
+            {pagedNewsEvents.map(({ node }) => (
+              <NewsCard
+                key={node.drupal_internal__nid.toString()}
+                node={node}
+              />
+            ))}
+          </section>
+        </main>
       </Layout>
     )
   }
@@ -169,7 +163,7 @@ export default AllNewsEventsPage
 
 export const pageQuery = graphql`
   query AllNewsEventsPage {
-    allNodeNewsEvents(sort: {fields: created, order: DESC}) {
+    allNodeNewsEvents(sort: { fields: created, order: DESC }) {
       totalCount
       edges {
         node {
