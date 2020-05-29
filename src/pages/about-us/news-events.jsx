@@ -10,6 +10,7 @@ import NewsCard from '../../components/global/NewsCard.jsx'
 const { Search } = Input
 const { Option } = Select
 const pageTitle = 'News & Events'
+const cardsPerPage = 6
 
 class AllNewsEventsPage extends React.Component {
   constructor() {
@@ -17,24 +18,48 @@ class AllNewsEventsPage extends React.Component {
     this.state = {
       category: '',
       search: '',
+      page: '1'
     }
-    this.updateSearch = this.updateSearch.bind(this)
+    this.updateSearchPress = this.updateSearchPress.bind(this)
+    this.updateSearchEnter = this.updateSearchEnter.bind(this)
     this.updateCategory = this.updateCategory.bind(this)
+    this.updatePage = this.updatePage.bind(this)
+    this.paginate = this.paginate.bind(this)
   }
 
-  updateSearch(value) {
-    this.setState({ search: value })
+  updateSearchPress(value) {
+    this.setState({ 
+      search: value,
+      page: '1'
+    })
+    // console.log(value)
+  }
+
+  updateSearchEnter(event) {
+    this.setState({ 
+      search: event.target.value,
+      page: '1'
+    })
   }
 
   updateCategory(value) {
     this.setState({ category: value })
   }
 
+  updatePage(value) {
+    this.setState({ page: value })
+  }
+
+  paginate(pages) {
+    const begin = (this.state.page - 1) * cardsPerPage
+    // check for overflow at end
+    const end = begin + cardsPerPage < pages.length ? begin + cardsPerPage : pages.length 
+    return pages.slice(begin, end)
+  }
+
   render() {
     const data = this.props.data
     let filteredNewsEvents = data.allNodeNewsEvents.edges //unfiltered
-    // console.log('data:', data)
-    // console.log("cat is: ", this.state.category)
 
     // create category filter
     const categories = []
@@ -76,6 +101,9 @@ class AllNewsEventsPage extends React.Component {
       // }
     }
 
+    //pagination
+    const pagedNewsEvents = this.paginate(filteredNewsEvents)
+
     return (
       <Layout>
         <div id="site-body" className="container">
@@ -107,7 +135,9 @@ class AllNewsEventsPage extends React.Component {
                   placeholder="Title"
                   allowClear
                   enterButton
-                  onSearch={value => this.updateSearch(value)}
+                  value={this.state.search}
+                  onChange={e => this.updateSearchEnter(e)}
+                  onSearch={value => this.updateSearchPress(value)}
                 />
               </section>
             </section>
@@ -115,20 +145,25 @@ class AllNewsEventsPage extends React.Component {
             <section className="filter-results">
               {/* <span>{filteredNewsEvents.length} items</span> */}
               <Pagination
+                defaultCurrent='1'
                 total={filteredNewsEvents.length}
                 showTotal={(total, range) =>
                   `${range[0]}-${range[1]} of ${total} items`
                 }
                 showSizeChanger={false}
-                pageSize={9}
+                pageSize={cardsPerPage}
                 className="pagination"
+                onChange={(page, pageSize) =>
+                  // console.log({page},":",{pageSize})
+                  this.updatePage(page)
+                }
               />
             </section>
           </header>
 
           <main className="news-events-page">
             <section className="news-grid">
-              {filteredNewsEvents.map(({ node }) => (
+              {pagedNewsEvents.map(({ node }) => (
                 <NewsCard
                   key={node.drupal_internal__nid.toString()}
                   node={node}
