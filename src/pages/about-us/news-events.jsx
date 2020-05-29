@@ -20,27 +20,26 @@ class AllNewsEventsPage extends React.Component {
       search: '',
       page: '1'
     }
-    this.updateSearchPress = this.updateSearchPress.bind(this)
-    this.updateSearchEnter = this.updateSearchEnter.bind(this)
+    this.updateSearchPress = this.updateSearch.bind(this)
     this.updateCategory = this.updateCategory.bind(this)
     this.updatePage = this.updatePage.bind(this)
     this.paginate = this.paginate.bind(this)
   }
 
-  updateSearchPress(value) {
+  updateSearch(value) {
     this.setState({ 
       search: value,
-      page: '1'
+      page: '1' // need to reset pagination somehow
     })
     // console.log(value)
   }
 
-  updateSearchEnter(event) {
-    this.setState({ 
-      search: event.target.value,
-      page: '1'
-    })
-  }
+  // updateSearchEnter(event) {
+  //   this.setState({ 
+  //     search: event.target.value,
+  //     page: '1'
+  //   })
+  // }
 
   updateCategory(value) {
     this.setState({ category: value })
@@ -136,8 +135,8 @@ class AllNewsEventsPage extends React.Component {
                   allowClear
                   enterButton
                   value={this.state.search}
-                  onChange={e => this.updateSearchEnter(e)}
-                  onSearch={value => this.updateSearchPress(value)}
+                  onChange={e => this.updateSearch(e.target.value)}
+                  onSearch={value => this.updateSearch(value)}
                 />
               </section>
             </section>
@@ -181,7 +180,7 @@ export default AllNewsEventsPage
 
 export const pageQuery = graphql`
   query AllNewsEventsPage {
-    allNodeNewsEvents {
+    allNodeNewsEvents(sort: {fields: created, order: DESC}) {
       totalCount
       edges {
         node {
