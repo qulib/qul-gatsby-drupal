@@ -1,11 +1,3 @@
 .basic-page {
-  display: grid;
-
-  button {
-    @include button-style($clr-primary);
-  }
-
-  @include breakpoint($tablet) {
-    grid-template-columns: 2fr 1fr;
-  }
+  @include sidebar;
 }

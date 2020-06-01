@@ -14,8 +14,7 @@
     border-radius: 10rem;
 
     &:hover {
-      box-shadow: 0 0 0 3px $clr-primary;
-      @include fade;
+      @include hover-outline;
     }
 
     img {

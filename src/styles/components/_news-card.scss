@@ -1,25 +1,24 @@
 .news-card {
-    max-width: 500px;
-    // justify-self: center;
-    // margin: 0 auto;
+  max-width: 500px;
+  // justify-self: center;
+  // margin: 0 auto;
 
-    img {
-        width: 100%;
+  img {
+    width: 100%;
+  }
+
+  &:hover {
+    @include hover-outline;
+    text-decoration: none;
+  }
+
+  footer {
+    background-color: $clr-qul-gray-darker;
+    padding: 2rem;
+
+    h2,
+    h3 {
+      color: white;
     }
-
-    &:hover {
-        box-shadow: 0 0 0 3px $clr-primary;
-        @include fade;
-        text-decoration: none;
-    }
-
-    footer {
-        background-color: $clr-qul-gray-darker;
-        padding: 2rem;
-
-        h2,
-        h3 {
-            color: white;
-        }
-    }
+  }
 }

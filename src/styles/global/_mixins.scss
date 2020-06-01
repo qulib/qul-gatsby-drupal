@@ -10,6 +10,20 @@
   transition: all 0.3s ease-in-out;
 }
 
+@mixin hover-outline {
+  box-shadow: 0 0 3px 3px $clr-primary;
+  @include fade;
+}
+
+// include on pages with sidebar
+@mixin sidebar {
+  display: grid;
+
+  @include breakpoint($tablet) {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
 // used to set button styles
 // @param $baseColour the background colour of the button
 @mixin button-style($baseColour) {

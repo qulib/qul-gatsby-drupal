@@ -8,7 +8,6 @@
   display: grid;
   grid-gap: 2rem;
 
-
   @include breakpoint($tablet) {
     grid-template-columns: 1fr 1fr;
   }

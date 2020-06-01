@@ -1,0 +1,22 @@
+.news-event-page {
+  @include sidebar;
+
+  .posted-date {
+    color: $clr-qul-gray-darker;
+  }
+
+  // .meta {
+  //   padding: 2rem;
+  // }
+
+  .post-body {
+    margin-top: 2rem;
+  }
+
+  @include breakpoint($tablet) {
+    // .image-and-meta {
+    //   display: grid;
+    //   grid-template-columns: 1fr 1fr;
+    // }
+  }
+}
