@@ -1,16 +1,18 @@
 .news-event-page {
   @include sidebar;
 
-  .posted-date {
+  .post-date {
     color: $clr-qul-gray-darker;
   }
 
-  // .meta {
-  //   padding: 2rem;
-  // }
+  .post-image {
+    margin: 1rem 0;
+  }
+
+  .post-meta {
+  }
 
   .post-body {
-    margin-top: 2rem;
   }
 
   @include breakpoint($tablet) {

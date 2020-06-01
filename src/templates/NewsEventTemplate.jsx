@@ -2,20 +2,20 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
-// import { Link } from 'gatsby'
+import { formatDate } from '../library/functions.js'
 import Layout from '../components/Layout.jsx'
 import Breadcrumbs from '../components/global/Breadcrumbs.jsx'
 import AskUsWidget from '../components/homepage/AskUsWidget.jsx'
 
-function formatDate(date) {
-  const options = {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: '2-digit',
-  }
-  return new Intl.DateTimeFormat('en-US', options).format(new Date(date))
-}
+// function formatDate(date) {
+//   const options = {
+//     weekday: 'long',
+//     year: 'numeric',
+//     month: 'long',
+//     day: '2-digit',
+//   }
+//   return new Intl.DateTimeFormat('en-US', options).format(new Date(date))
+// }
 
 const MetaItem = (title, text) => {
   return (
@@ -60,16 +60,17 @@ function NewsEventTemplate({ data }) {
         <main className="content">
           <header>
             <h1>{post.title}</h1>
-            <span className="posted-date">{formatDate(post.created)}</span>
-            <section className="image-and-meta">
-              <Img
-                fluid={
-                  post.relationships.field_featured_image.localFile
-                    .childImageSharp.fluid
-                }
-              />
-              <section className="meta">{meta}</section>
-            </section>
+            <span className="post-date">{formatDate(post.created)}</span>
+
+            <Img
+              className="post-image"
+              fluid={
+                post.relationships.field_featured_image.localFile
+                  .childImageSharp.fluid
+              }
+              alt={post.field_featured_image.alt}
+            />
+            <section className="post-meta">{meta}</section>
           </header>
 
           <section
@@ -116,7 +117,7 @@ export const pageQuery = graphql`
         field_featured_image {
           localFile {
             childImageSharp {
-              fluid {
+              fluid(maxWidth: 700) {
                 ...GatsbyImageSharpFluid
               }
             }

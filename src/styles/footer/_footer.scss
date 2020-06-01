@@ -3,11 +3,11 @@
   // margin-bottom: 3rem;
 
   .footer-top {
-    background: url("../images/footer-bg.svg") no-repeat;
+    background: url('../images/footer-bg.svg') no-repeat;
     background-size: cover;
     padding: 2rem;
 
-    @import "footer-menu";
+    @import 'footer-menu';
   }
 
   .footer-bottom {
@@ -16,7 +16,7 @@
     padding: 2rem;
     position: relative;
 
-    @import "social-links";
+    @import 'social-links';
 
     .social-links {
       padding-top: 0;
@@ -28,7 +28,7 @@
 
     .queens-logo {
       padding: 1rem;
-      justify-self: center;
+      justify-self: right;
     }
   }
 
