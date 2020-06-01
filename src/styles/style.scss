@@ -2,8 +2,11 @@
 // @import '~antd/dist/antd.css';
 
 @import 'global/global';
+@import 'antd-theme/antd';
 @import 'header/header';
 @import 'body/body';
 @import 'footer/footer';
-
-@import 'homepage/homepage.scss'
+@import 'components/components';
+@import 'templates/templates.scss';
+@import 'homepage/homepage.scss';
+@import 'custom-pages/custom-pages.scss';

@@ -4,15 +4,16 @@
 @import 'sidebar';
 
 // pages
-@import 'basic-page';
-@import 'news-events-page';
+// @import 'basic-page';
+// @import 'news-events-page';
 
 #site-body {
   margin-top: 3rem;
   background-color: white;
 }
 
-.full-width-header { // e.g. News & Events page
+.full-width-header {
+  // e.g. News & Events page
   h1 {
     font-size: 2.488em;
     margin: 0;
