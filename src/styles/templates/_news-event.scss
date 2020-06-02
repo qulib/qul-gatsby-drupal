@@ -6,10 +6,19 @@
   }
 
   .post-image {
-    margin: 1rem 0;
+    // margin: 1rem 0;
   }
 
-  .post-meta {
+  .event-information {
+    margin-bottom: 1rem;
+    h2 {
+      margin-bottom: 0;
+    }
+    span {
+      display: block;
+      font-size: 1rem;
+      font-weight: bold;
+    }
   }
 
   .post-body {
