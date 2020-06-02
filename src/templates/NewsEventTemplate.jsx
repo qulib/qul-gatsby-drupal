@@ -3,57 +3,43 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { formatDate } from '../library/functions.js'
-import Layout from '../components/Layout.jsx'
+import Layout, { siteTitle } from '../components/Layout.jsx'
 import Breadcrumbs from '../components/global/Breadcrumbs.jsx'
 import AskUsWidget from '../components/homepage/AskUsWidget.jsx'
 
-// function formatDate(date) {
-//   const options = {
-//     weekday: 'long',
-//     year: 'numeric',
-//     month: 'long',
-//     day: '2-digit',
-//   }
-//   return new Intl.DateTimeFormat('en-US', options).format(new Date(date))
-// }
-
-const MetaItem = (title, text) => {
-  return (
-    <p>
-      <span>{title}: </span>
-      {text}
-    </p>
-  )
-}
-
 function NewsEventTemplate({ data }) {
   const post = data.nodeNewsEvents
-  console.log('p is:', post)
+  // console.log('p is:', post)
 
-  const meta = []
+  // options event
+  const eventInfo = []
   if (post.field_event_date) {
-    const title = 'Date'
-    meta.push(MetaItem(title, formatDate(post.field_event_date)))
+    eventInfo.push(<span key="1">{formatDate(post.field_event_date)}</span>)
   }
 
   if (post.field_event_time) {
-    const title = 'Time'
-    meta.push(MetaItem(title, post.field_event_time))
+    eventInfo.push(<span key="2">{post.field_event_time}</span>)
   }
 
   if (post.field_event_location) {
-    const title = 'Location'
-    meta.push(MetaItem(title, post.field_event_location))
+    eventInfo.push(<span key="3">{post.field_event_location}</span>)
   }
 
-  if (meta.length !== 0) {
-    meta.unshift(<h2>Event Information</h2>)
+  if (eventInfo.length !== 0) {
+    eventInfo.unshift(<h2 key="0">Event Information</h2>)
+  }
+
+  let imageCaption = ''
+  if (post.field_image_caption) {
+    imageCaption = post.field_image_caption
   }
 
   return (
     <Layout>
       <Helmet>
-        <title>QUL - {post.title}</title>
+        <title>
+          {siteTitle} - {post.title}
+        </title>
       </Helmet>
       <Breadcrumbs />
       <div className="news-event-page">
@@ -62,15 +48,19 @@ function NewsEventTemplate({ data }) {
             <h1>{post.title}</h1>
             <span className="post-date">{formatDate(post.created)}</span>
 
-            <Img
-              className="post-image"
-              fluid={
-                post.relationships.field_featured_image.localFile
-                  .childImageSharp.fluid
-              }
-              alt={post.field_featured_image.alt}
-            />
-            <section className="post-meta">{meta}</section>
+            <figure>
+              <Img
+                className="post-image"
+                fluid={
+                  post.relationships.field_featured_image.localFile
+                    .childImageSharp.fluid
+                }
+                alt={post.field_featured_image.alt}
+              />
+              <figcaption>{imageCaption}</figcaption>
+            </figure>
+
+            <section className="event-information">{eventInfo}</section>
           </header>
 
           <section
@@ -103,13 +93,14 @@ export const pageQuery = graphql`
   query($id: Int!) {
     nodeNewsEvents(drupal_internal__nid: { eq: $id }) {
       title
+      created
+      field_event_date
+      field_event_location
+      field_event_time
+      field_image_caption
       body {
         processed
       }
-      created
-      field_event_date(difference: "")
-      field_event_location
-      field_event_time
       field_featured_image {
         alt
       }
