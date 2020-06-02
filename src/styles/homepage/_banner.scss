@@ -7,4 +7,8 @@
   h2 {
     font-size: 2.441em;
   }
+
+  button {
+    @include button-style($clr-primary);
+  }
 }

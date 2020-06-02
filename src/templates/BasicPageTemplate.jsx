@@ -7,7 +7,7 @@ import { graphql } from 'gatsby'
 // import { Link } from 'gatsby'
 import Layout from '../components/Layout.jsx'
 import Breadcrumbs from '../components/global/Breadcrumbs.jsx'
-import AskUsWidget from '../components/homepage/AskUsWidget.jsx'
+import AskUsWidget from '../components/global/AskUsWidget.jsx'
 
 // add error checking to data assignments
 function BasicPageTemplate({ data }) {

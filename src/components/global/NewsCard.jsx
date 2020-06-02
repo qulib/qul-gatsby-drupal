@@ -3,24 +3,23 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 
-class NewsCard extends React.Component {
-  render() {
-    const data = this.props.node
+function NewsCard({ node }) {
+  // const data = node
+  // console.log(node)
 
-    return (
-      <Link to={data.path.alias} className="news-card">
-        <Img
-          fluid={
-            data.relationships.field_featured_image.localFile.childImageSharp
-              .fluid
-          }
-        />
-        <footer>
-          <h2 dangerouslySetInnerHTML={{ __html: data.title }} />
-        </footer>
-      </Link>
-    )
-  }
+  return (
+    <Link to={node.path.alias} className="news-card">
+      <Img
+        fluid={
+          node.relationships.field_featured_image.localFile.childImageSharp
+            .fluid
+        }
+      />
+      <footer>
+        <h2 dangerouslySetInnerHTML={{ __html: node.title }} />
+      </footer>
+    </Link>
+  )
 }
 
 NewsCard.propTypes = {

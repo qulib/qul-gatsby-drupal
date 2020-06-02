@@ -1,113 +1,86 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { Link } from 'gatsby'
-import Layout from '../../components/Layout.jsx'
-// import Breadcrumbs from '../../components/global/Breadcrumbs.jsx'
+import Layout, { siteTitle } from '../../components/Layout.jsx'
 
-const title = "About Us"
+const pageTitle = 'About Us'
 
-const HelpServicesPage = () => (
+function HelpServicesPage() {
+  return (
     <Layout>
+      <Helmet>
+        <title>
+          {siteTitle} - {pageTitle}
+        </title>
+      </Helmet>
 
-        <Helmet>
-            <title>{title}</title>
-        </Helmet>
+      <div id="about-us-page">
+        <main className="content">
+          <h1>{pageTitle}</h1>
+          <p>hot blurb!</p>
 
-        <div id="about-us-page">
-
-            <main className="content">
-
-                <h1>{title}</h1>
-                <p>hot blurb!</p>
-
-                <section className="four-columns">
-
-                    <section>
-                        <h2>Overview</h2>
-                        <ul>
-                            <li>
-                                <Link>
-                                    one
-                               </Link>
-                            </li>
-                            <li>
-                                <Link>
-                                    two
-                               </Link>
-                            </li>
-                            <li>
-                                <Link>
-                                    three
-                               </Link>
-                            </li>
-                        </ul>
-
-                    </section>
-                    <section>
-                        <h2>Our Vision</h2>
-                        <ul>
-                            <li>
-                                <Link>
-                                    one
-                               </Link>
-                            </li>
-                            <li>
-                                <Link>
-                                    two
-                               </Link>
-                            </li>
-                            <li>
-                                <Link>
-                                    three
-                               </Link>
-                            </li>
-                        </ul>
-                    </section>
-                    <section>
-                        <h2>Our People</h2>
-                        <ul>
-                            <li>
-                                <Link>
-                                    one
-                               </Link>
-                            </li>
-                            <li>
-                                <Link>
-                                    two
-                               </Link>
-                            </li>
-                            <li>
-                                <Link>
-                                    three
-                               </Link>
-                            </li>
-                        </ul>
-                    </section>
-                    <section>
-                        <h2>Support Us</h2>
-                        <ul>
-                            <li>
-                                <Link>
-                                    one
-                               </Link>
-                            </li>
-                            <li>
-                                <Link>
-                                    two
-                               </Link>
-                            </li>
-                            <li>
-                                <Link>
-                                    three
-                               </Link>
-                            </li>
-                        </ul>
-                    </section>
-
-                </section>
-            </main>
-        </div>
+          <section className="four-columns">
+            <section>
+              <h2>Overview</h2>
+              <ul>
+                <li>
+                  <Link>one</Link>
+                </li>
+                <li>
+                  <Link>two</Link>
+                </li>
+                <li>
+                  <Link>three</Link>
+                </li>
+              </ul>
+            </section>
+            <section>
+              <h2>Our Vision</h2>
+              <ul>
+                <li>
+                  <Link>one</Link>
+                </li>
+                <li>
+                  <Link>two</Link>
+                </li>
+                <li>
+                  <Link>three</Link>
+                </li>
+              </ul>
+            </section>
+            <section>
+              <h2>Our People</h2>
+              <ul>
+                <li>
+                  <Link>one</Link>
+                </li>
+                <li>
+                  <Link>two</Link>
+                </li>
+                <li>
+                  <Link>three</Link>
+                </li>
+              </ul>
+            </section>
+            <section>
+              <h2>Support Us</h2>
+              <ul>
+                <li>
+                  <Link>one</Link>
+                </li>
+                <li>
+                  <Link>two</Link>
+                </li>
+                <li>
+                  <Link>three</Link>
+                </li>
+              </ul>
+            </section>
+          </section>
+        </main>
+      </div>
     </Layout>
-)
+  )
+}
 
 export default HelpServicesPage

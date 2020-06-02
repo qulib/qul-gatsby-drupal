@@ -1,10 +1,8 @@
-import React from "react"
-import { Link } from "gatsby"
-
+import React from 'react'
+import { Link } from 'gatsby'
 import NewsCard from '../global/NewsCard.jsx'
 
-const NewsEvents = ({ data }) => {
-  // console.log(data)
+function NewsEvents({ data }) {
   return (
     <section className="news-events">
       <h2 className="section-title">News & Events</h2>
@@ -13,7 +11,9 @@ const NewsEvents = ({ data }) => {
           <NewsCard key={node.drupal_internal__nid.toString()} node={node} />
         ))}
       </section>
-      <button><Link to="/about-us/news-events">All News & Events</Link></button>
+      <button>
+        <Link to="/about-us/news-events">All News & Events</Link>
+      </button>
     </section>
   )
 }

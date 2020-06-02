@@ -5,7 +5,7 @@ import Img from 'gatsby-image'
 import { formatDate } from '../library/functions.js'
 import Layout, { siteTitle } from '../components/Layout.jsx'
 import Breadcrumbs from '../components/global/Breadcrumbs.jsx'
-import AskUsWidget from '../components/homepage/AskUsWidget.jsx'
+import AskUsWidget from '../components/global/AskUsWidget.jsx'
 
 function NewsEventTemplate({ data }) {
   const post = data.nodeNewsEvents

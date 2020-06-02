@@ -1,29 +1,29 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 // import { Link } from 'gatsby'
-import Layout from '../../components/Layout.jsx'
+import Layout, { siteTitle } from '../../components/Layout.jsx'
 import Breadcrumbs from '../../components/global/Breadcrumbs.jsx'
 
-const title = "All Locations & Hours"
+const pageTitle = 'All Locations & Hours'
 
-const AllLocationsPage = () => (
+function AllLocationsPage() {
+  return (
     <Layout>
-
-        <Helmet>
-            <title>{title}</title>
-        </Helmet>
-        <Breadcrumbs />
-        <div id="all-locations-hours-page">
-
-            <main className="content">
-
-                <h1>{title}</h1>
-                <p>Google Map</p>
-                <p>LibCal hours</p>
-
-            </main>
-        </div>
+      <Helmet>
+        <title>
+          {siteTitle} - {pageTitle}
+        </title>
+      </Helmet>
+      <Breadcrumbs />
+      <div id="all-locations-hours-page">
+        <main className="content">
+          <h1>{pageTitle}</h1>
+          <p>Google Map</p>
+          <p>LibCal hours</p>
+        </main>
+      </div>
     </Layout>
-)
+  )
+}
 
 export default AllLocationsPage

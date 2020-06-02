@@ -1,102 +1,87 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { Link } from 'gatsby'
-import Layout from '../../components/Layout.jsx'
-// import Breadcrumbs from '../../components/global/Breadcrumbs.jsx'
+import Layout, { siteTitle } from '../../components/Layout.jsx'
 
-const title = "Locations & Hours"
+const pageTitle = 'Locations & Hours'
 
-const LocationsPage = () => (
+function LocationsPage() {
+  return (
     <Layout>
+      <Helmet>
+        <title>
+          {siteTitle} - {pageTitle}
+        </title>
+      </Helmet>
 
-        <Helmet>
-            <title>{title}</title>
-        </Helmet>
- 
-        <div id="locations-hours-page">
+      <div id="locations-hours-page">
+        <main className="content">
+          <h1>{pageTitle}</h1>
+          <p>hot blurb!</p>
 
-            <main className="content">
-
-                <h1>{title}</h1>
-                <p>hot blurb!</p>
-
-                <section className="three-columns">
-
-                    <section>
-                        <h2>Locations</h2>
-                        <ul>
-                            <li>
-                                <Link to="/">All Locations & Hours</Link>
-                            </li>
-                            <li>
-                                <Link to="/">Stauffer Library</Link>
-                            </li>
-                            <li>
-                                <Link to="/">Douglas Library</Link>
-                            </li>
-                            <li>
-                                <Link to="/">Bracken Health Sciences Library</Link>
-                            </li>
-                            <li>
-                                <Link to="/">Education Library</Link>
-                            </li>
-                            <li>
-                                <Link to="/">Jordan Special Collections</Link>
-                            </li>
-                            <li>
-                                <Link to="/">Lederman Law Library</Link>
-                            </li>
-                            <li>
-                                <Link to="/">University Archives</Link>
-                            </li>
-                        </ul>
-
-                    </section>
-                    <section>
-                        <h2>About our Locations</h2>
-                        <ul>
-                            <li>
-                                <Link>
-                                    one
-                               </Link>
-                            </li>
-                            <li>
-                                <Link>
-                                    two
-                               </Link>
-                            </li>
-                            <li>
-                                <Link>
-                                    three
-                               </Link>
-                            </li>
-                        </ul>
-                    </section>
-                    <section>
-                        <h2>Technology</h2>
-                        <ul>
-                            <li>
-                                <Link>
-                                    one
-                               </Link>
-                            </li>
-                            <li>
-                                <Link>
-                                    two
-                               </Link>
-                            </li>
-                            <li>
-                                <Link>
-                                    three
-                               </Link>
-                            </li>
-                        </ul>
-                    </section>
-
-                </section>
-            </main>
-        </div>
+          <section className="three-columns">
+            <section>
+              <h2>Locations</h2>
+              <ul>
+                <li>
+                  <Link to="/">All Locations & Hours</Link>
+                </li>
+                <li>
+                  <Link to="/">Stauffer Library</Link>
+                </li>
+                <li>
+                  <Link to="/">Douglas Library</Link>
+                </li>
+                <li>
+                  <Link to="/">Bracken Health Sciences Library</Link>
+                </li>
+                <li>
+                  <Link to="/">Education Library</Link>
+                </li>
+                <li>
+                  <Link to="/">Jordan Special Collections</Link>
+                </li>
+                <li>
+                  <Link to="/">Lederman Law Library</Link>
+                </li>
+                <li>
+                  <Link to="/">University Archives</Link>
+                </li>
+              </ul>
+            </section>
+            <section>
+              <h2>About our Locations</h2>
+              <ul>
+                <li>
+                  <Link>one</Link>
+                </li>
+                <li>
+                  <Link>two</Link>
+                </li>
+                <li>
+                  <Link>three</Link>
+                </li>
+              </ul>
+            </section>
+            <section>
+              <h2>Technology</h2>
+              <ul>
+                <li>
+                  <Link>one</Link>
+                </li>
+                <li>
+                  <Link>two</Link>
+                </li>
+                <li>
+                  <Link>three</Link>
+                </li>
+              </ul>
+            </section>
+          </section>
+        </main>
+      </div>
     </Layout>
-)
+  )
+}
 
 export default LocationsPage
