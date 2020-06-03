@@ -1,3 +1,44 @@
+.header-top {
+  display: grid;
+  align-items: center;
+
+  .pagination {
+    justify-self: right;
+    padding: 0 2rem 2rem !important;
+  }
+
+  @include breakpoint($tablet) {
+    .pagination {
+      padding: 2rem !important;
+    }
+  }
+}
+
+.filters {
+  background-color: $clr-qul-yellow;
+  padding: 1rem 2rem;
+  display: grid;
+  grid-gap: 2rem;
+  align-items: center;
+}
+
+.filter-results {
+  padding: 0 2rem 1rem;
+  background-color: $clr-qul-yellow-lighter;
+  color: $clr-primary;
+  text-align: right;
+  border-bottom: 3px solid $clr-primary;
+  width: 100%;
+
+  li {
+    margin: 1rem 8px 0 0;
+  }
+
+  svg {
+    vertical-align: baseline;
+  }
+}
+
 .filters {
   background-color: $clr-qul-yellow;
   padding: 1rem 2rem;
@@ -5,36 +46,5 @@
   label,
   input {
     margin-right: 1rem;
-  }
-
-  label, .ant-pagination-total-text {
-    color: $clr-primary;
-    font-weight: 300;
-    font-size: 1rem;
-  }
-
-  input {
-    padding: 5px;
-    width: 88%;
-  }
-
-  .filter-actions {
-    padding: 2rem 1rem;
-    background-color: $clr-qul-yellow;
-  }
-
-  .filter-results {
-    padding: 1rem;
-    background-color: $clr-qul-yellow-lighter;
-    color: $clr-primary;
-    width: 100%;
-    text-align: center;
-  }
-
-  /* antd things */
-  .ant-input-suffix {
-    // width: 30px;
-    // height: 30px;
-    // background-color: white;
   }
 }

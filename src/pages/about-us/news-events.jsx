@@ -58,9 +58,6 @@ function AllNewsEventsPage({ data }) {
     })
   }
 
-  // pagination
-  const pagedNewsEvents = paginate(filteredNewsEvents)
-
   const displayItems = items => {
     if (items.length > 0) {
       const itemsToDisplay = []
@@ -87,50 +84,50 @@ function AllNewsEventsPage({ data }) {
       </Helmet>
 
       <Breadcrumbs />
-
-      <header className="full-width-header">
-        <h1>{pageTitle}</h1>
-
-        <section className="filters">
-          <section className="category-filter">
-            <Select
-              placeholder="Category"
-              style={{ width: '100%' }}
-              onChange={value => updateCategory(value)}
-              allowClear
-            >
-              {categories}
-            </Select>
-          </section>
-
-          <section className="search-filter">
-            <Search
-              placeholder="Title"
-              allowClear
-              enterButton
-              onChange={e => updateSearch(e.target.value)}
-              onSearch={value => updateSearch(value)}
+      <div className="news-events-page">
+        <header className="full-width-header">
+          <section className="header-top">
+            <h1>{pageTitle}</h1>
+            <Pagination
+              total={filteredNewsEvents.length}
+              current={page}
+              showTotal={(total, range) =>
+                `${range[0]}-${range[1]} of ${total} items`
+              }
+              pageSize={cardsPerPage}
+              className="pagination"
+              onChange={page => setPage(page)}
             />
           </section>
-        </section>
 
-        <section className="filter-results">
-          <Pagination
-            total={filteredNewsEvents.length}
-            current={page}
-            showTotal={(total, range) =>
-              `${range[0]}-${range[1]} of ${total} items`
-            }
-            pageSize={cardsPerPage}
-            className="pagination"
-            onChange={page => setPage(page)}
-          />
-        </section>
-      </header>
+          <section className="filters">
+            <section className="category-filter">
+              <Select
+                placeholder="Category"
+                style={{ width: '100%' }}
+                onChange={value => updateCategory(value)}
+                allowClear
+              >
+                {categories}
+              </Select>
+            </section>
 
-      <main className="news-events-page">
-        <section className="news-grid">{displayItems(pagedNewsEvents)}</section>
-      </main>
+            <section className="search-filter">
+              <Search
+                placeholder="Title"
+                allowClear
+                enterButton
+                onChange={e => updateSearch(e.target.value)}
+                onSearch={value => updateSearch(value)}
+              />
+            </section>
+          </section>
+        </header>
+
+        <main className="news-grid">
+          {displayItems(paginate(filteredNewsEvents))}
+        </main>
+      </div>
     </Layout>
   )
 }

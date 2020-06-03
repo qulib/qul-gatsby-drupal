@@ -1,0 +1,11 @@
+.staff-directory-page {
+  .filters {
+    border-bottom: 3px solid $clr-primary;
+    @include breakpoint($tablet) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+  .staff-list {
+    padding: 2rem;
+  }
+}

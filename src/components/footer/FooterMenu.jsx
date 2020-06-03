@@ -57,7 +57,7 @@ function FooterMenu() {
           <Link to="/">Support Your Library</Link>
         </button>
         <button>
-          <Link to="/">Staff Directory</Link>
+          <Link to="/about-us/staff-directory">Staff Directory</Link>
         </button>
         <button>
           <Link to="/">Accessibility</Link>
