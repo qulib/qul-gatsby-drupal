@@ -18,4 +18,9 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 2rem;
   }
+
+  .pagination-footer {
+    padding: 0 2rem 2rem;
+    text-align: right;
+  }
 }

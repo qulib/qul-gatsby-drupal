@@ -18,14 +18,15 @@
       border-bottom: 3px solid $clr-qul-yellow-lighter;
       text-align: center;
       text-transform: uppercase;
-      // font-weight: bold;
       color: $clr-primary;
     }
 
     ul {
+      list-style: none;
       text-align: center;
+      padding: 0;
+
       li {
-        // text-align: center;
         padding-bottom: 0.5rem;
       }
     }
@@ -63,7 +64,5 @@
         height: 100%;
       }
     }
-
-
   }
 }
