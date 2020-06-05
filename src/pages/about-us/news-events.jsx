@@ -35,11 +35,13 @@ function AllNewsEventsPage({ data }) {
   }
 
   // create category filter
-  const categories = []
-  data.allTaxonomyTermNewsEventsCategory.edges.forEach(({ node }) => {
-    categories.push(
-      <Option key={node.drupal_internal__tid} value={node.drupal_internal__tid}>
-        {node.name}
+  const categories = data.allTaxonomyTermNewsEventsCategory.edges.map(edge => {
+    return (
+      <Option
+        key={edge.node.drupal_internal__tid}
+        value={edge.node.drupal_internal__tid}
+      >
+        {edge.node.name}
       </Option>
     )
   })
@@ -60,20 +62,30 @@ function AllNewsEventsPage({ data }) {
 
   const displayItems = items => {
     if (items.length > 0) {
-      const itemsToDisplay = []
-      items.map(item => {
-        itemsToDisplay.push(
+      return items.map(item => {
+        return (
           <NewsCard
             key={item.node.drupal_internal__nid.toString()}
             node={item.node}
           />
         )
       })
-      return itemsToDisplay
     } else {
-      return 'No items found'
+      return <p>No items found</p>
     }
   }
+
+  // create pagination widget
+  const pagination = (
+    <Pagination
+      total={filteredNewsEvents.length}
+      current={page}
+      showTotal={(total, range) => `${range[0]}-${range[1]} of ${total} items`}
+      pageSize={cardsPerPage}
+      className="pagination"
+      onChange={page => setPage(page)}
+    />
+  )
 
   return (
     <Layout>
@@ -88,16 +100,7 @@ function AllNewsEventsPage({ data }) {
         <header className="full-width-header">
           <section className="header-top">
             <h1>{pageTitle}</h1>
-            <Pagination
-              total={filteredNewsEvents.length}
-              current={page}
-              showTotal={(total, range) =>
-                `${range[0]}-${range[1]} of ${total} items`
-              }
-              pageSize={cardsPerPage}
-              className="pagination"
-              onChange={page => setPage(page)}
-            />
+            {pagination}
           </section>
 
           <section className="filters">
@@ -127,6 +130,7 @@ function AllNewsEventsPage({ data }) {
         <main className="news-grid">
           {displayItems(paginate(filteredNewsEvents))}
         </main>
+        <footer className="pagination-footer">{pagination}</footer>
       </div>
     </Layout>
   )
