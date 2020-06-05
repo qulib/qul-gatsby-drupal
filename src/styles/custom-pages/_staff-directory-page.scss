@@ -7,5 +7,60 @@
   }
   .staff-list {
     padding: 2rem;
+
+    ul {
+      padding: 0;
+      list-style-type: none;
+      // font-size: 1rem;
+
+      li.staff-listing {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 1fr 2fr 2fr 1fr;
+        grid-gap: 1rem;
+        padding: 1rem 0;
+        border-bottom: 1px solid $clr-primary;
+
+        .headshot-placeholder {
+          font-size: 100px;
+          fill: $clr-qul-gray-lighter;
+        }
+
+        .staff-info {
+          span {
+            display: block;
+          }
+          .full-name {
+            font-weight: bold;
+            font-size: 1rem;
+            color: $clr-primary;
+          }
+          .job-title {
+            font-style: italic;
+          }
+        }
+
+        .staff-contact {
+          li {
+            display: block;
+            margin-top: 0.5rem;
+            svg {
+              display: inline-block;
+              vertical-align: middle;
+              font-size: 1rem;
+              fill: $clr-qul-yellow;
+              margin-right: 1rem;
+            }
+          }
+        }
+
+        .more-info {
+          justify-self: right;
+          button {
+            @include button-style($clr-primary);
+          }
+        }
+      }
+    }
   }
 }
