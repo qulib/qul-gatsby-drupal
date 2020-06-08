@@ -5,7 +5,7 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 // import Img from 'gatsby-image'
 // import { Link } from 'gatsby'
-import Layout from '../components/Layout.jsx'
+import Layout, { siteTitle } from '../components/Layout.jsx'
 import Breadcrumbs from '../components/global/Breadcrumbs.jsx'
 import AskUsWidget from '../components/global/AskUsWidget.jsx'
 
@@ -17,7 +17,7 @@ function BasicPageTemplate({ data }) {
   return (
     <Layout>
       <Helmet>
-        <title>QUL - {post.title}</title>
+        {siteTitle} - {post.title}
       </Helmet>
       <Breadcrumbs />
       <div className="basic-page">

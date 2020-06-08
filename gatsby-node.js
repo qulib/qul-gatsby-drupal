@@ -21,6 +21,16 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
           }
         }
       }
+      allNodeStaffProfile {
+        edges {
+          node {
+            path {
+              alias
+            }
+            drupal_internal__nid
+          }
+        }
+      }
     }
   `)
 
@@ -37,7 +47,7 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
       path: page.path.alias,
       component: require.resolve(`./src/templates/BasicPageTemplate.jsx`),
       context: {
-        id: page.drupal_internal__nid
+        id: page.drupal_internal__nid,
       },
     })
   })
@@ -50,7 +60,20 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
       path: newsEvent.path.alias,
       component: require.resolve(`./src/templates/NewsEventTemplate.jsx`),
       context: {
-        id: newsEvent.drupal_internal__nid
+        id: newsEvent.drupal_internal__nid,
+      },
+    })
+  })
+
+  // staff profiles
+  results.data.allNodeStaffProfile.edges.forEach(edge => {
+    const staffProfile = edge.node
+
+    createPage({
+      path: staffProfile.path.alias,
+      component: require.resolve(`./src/templates/StaffProfileTemplate.jsx`),
+      context: {
+        id: staffProfile.drupal_internal__nid,
       },
     })
   })

@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import Header from '../components/header/Header'
 import Footer from '../components/footer/Footer'
 import { siteTitle } from '../components/Layout.jsx'
-import Banner from '../components/homepage/Banner.jsx'
+// import Banner from '../components/homepage/Banner.jsx'
 import OmniWidget from '../components/homepage/OmniWidget.jsx'
 import Hours from '../components/homepage/Hours.jsx'
 import QuickLinks from '../components/homepage/QuickLinks.jsx'
@@ -28,7 +28,7 @@ function Home({ data }) {
       <Header />
       <div id="home" className="container">
         <h1>Home</h1>
-        <Banner />
+        {/* <Banner /> */}
         <section className="omni-ask-us">
           <OmniWidget />
           <AskUsWidget />

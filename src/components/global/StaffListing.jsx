@@ -2,20 +2,23 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { MdEmail } from 'react-icons/md'
-import { FaPhone, FaUserAlt } from 'react-icons/fa'
+import { FaPhone, FaUserAlt, FaArrowRight } from 'react-icons/fa'
 
 function StaffListing({ node }) {
   // console.log(node)
 
-  let headshot = <FaUserAlt className="headshot-placeholder" />
-  if (node.relationships.field_headshot) {
-    headshot = (
-      <Img
-        fixed={
-          node.relationships.field_headshot.localFile.childImageSharp.fixed
-        }
-      />
-    )
+  const Headshot = () => {
+    if (node.relationships.field_headshot) {
+      return (
+        <Img
+          fixed={
+            node.relationships.field_headshot.localFile.childImageSharp.fixed
+          }
+        />
+      )
+    } else {
+      return <FaUserAlt className="headshot-placeholder" />
+    }
   }
 
   const displayUnit = units => {
@@ -26,7 +29,9 @@ function StaffListing({ node }) {
 
   return (
     <li key={node.drupal_internal__nid} className="staff-listing">
-      {headshot}
+      <section className="headshot">
+        <Headshot />
+      </section>
       <section className="staff-info">
         <span className="full-name">
           {node.field_last_name}, {node.field_first_name}
@@ -50,7 +55,9 @@ function StaffListing({ node }) {
       </section>
       <section className="more-info">
         <button>
-          <Link to="/">More Info</Link>
+          <Link to="/">
+            More <FaArrowRight />
+          </Link>
         </button>
       </section>
     </li>

@@ -1,12 +1,10 @@
 .staff-directory-page {
   .filters {
     border-bottom: 3px solid $clr-primary;
-    @include breakpoint($tablet) {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
   }
   .staff-list {
     padding: 2rem;
+    overflow: hidden;
 
     ul {
       padding: 0;
@@ -16,8 +14,6 @@
       li.staff-listing {
         display: grid;
         align-items: center;
-        grid-template-columns: 1fr 2fr 2fr 1fr;
-        grid-gap: 1rem;
         padding: 1rem 0;
         border-bottom: 1px solid $clr-primary;
 
@@ -55,11 +51,39 @@
         }
 
         .more-info {
-          justify-self: right;
+          margin-top: 1rem;
+
           button {
             @include button-style($clr-primary);
+
+            svg {
+              display: inline-block;
+              vertical-align: middle;
+              font-size: 1rem;
+              margin-left: 5px;
+            }
           }
         }
+      }
+    }
+  }
+
+  @include breakpoint($tablet) {
+    .filters {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .staff-list {
+      ul {
+        li.staff-listing {
+          grid-template-columns: 1fr 2fr 2fr 1fr;
+          grid-gap: 1rem;
+        }
+      }
+
+      .more-info {
+        margin-top: 0 !important;
+        justify-self: right;
       }
     }
   }
