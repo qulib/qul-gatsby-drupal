@@ -1,0 +1,60 @@
+.staff-profile-page {
+  @include sidebar;
+
+  .content {
+    h1 {
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+    // background-color: greenyellow;
+    .headshot {
+      max-width: 250px;
+      margin-bottom: 1rem;
+    }
+
+    .text {
+      h2 {
+        margin-top: 1rem;
+      }
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+          svg {
+            margin-right: 0.5rem;
+          }
+        }
+
+        &.contact {
+          .job-title {
+            font-style: italic;
+          }
+
+          svg {
+            fill: $clr-qul-yellow;
+          }
+        }
+      }
+      .cv {
+        li {
+          svg {
+            fill: $clr-secondary;
+          }
+        }
+      }
+    }
+  }
+
+  @include breakpoint($tablet) {
+    .content {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+
+      .text {
+        padding-left: 2rem;
+      }
+    }
+  }
+}

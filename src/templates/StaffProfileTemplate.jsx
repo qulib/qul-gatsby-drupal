@@ -7,13 +7,85 @@ import Layout, { siteTitle } from '../components/Layout.jsx'
 import Breadcrumbs from '../components/global/Breadcrumbs.jsx'
 import AskUsWidget from '../components/global/AskUsWidget.jsx'
 import { MdEmail } from 'react-icons/md'
-import { FaPhone } from 'react-icons/fa'
+import { FaPhone, FaFilePdf } from 'react-icons/fa'
 // import { FaUserAlt } from 'react-icons/fa'
 
 function Headshot({ image }) {
-  // console.log('image: ', image)
   if (image) {
-    return <Img fluid={image} />
+    return <Img fluid={image.localFile.childImageSharp.fluid} />
+  } else {
+    return ''
+  }
+}
+
+function Bio({ bio }) {
+  if (bio) {
+    return (
+      <section className="bio">
+        <p dangerouslySetInnerHTML={{ __html: bio.processed }} />
+      </section>
+    )
+  } else {
+    return ''
+  }
+}
+
+function Units({ units }) {
+  const unitListItems = units.map(unit => {
+    return (
+      <li key={unit.drupal_internal__tid}>
+        <Link to="/">{unit.name}</Link>
+      </li>
+    )
+  })
+  return (
+    <section className="units">
+      <h2>Units</h2>
+      <ul>{unitListItems}</ul>
+    </section>
+  )
+}
+
+function Subjects({ subjects }) {
+  console.log(subjects)
+  if (subjects.length > 0) {
+    const subjectListItems = subjects.map(subject => {
+      return (
+        <li key={subject.drupal_internal__tid}>
+          <Link to="/">{subject.name}</Link>
+        </li>
+      )
+    })
+    return (
+      <section className="subjects">
+        <h2>Subjects</h2>
+        <ul>{subjectListItems}</ul>
+      </section>
+    )
+  } else {
+    return ''
+  }
+}
+
+function CV({ cv }) {
+  // console.log('cv: ', cv)
+
+  if (cv) {
+    const fileSize = (cv.localFile.size / 1000).toPrecision(3)
+    return (
+      <section className="cv">
+        <h2>CV</h2>
+        <ul>
+          <li>
+            <Link to={cv.localFile.publicURL}>
+              <FaFilePdf className="inline-svg" />
+              {cv.localFile.name}
+            </Link>{' '}
+            ({fileSize} KB)
+          </li>
+        </ul>
+      </section>
+    )
   } else {
     return ''
   }
@@ -21,22 +93,8 @@ function Headshot({ image }) {
 
 // add error checking to data assignments
 function StaffProfileTemplate({ data }) {
-  console.log('data is: ', data)
+  // console.log('data is: ', data)
   const node = data.nodeStaffProfile
-
-  // const Headshot = () => {
-  //   if (post.relationships.field_headshot) {
-  //     return (
-  //       <Img
-  //         fixed={
-  //           post.relationships.field_headshot.localFile.childImageSharp.fixed
-  //         }
-  //       />
-  //     )
-  //   } else {
-  //     return <FaUserAlt className="headshot-placeholder" />
-  //   }
-  // }
 
   return (
     <Layout>
@@ -49,34 +107,30 @@ function StaffProfileTemplate({ data }) {
       <div className="staff-profile-page">
         <main className="content">
           <h1>{node.title}</h1>
+
           <section className="headshot">
-            <Headshot
-              image={
-                node.relationships.field_headshot.localFile.childImageSharp
-                  .fluid
-              }
-            />
+            <Headshot image={node.relationships.field_headshot} />
           </section>
-          <section className="meta">
-            <ul>
-              <li>{node.field_job_title}</li>
+          <section className="text">
+            <ul className="contact">
+              <li className="job-title">{node.field_job_title}</li>
               <li>
-                <FaPhone />
+                <FaPhone className="inline-svg" />
                 {node.field_phone}
               </li>
               <li>
                 <a href={'mailto:' + node.field_email}>
-                  <MdEmail />
+                  <MdEmail className="inline-svg" />
                   {node.field_email}
                 </a>
               </li>
             </ul>
-          </section>
-          <section className="bio">
-            <p dangerouslySetInnerHTML={{ __html: node.field_bio.processed }} />
-          </section>
 
-          {/* <div dangerouslySetInnerHTML={{ __html: post.body.processed }} /> */}
+            <Bio bio={node.field_bio} />
+            <Units units={node.relationships.field_units} />
+            <Subjects subjects={node.relationships.field_subjects} />
+            <CV cv={node.relationships.field_cv} />
+          </section>
         </main>
 
         <aside className="sidebar">
@@ -122,7 +176,8 @@ export const pageQuery = graphql`
         field_cv {
           localFile {
             size
-            relativeDirectory
+            name
+            publicURL
           }
         }
         field_headshot {

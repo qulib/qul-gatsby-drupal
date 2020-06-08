@@ -55,7 +55,7 @@ function StaffListing({ node }) {
       </section>
       <section className="more-info">
         <button>
-          <Link to="/">
+          <Link to={node.path.alias}>
             More <FaArrowRight />
           </Link>
         </button>

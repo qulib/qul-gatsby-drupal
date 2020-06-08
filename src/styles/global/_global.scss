@@ -54,3 +54,9 @@ a {
   grid-gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
+
+.inline-svg {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 1rem;
+}
