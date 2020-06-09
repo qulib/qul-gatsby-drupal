@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
+import { useLocation } from '@reach/router'
+import queryString from 'query-string'
+import { parseParam } from '../../library/functions.js'
 import { Input, Select, Pagination } from 'antd'
 import Layout, { siteTitle } from '../../components/Layout.jsx'
 import Breadcrumbs from '../../components/global/Breadcrumbs.jsx'
@@ -12,9 +15,30 @@ const pageTitle = 'News & Events'
 const cardsPerPage = 6
 
 function AllNewsEventsPage({ data }) {
-  const [category, setCategory] = useState('')
+  const location = useLocation()
+  const locationSearchParams = queryString.parse(location.search)
+
+  // get subject either from Link state or URL query parameter
+  const categoryParam = () => {
+    if (location.state && location.state.category) {
+      return location.state.category
+    } else if (locationSearchParams.category) {
+      return locationSearchParams.category
+    } else {
+      return undefined
+    }
+  }
+
+  // should we add for page #?
+
+  // console.log('location ', location)
+  // console.log('cat param  ', categoryParam())
+
+  const [category, setCategory] = useState(parseParam(categoryParam()))
   const [search, setSearch] = useState('')
   const [page, setPage] = useState(1)
+
+  // console.log('category  ', category)
 
   function updateSearch(value) {
     setSearch(value)
@@ -71,7 +95,7 @@ function AllNewsEventsPage({ data }) {
         )
       })
     } else {
-      return <p>No items found</p>
+      return 'No items found'
     }
   }
 
@@ -108,6 +132,7 @@ function AllNewsEventsPage({ data }) {
               <Select
                 placeholder="Category"
                 style={{ width: '100%' }}
+                value={category}
                 onChange={value => updateCategory(value)}
                 allowClear
               >

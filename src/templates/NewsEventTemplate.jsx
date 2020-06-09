@@ -1,61 +1,82 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { formatDate } from '../library/functions.js'
 import Layout, { siteTitle } from '../components/Layout.jsx'
 import Breadcrumbs from '../components/global/Breadcrumbs.jsx'
 import AskUsWidget from '../components/global/AskUsWidget.jsx'
 
+function Categories({ categories }) {
+  if (categories.length > 0) {
+    const categoryListItems = categories.map(category => {
+      return (
+        <li key={category.drupal_internal__tid}>
+          <Link
+            to="/about-us/news-events"
+            state={{ category: category.drupal_internal__tid }}
+          >
+            {category.name}
+          </Link>
+        </li>
+      )
+    })
+    return (
+      <section className="categories">
+        <h2>Categories</h2>
+        <ul>{categoryListItems}</ul>
+      </section>
+    )
+  } else {
+    return ''
+  }
+}
+
 function NewsEventTemplate({ data }) {
-  const post = data.nodeNewsEvents
-  // console.log('p is:', post)
+  const node = data.nodeNewsEvents
 
-  // options event
+  // options for events
   const eventInfo = []
-  if (post.field_event_date) {
-    eventInfo.push(<span key="1">{formatDate(post.field_event_date)}</span>)
+  if (node.field_event_date) {
+    eventInfo.push(<span key="1">{formatDate(node.field_event_date)}</span>)
   }
 
-  if (post.field_event_time) {
-    eventInfo.push(<span key="2">{post.field_event_time}</span>)
+  if (node.field_event_time) {
+    eventInfo.push(<span key="2">{node.field_event_time}</span>)
   }
 
-  if (post.field_event_location) {
-    eventInfo.push(<span key="3">{post.field_event_location}</span>)
+  if (node.field_event_location) {
+    eventInfo.push(<span key="3">{node.field_event_location}</span>)
   }
 
   if (eventInfo.length !== 0) {
     eventInfo.unshift(<h2 key="0">Event Information</h2>)
   }
 
-  let imageCaption = ''
-  if (post.field_image_caption) {
-    imageCaption = post.field_image_caption
-  }
+  let imageCaption = node.field_image_caption ? node.field_image_caption : ''
 
   return (
     <Layout>
       <Helmet>
         <title>
-          {siteTitle} - {post.title}
+          {siteTitle} - {node.title}
         </title>
       </Helmet>
       <Breadcrumbs />
       <div className="news-event-page">
         <main className="content">
           <header>
-            <h1>{post.title}</h1>
-            <span className="post-date">{formatDate(post.created)}</span>
+            <h1>{node.title}</h1>
+            <span className="post-date">{formatDate(node.created)}</span>
 
             <figure>
               <Img
                 className="post-image"
                 fluid={
-                  post.relationships.field_featured_image.localFile
+                  node.relationships.field_featured_image.localFile
                     .childImageSharp.fluid
                 }
-                alt={post.field_featured_image.alt}
+                alt={node.field_featured_image.alt}
               />
               <figcaption>{imageCaption}</figcaption>
             </figure>
@@ -65,8 +86,10 @@ function NewsEventTemplate({ data }) {
 
           <section
             className="post-body"
-            dangerouslySetInnerHTML={{ __html: post.body.processed }}
+            dangerouslySetInnerHTML={{ __html: node.body.processed }}
           />
+
+          <Categories categories={node.relationships.field_category} />
         </main>
 
         <aside className="sidebar">
@@ -116,6 +139,7 @@ export const pageQuery = graphql`
         }
         field_category {
           drupal_internal__tid
+          name
         }
       }
     }
