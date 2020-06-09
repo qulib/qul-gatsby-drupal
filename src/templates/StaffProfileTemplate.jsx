@@ -8,7 +8,6 @@ import Breadcrumbs from '../components/global/Breadcrumbs.jsx'
 import AskUsWidget from '../components/global/AskUsWidget.jsx'
 import { MdEmail } from 'react-icons/md'
 import { FaPhone, FaFilePdf } from 'react-icons/fa'
-// import { FaUserAlt } from 'react-icons/fa'
 
 function Headshot({ image }) {
   if (image) {
@@ -34,7 +33,12 @@ function Units({ units }) {
   const unitListItems = units.map(unit => {
     return (
       <li key={unit.drupal_internal__tid}>
-        <Link to="/">{unit.name}</Link>
+        <Link
+          to="/about-us/staff-directory"
+          state={{ unit: unit.drupal_internal__tid }}
+        >
+          {unit.name}
+        </Link>
       </li>
     )
   })
@@ -47,12 +51,16 @@ function Units({ units }) {
 }
 
 function Subjects({ subjects }) {
-  console.log(subjects)
   if (subjects.length > 0) {
     const subjectListItems = subjects.map(subject => {
       return (
         <li key={subject.drupal_internal__tid}>
-          <Link to="/">{subject.name}</Link>
+          <Link
+            to="/about-us/staff-directory"
+            state={{ subject: subject.drupal_internal__tid }}
+          >
+            {subject.name}
+          </Link>
         </li>
       )
     })
@@ -68,8 +76,6 @@ function Subjects({ subjects }) {
 }
 
 function CV({ cv }) {
-  // console.log('cv: ', cv)
-
   if (cv) {
     const fileSize = (cv.localFile.size / 1000).toPrecision(3)
     return (
@@ -91,7 +97,6 @@ function CV({ cv }) {
   }
 }
 
-// add error checking to data assignments
 function StaffProfileTemplate({ data }) {
   // console.log('data is: ', data)
   const node = data.nodeStaffProfile

@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import { Input, Select } from 'antd'
+import { useLocation } from '@reach/router'
+import queryString from 'query-string'
+import { parseParam } from '../../library/functions.js'
 import Layout, { siteTitle } from '../../components/Layout.jsx'
 import Breadcrumbs from '../../components/global/Breadcrumbs.jsx'
 import StaffListing from '../../components/global/StaffListing.jsx'
@@ -10,9 +13,53 @@ const { Search } = Input
 const { Option } = Select
 const pageTitle = 'Staff Directory'
 
+function displayStaff(items) {
+  if (items.length > 0) {
+    return items.map(item => {
+      return (
+        <StaffListing
+          key={item.node.drupal_internal__nid.toString()}
+          node={item.node}
+        />
+      )
+    })
+  } else {
+    return 'No staff found'
+  }
+}
+
 function StaffDirectoryPage({ data }) {
-  const [subject, setSubject] = useState('')
-  const [unit, setUnit] = useState('')
+  const location = useLocation()
+  const locationSearchParams = queryString.parse(location.search)
+
+  // get subject either from Link state or URL query parameter
+  const subjectParam = () => {
+    if (location.state && location.state.subject) {
+      return location.state.subject
+    } else if (locationSearchParams.subject) {
+      return locationSearchParams.subject
+    } else {
+      return undefined
+    }
+  }
+
+  // get unit either from Link state or URL query parameter
+  const unitParam = () => {
+    if (location.state && location.state.unit) {
+      return location.state.unit
+    } else if (locationSearchParams.unit) {
+      return locationSearchParams.unit
+    } else {
+      return undefined
+    }
+  }
+
+  // console.log('location ', location)
+  // console.log('subject param  ', subjectParam())
+  // console.log('unit param  ', unitParam())
+
+  const [subject, setSubject] = useState(parseParam(subjectParam()))
+  const [unit, setUnit] = useState(parseParam(unitParam()))
   const [search, setSearch] = useState('')
 
   // create subject filter
@@ -62,21 +109,6 @@ function StaffDirectoryPage({ data }) {
     })
   }
 
-  const displayItems = items => {
-    if (items.length > 0) {
-      return items.map(item => {
-        return (
-          <StaffListing
-            key={item.node.drupal_internal__nid.toString()}
-            node={item.node}
-          />
-        )
-      })
-    } else {
-      return <p>No staff found</p>
-    }
-  }
-
   return (
     <Layout>
       <Helmet>
@@ -97,6 +129,7 @@ function StaffDirectoryPage({ data }) {
                 placeholder="Subject"
                 style={{ width: '100%' }}
                 onChange={value => setSubject(value)}
+                value={subject}
                 allowClear
               >
                 {subjects}
@@ -108,6 +141,7 @@ function StaffDirectoryPage({ data }) {
                 placeholder="Unit"
                 style={{ width: '100%' }}
                 onChange={value => setUnit(value)}
+                value={unit}
                 allowClear
               >
                 {units}
@@ -127,7 +161,7 @@ function StaffDirectoryPage({ data }) {
         </header>
 
         <main className="staff-list">
-          <ul>{displayItems(filteredStaff)}</ul>
+          <ul>{displayStaff(filteredStaff)}</ul>
         </main>
       </div>
     </Layout>
