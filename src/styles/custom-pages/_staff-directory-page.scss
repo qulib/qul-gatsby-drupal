@@ -53,14 +53,11 @@
         .more-info {
           margin-top: 1rem;
 
-          button {
+          .button {
             @include button-style($clr-primary);
 
             svg {
-              display: inline-block;
-              vertical-align: middle;
-              font-size: 1rem;
-              margin-left: 5px;
+              margin-left: 0.5rem;
             }
           }
         }

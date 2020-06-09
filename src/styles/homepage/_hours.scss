@@ -2,7 +2,7 @@
   // @include debug;
   display: grid;
   grid-gap: 2rem;
-  background: url("../images/hours-bg.svg") no-repeat;
+  background: url('../images/hours-bg.svg') no-repeat;
   background-size: cover;
   padding: 2rem;
   align-items: center;
@@ -20,7 +20,7 @@
       align-self: center;
       justify-self: center;
 
-      div[type="second"] {
+      div[type='second'] {
         display: none;
       }
     }
@@ -54,7 +54,7 @@
       }
     }
 
-    button {
+    .button {
       justify-self: center;
       @include button-style($clr-primary);
     }

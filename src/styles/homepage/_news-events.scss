@@ -1,6 +1,6 @@
 .news-events {
   display: grid;
-  background: url("../images/news-bg.svg") no-repeat;
+  background: url('../images/news-bg.svg') no-repeat;
   background-size: cover;
   padding: 2rem 0;
 
@@ -16,7 +16,7 @@
     // overflow: hidden;
   }
 
-  button {
+  .button {
     @include button-style($clr-qul-gray-darker);
     justify-self: center;
     margin-top: 2rem;

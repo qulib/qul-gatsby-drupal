@@ -20,7 +20,7 @@
   .buttons {
     display: grid;
 
-    button {
+    .button {
       @include button-style($clr-secondary);
       width: 100%;
       margin-top: 1rem;

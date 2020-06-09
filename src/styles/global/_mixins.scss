@@ -29,7 +29,7 @@
 @mixin button-style($baseColour) {
   background-color: $baseColour;
   color: white;
-  border: none;
+  border: 3px solid transparent;
   border-bottom: 3px solid darken($baseColour, 10%);
   font-family: $font-main;
   cursor: pointer;
@@ -38,14 +38,16 @@
   height: 40px;
   max-width: 250px;
   overflow: hidden;
+  text-align: center;
+
+  &:hover {
+    text-decoration: none;
+    background-color: darken($baseColour, 5%);
+    @include fade;
+  }
 
   a {
     color: white;
     text-decoration: none;
-  }
-
-  &:hover {
-    background-color: darken($baseColour, 5%);
-    @include fade;
   }
 }
