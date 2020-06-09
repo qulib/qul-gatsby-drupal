@@ -11,9 +11,10 @@ function NewsEvents({ data }) {
           <NewsCard key={node.drupal_internal__nid.toString()} node={node} />
         ))}
       </section>
-      <button>
-        <Link to="/about-us/news-events">All News & Events</Link>
-      </button>
+
+      <Link className="button" to="/about-us/news-events">
+        All News & Events
+      </Link>
     </section>
   )
 }

@@ -53,18 +53,21 @@ function FooterMenu() {
       </section>
 
       <ul className="buttons">
-        <button>
-          <Link to="/">Support Your Library</Link>
-        </button>
-        <button>
-          <Link to="/about-us/staff-directory">Staff Directory</Link>
-        </button>
-        <button>
-          <Link to="/">Accessibility</Link>
-        </button>
-        <button>
-          <Link to="/">Privacy</Link>
-        </button>
+        <Link className="button" to="/">
+          Support Your Library
+        </Link>
+
+        <Link className="button" to="/about-us/staff-directory">
+          Staff Directory
+        </Link>
+
+        <Link className="button" to="/">
+          Accessibility
+        </Link>
+
+        <Link className="button" to="/">
+          Privacy
+        </Link>
       </ul>
     </nav>
   )

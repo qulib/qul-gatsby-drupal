@@ -54,11 +54,9 @@ function StaffListing({ node }) {
         </ul>
       </section>
       <section className="more-info">
-        <button>
-          <Link to={node.path.alias}>
-            More <FaArrowRight />
-          </Link>
-        </button>
+        <Link className="button" to={node.path.alias}>
+          More <FaArrowRight className="inline-svg" />
+        </Link>
       </section>
     </li>
   )
