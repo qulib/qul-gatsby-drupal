@@ -1,4 +1,12 @@
 #home {
+  @import 'banner.scss';
+  @import 'omni-widget.scss';
+  @import 'ask-us-widget.scss';
+  @import 'hours-links.scss';
+  @import 'people-counter-widget.scss';
+  @import 'news-events.scss';
+  @import 'featured-slider.scss';
+  @import 'chat-widget.scss';
 
   h1 {
     position: absolute;
@@ -10,7 +18,6 @@
     justify-self: center;
     text-transform: uppercase;
     padding-bottom: 1rem;
-    // font-weight: bold;
   }
 
   .omni-ask-us {
@@ -32,19 +39,8 @@
   }
 
   @include breakpoint($desktop) {
-
     .omni-ask-us {
-      padding: 3rem 2rem;;
+      padding: 3rem 2rem;
     }
   }
-
-  @import "banner.scss";
-  @import "omni-widget.scss";
-  @import "ask-us-widget.scss";
-  @import "hours.scss";
-  @import "people-counter-widget.scss";
-  @import "quick-links.scss";
-  @import "news-events.scss";
-  @import "featured-slider.scss";
-  @import "chat-widget.scss";
 }

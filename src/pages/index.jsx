@@ -6,8 +6,7 @@ import Footer from '../components/footer/Footer'
 import { siteTitle } from '../components/Layout.jsx'
 // import Banner from '../components/homepage/Banner.jsx'
 import OmniWidget from '../components/homepage/OmniWidget.jsx'
-import Hours from '../components/homepage/Hours.jsx'
-import QuickLinks from '../components/homepage/QuickLinks.jsx'
+import HoursLinks from '../components/homepage/HoursLinks.jsx'
 import NewsEvents from '../components/homepage/NewsEvents.jsx'
 import FeaturedSlider from '../components/homepage/FeaturedSlider.jsx'
 import AskUsWidget from '../components/global/AskUsWidget.jsx'
@@ -33,8 +32,7 @@ function Home({ data }) {
           <OmniWidget />
           <AskUsWidget />
         </section>
-        <Hours />
-        <QuickLinks />
+        <HoursLinks />
         <NewsEvents data={data.allNodeNewsEvents} />
         <FeaturedSlider />
       </div>

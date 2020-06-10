@@ -1,15 +1,17 @@
 .people-counter {
   display: grid;
   grid-gap: 1rem;
+  justify-items: center;
 
-  .ant-progress-inner {
-    background-color: white;
-    width: 180px !important;
-    height: 180px !important;
+  .ant-progress {
+    .ant-progress-inner {
+      background-color: white;
+      width: 180px !important;
+      height: 180px !important;
+    }
   }
 
   a {
-    justify-self: center;
     color: $clr-primary;
   }
 }
