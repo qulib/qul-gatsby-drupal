@@ -3,45 +3,46 @@
 
   .content {
     h1 {
-      grid-column-start: 1;
-      grid-column-end: 3;
-    }
-    .headshot {
-      max-width: 250px;
-      margin-bottom: 1rem;
+      grid-column: 1 / 3;
     }
 
-    .text {
-      h2 {
-        margin-top: 1rem;
+    .contact {
+      .headshot {
+        max-width: 300px;
+        margin-bottom: 1rem;
       }
-      ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
 
-        li {
-          svg {
-            margin-right: 0.5rem;
-          }
+      .job-title {
+        font-style: italic;
+      }
+
+      .office {
+        display: flex;
+        svg {
+          overflow: visible;
+          margin: 6px 0 0 0;
         }
-
-        &.contact {
-          .job-title {
-            font-style: italic;
-          }
-
-          svg {
-            fill: $clr-qul-yellow;
-          }
+        span {
+          // display: inline-block;
+          margin-left: 0.5rem;
         }
       }
-      .cv {
-        li {
-          svg {
-            fill: $clr-secondary;
-          }
-        }
+
+      svg {
+        fill: $clr-qul-yellow;
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  .text {
+    h2 {
+      margin-top: 1rem;
+    }
+    .cv {
+      svg {
+        fill: $clr-secondary;
+        margin-left: 0.5rem;
       }
     }
   }

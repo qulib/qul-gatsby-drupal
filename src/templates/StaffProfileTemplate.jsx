@@ -6,11 +6,37 @@ import Layout, { siteTitle } from '../components/Layout.jsx'
 import Breadcrumbs from '../components/global/Breadcrumbs.jsx'
 import AskUsWidget from '../components/global/AskUsWidget.jsx'
 import { MdEmail } from 'react-icons/md'
-import { FaPhone, FaFilePdf } from 'react-icons/fa'
+import { FaPhone, FaFilePdf, FaMapMarkerAlt } from 'react-icons/fa'
 
 function Headshot({ image }) {
   if (image) {
-    return <Img fluid={image.localFile.childImageSharp.fluid} />
+    return (
+      <Img className="headshot" fluid={image.localFile.childImageSharp.fluid} />
+    )
+  } else {
+    return ''
+  }
+}
+
+function Office({ building, room }) {
+  if (building && room) {
+    return (
+      <p className="office">
+        <FaMapMarkerAlt className="inline-svg" />
+        <span>
+          {building}
+          <br />
+          {room}
+        </span>
+      </p>
+    )
+  } else if (building) {
+    return (
+      <p className="office">
+        <FaMapMarkerAlt className="inline-svg" />
+        <span>{building}</span>
+      </p>
+    )
   } else {
     return ''
   }
@@ -82,10 +108,10 @@ function CV({ cv }) {
         <h2>CV</h2>
         <ul>
           <li>
-            <Link to={cv.localFile.publicURL}>
-              <FaFilePdf className="inline-svg" />
+            <a href={cv.localFile.publicURL}>
               {cv.localFile.name}
-            </Link>{' '}
+              <FaFilePdf className="inline-svg" download />
+            </a>{' '}
             ({fileSize} KB)
           </li>
         </ul>
@@ -112,24 +138,32 @@ function StaffProfileTemplate({ data }) {
         <main className="content">
           <h1>{node.title}</h1>
 
-          <section className="headshot">
+          <section className="contact">
             <Headshot image={node.relationships.field_headshot} />
+
+            <p className="job-title">{node.field_job_title}</p>
+            <p>
+              <a href={'mailto:' + node.field_email}>
+                <MdEmail className="inline-svg" />
+                {node.field_email}
+              </a>
+            </p>
+            <p>
+              <FaPhone className="inline-svg" />
+              {node.field_phone}
+            </p>
+
+            {/* if office */}
+            <Office
+              building={node.field_location_building}
+              room={node.field_location_room}
+            />
+            {/* <p>
+              
+              {node.field_phone}
+            </p> */}
           </section>
           <section className="text">
-            <ul className="contact">
-              <li className="job-title">{node.field_job_title}</li>
-              <li>
-                <FaPhone className="inline-svg" />
-                {node.field_phone}
-              </li>
-              <li>
-                <a href={'mailto:' + node.field_email}>
-                  <MdEmail className="inline-svg" />
-                  {node.field_email}
-                </a>
-              </li>
-            </ul>
-
             <Bio bio={node.field_bio} />
             <Units units={node.relationships.field_units} />
             <Subjects subjects={node.relationships.field_subjects} />
@@ -173,6 +207,8 @@ export const pageQuery = graphql`
       field_phone
       field_email
       field_job_title
+      field_location_building
+      field_location_room
       field_headshot {
         alt
       }
@@ -187,7 +223,7 @@ export const pageQuery = graphql`
         field_headshot {
           localFile {
             childImageSharp {
-              fluid(maxWidth: 250, maxHeight: 250) {
+              fluid(maxWidth: 300, maxHeight: 300, quality: 80) {
                 ...GatsbyImageSharpFluid
               }
             }
