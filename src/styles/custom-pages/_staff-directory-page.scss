@@ -17,6 +17,10 @@
         padding: 1rem 0;
         border-bottom: 1px solid $clr-primary;
 
+        h2 {
+          margin-bottom: 3px;
+        }
+
         .headshot-placeholder {
           font-size: 100px;
           fill: $clr-qul-gray-lighter;
@@ -34,9 +38,32 @@
           .job-title {
             font-style: italic;
           }
+
+          .subjects {
+            span {
+              display: inline;
+              font-weight: bold;
+              color: $clr-primary;
+            }
+
+            ul {
+              display: inline;
+              li {
+                display: inline;
+                &::after {
+                  content: ', ';
+                }
+                &:last-of-type {
+                  &::after {
+                    content: '';
+                  }
+                }
+              }
+            }
+          }
         }
 
-        .staff-contact {
+        .contact {
           li {
             display: block;
             margin-top: 0.5rem;
@@ -73,14 +100,24 @@
     .staff-list {
       ul {
         li.staff-listing {
-          grid-template-columns: 1fr 2fr 2fr 1fr;
-          grid-gap: 1rem;
+          grid-template-columns: 1fr 3fr 3fr 2fr;
+          grid-gap: 2rem;
         }
       }
 
       .more-info {
         margin-top: 0 !important;
         justify-self: right;
+      }
+    }
+  }
+
+  @include breakpoint($desktop) {
+    .staff-list {
+      ul {
+        li.staff-listing {
+          grid-template-columns: 1fr 3fr 3fr 1fr;
+        }
       }
     }
   }

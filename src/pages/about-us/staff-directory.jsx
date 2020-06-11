@@ -193,7 +193,7 @@ export const pageQuery = graphql`
             field_headshot {
               localFile {
                 childImageSharp {
-                  fixed(width: 100) {
+                  fixed(width: 100, quality: 90) {
                     ...GatsbyImageSharpFixed
                   }
                 }

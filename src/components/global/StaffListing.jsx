@@ -4,22 +4,34 @@ import Img from 'gatsby-image'
 import { MdEmail } from 'react-icons/md'
 import { FaPhone, FaUserAlt, FaArrowRight } from 'react-icons/fa'
 
-function StaffListing({ node }) {
-  // console.log(node)
-
-  const Headshot = () => {
-    if (node.relationships.field_headshot) {
-      return (
-        <Img
-          fixed={
-            node.relationships.field_headshot.localFile.childImageSharp.fixed
-          }
-        />
-      )
-    } else {
-      return <FaUserAlt className="headshot-placeholder" />
-    }
+function Headshot({ image }) {
+  if (image) {
+    return (
+      <Img className="headshot" fixed={image.localFile.childImageSharp.fixed} />
+    )
+  } else {
+    return <FaUserAlt className="headshot-placeholder" />
   }
+}
+
+function Subjects({ subjects }) {
+  if (subjects.length > 0) {
+    const subjectListItems = subjects.map(subject => {
+      return <li key={subject.drupal_internal__tid}>{subject.name}</li>
+    })
+    return (
+      <section className="subjects">
+        <span>Subjects: </span>
+        <ul>{subjectListItems}</ul>
+      </section>
+    )
+  } else {
+    return ''
+  }
+}
+
+function StaffListing({ node }) {
+  console.log(node)
 
   const displayUnit = units => {
     return units.map(unit => {
@@ -30,16 +42,18 @@ function StaffListing({ node }) {
   return (
     <li key={node.drupal_internal__nid} className="staff-listing">
       <section className="headshot">
-        <Headshot />
+        <Headshot image={node.relationships.field_headshot} />
       </section>
       <section className="staff-info">
-        <span className="full-name">
+        <h2 className="full-name">
           {node.field_last_name}, {node.field_first_name}
-        </span>
+        </h2>
         <span className="job-title">{node.field_job_title}</span>
         <span>{displayUnit(node.relationships.field_units)}</span>
+        <Subjects subjects={node.relationships.field_subjects} />
       </section>
-      <section className="staff-contact">
+
+      <section className="contact">
         <ul>
           <li>
             <FaPhone />
@@ -53,6 +67,7 @@ function StaffListing({ node }) {
           </li>
         </ul>
       </section>
+
       <section className="more-info">
         <Link className="button" to={node.path.alias}>
           More <FaArrowRight className="inline-svg" />
