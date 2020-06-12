@@ -1,11 +1,11 @@
-.hours-links {
+.hours {
   display: grid;
-  align-items: flex-start;
   grid-gap: 2rem;
   background: url('../images/hours-bg.svg') no-repeat;
   background-size: cover;
   padding: 2rem;
-  margin-bottom: 3rem;
+  width: 100%;
+  // max-width: 700px;
 
   .people-counter {
     // @include debug;
@@ -24,7 +24,7 @@
 
       li {
         display: grid;
-        grid-template-columns: 2fr 1fr;
+        grid-template-columns: 1.5fr 1fr;
         padding-bottom: 0.5rem;
 
         a {
@@ -46,40 +46,13 @@
     }
   }
 
-  .quick-links {
-    // @include debug;
-    margin-top: 2rem;
-    display: grid;
-    justify-items: center;
-
-    ul {
-      // width: 100%;
-      list-style: none;
-
-      li {
-        padding-bottom: 0.5rem;
-
-        a {
-          color: $clr-primary;
-
-          &:hover {
-            color: $clr-secondary;
-          }
-        }
-      }
-    }
-  }
-
   @include breakpoint($tablet) {
-    grid-template-columns: 2fr 1fr;
-
-    .quick-links {
-      margin-top: 0;
-    }
+    // height: 100%;
   }
 
   @include breakpoint($desktop) {
-    grid-template-columns: 1fr 2fr 1fr;
+    max-width: none;
+    grid-template-columns: 1fr 2fr;
 
     .people-counter {
       display: grid;

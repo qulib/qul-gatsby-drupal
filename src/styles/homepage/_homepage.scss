@@ -2,7 +2,8 @@
   @import 'banner.scss';
   @import 'omni-widget.scss';
   @import 'ask-us-widget.scss';
-  @import 'hours-links.scss';
+  @import 'hours.scss';
+  @import 'quick-links.scss';
   @import 'people-counter-widget.scss';
   @import 'news-events.scss';
   @import 'featured-slider.scss';
@@ -20,12 +21,14 @@
     padding-bottom: 1rem;
   }
 
-  .omni-ask-us {
+  .omni-ask-us,
+  .hours-quick-links {
     // @include debug;
     display: grid;
     align-items: center;
     grid-gap: 2rem;
-    padding: 2rem;
+    margin: 3rem 1rem;
+    // justify-items: center;
   }
 
   @include breakpoint($tablet) {
@@ -33,14 +36,28 @@
       font-size: 1.4rem;
     }
 
+    .omni-ask-us,
+    .hours-quick-links {
+      padding: 3rem 0;
+      margin: 0 1rem;
+    }
+
     .omni-ask-us {
-      grid-template-columns: 3fr 1fr;
+      grid-template-columns: 3fr 2fr;
+    }
+
+    .hours-quick-links {
+      grid-template-columns: 3fr 2fr;
+      padding-top: 0;
     }
   }
 
   @include breakpoint($desktop) {
-    .omni-ask-us {
-      padding: 3rem 2rem;
+    .omni-ask-us,
+    .hours-quick-links {
+      grid-template-columns: 2fr 1fr;
+      grid-gap: 3rem;
+      margin: 0 3rem;
     }
   }
 }

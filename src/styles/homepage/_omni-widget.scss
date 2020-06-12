@@ -1,9 +1,12 @@
 .omni-widget {
   // @include debug;
-  background: url("../images/omni-widget-bg.svg") no-repeat;
+  background: url('../images/omni-widget-bg.svg') no-repeat;
   background-size: cover;
   padding: 2rem;
   margin: 0;
+  width: 100%;
+  // max-width: 700px;
+  // justify-self: center;
 
   .omni-branding {
     color: $clr-primary;
@@ -19,10 +22,6 @@
 
   .omni-search {
     padding: 2rem 0;
-
-    // .ant-input-group-addon {
-    //   padding: 0;
-    // }
   }
 
   .omni-links {
@@ -61,12 +60,16 @@
         &:first-of-type {
           padding: 0;
         }
+
+        &:last-of-type {
+          border: 0;
+        }
       }
     }
   }
 
   @include breakpoint($desktop) {
-    width: 700px;
-    margin-left: 3rem;
+    // width: 700px;
+    // margin-left: 3rem;
   }
 }
