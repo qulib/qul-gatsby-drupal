@@ -7,28 +7,25 @@ import { graphql } from 'gatsby'
 // import { Link } from 'gatsby'
 import Layout, { siteTitle } from '../components/Layout.jsx'
 import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
-import Breadcrumbs from '../components/global/Breadcrumbs.jsx'
-// import { useBreadcrumb } from 'gatsby-plugin-breadcrumb'
 import AskUsWidget from '../components/global/AskUsWidget.jsx'
 
 // add error checking to data assignments
 function BasicPageTemplate({ data, pageContext }) {
-  const post = data.nodePage
-  const crumbs = pageContext.breadcrumb.crumbs
-
-  console.log(crumbs)
+  const node = data.nodePage
 
   return (
     <Layout>
       <Helmet>
-        {siteTitle} - {post.title}
+        {siteTitle} - {node.title}
       </Helmet>
-      <Breadcrumb crumbs={crumbs} crumbLabel={post.title} />
-      {/* <Breadcrumbs crumbs={pageContext.breadcrumb} /> */}
+      <Breadcrumb
+        crumbs={pageContext.breadcrumb.crumbs}
+        crumbLabel={node.title}
+      />
       <div className="basic-page">
         <main className="content">
-          <h1>{post.title}</h1>
-          <div dangerouslySetInnerHTML={{ __html: post.body.processed }} />
+          <h1>{node.title}</h1>
+          <div dangerouslySetInnerHTML={{ __html: node.body.processed }} />
         </main>
 
         <aside className="sidebar">

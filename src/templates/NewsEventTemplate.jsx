@@ -4,7 +4,7 @@ import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { formatDate } from '../library/functions.js'
 import Layout, { siteTitle } from '../components/Layout.jsx'
-import Breadcrumbs from '../components/global/Breadcrumbs.jsx'
+import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
 import AskUsWidget from '../components/global/AskUsWidget.jsx'
 
 function Categories({ categories }) {
@@ -32,7 +32,7 @@ function Categories({ categories }) {
   }
 }
 
-function NewsEventTemplate({ data }) {
+function NewsEventTemplate({ data, pageContext }) {
   const node = data.nodeNewsEvents
 
   // options for events
@@ -62,7 +62,10 @@ function NewsEventTemplate({ data }) {
           {siteTitle} - {node.title}
         </title>
       </Helmet>
-      <Breadcrumbs />
+      <Breadcrumb
+        crumbs={pageContext.breadcrumb.crumbs}
+        crumbLabel={node.title}
+      />
       <div className="news-event-page">
         <main className="content">
           <header>

@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import Layout, { siteTitle } from '../components/Layout.jsx'
-import Breadcrumbs from '../components/global/Breadcrumbs.jsx'
+import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
 import AskUsWidget from '../components/global/AskUsWidget.jsx'
 import { MdEmail } from 'react-icons/md'
 import { FaPhone, FaFilePdf, FaMapMarkerAlt } from 'react-icons/fa'
@@ -122,7 +122,7 @@ function CV({ cv }) {
   }
 }
 
-function StaffProfileTemplate({ data }) {
+function StaffProfileTemplate({ data, pageContext }) {
   // console.log('data is: ', data)
   const node = data.nodeStaffProfile
 
@@ -133,7 +133,10 @@ function StaffProfileTemplate({ data }) {
           {siteTitle} - {node.title}
         </title>
       </Helmet>
-      <Breadcrumbs />
+      <Breadcrumb
+        crumbs={pageContext.breadcrumb.crumbs}
+        crumbLabel={node.title}
+      />
       <div className="staff-profile-page">
         <main className="content">
           <h1>{node.title}</h1>
@@ -159,7 +162,7 @@ function StaffProfileTemplate({ data }) {
               room={node.field_location_room}
             />
             {/* <p>
-              
+
               {node.field_phone}
             </p> */}
           </section>

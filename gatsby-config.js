@@ -7,18 +7,6 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-breadcrumb`,
-      options: {
-        useAutoGen: true,
-        crumbLabelUpdates: [
-          {
-            pathname: '/help-services',
-            crumbLabel: 'Help & Services',
-          },
-        ],
-      },
-    },
-    {
       resolve: 'gatsby-source-drupal',
       options: {
         baseUrl: 'https://dev-qul-test.pantheonsite.io/',
@@ -48,6 +36,31 @@ module.exports = {
       options: {
         javascriptEnabled: true,
         modifyVars: lessToJson('src/styles/antd-theme/qul-antd-theme.less'),
+      },
+    },
+    `gatsby-plugin-remove-trailing-slashes`,
+    {
+      resolve: `gatsby-plugin-breadcrumb`,
+      options: {
+        useAutoGen: true,
+        crumbLabelUpdates: [
+          {
+            pathname: '/search',
+            crumbLabel: 'Search',
+          },
+          {
+            pathname: '/help-services',
+            crumbLabel: 'Help & Services',
+          },
+          {
+            pathname: '/locations-hours',
+            crumbLabel: 'Locations & Hours',
+          },
+          {
+            pathname: '/about-us',
+            crumbLabel: 'About Us',
+          },
+        ],
       },
     },
     {

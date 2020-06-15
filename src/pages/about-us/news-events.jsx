@@ -6,7 +6,7 @@ import queryString from 'query-string'
 import { parseParam } from '../../library/functions.js'
 import { Input, Select, Pagination } from 'antd'
 import Layout, { siteTitle } from '../../components/Layout.jsx'
-import Breadcrumbs from '../../components/global/Breadcrumbs.jsx'
+import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
 import NewsCard from '../../components/global/NewsCard.jsx'
 
 const { Search } = Input
@@ -14,7 +14,7 @@ const { Option } = Select
 const pageTitle = 'News & Events'
 const cardsPerPage = 6
 
-function AllNewsEventsPage({ data }) {
+function AllNewsEventsPage({ data, pageContext }) {
   const location = useLocation()
   const locationSearchParams = queryString.parse(location.search)
 
@@ -29,16 +29,9 @@ function AllNewsEventsPage({ data }) {
     }
   }
 
-  // should we add for page #?
-
-  // console.log('location ', location)
-  // console.log('cat param  ', categoryParam())
-
   const [category, setCategory] = useState(parseParam(categoryParam()))
   const [search, setSearch] = useState('')
   const [page, setPage] = useState(1)
-
-  // console.log('category  ', category)
 
   function updateSearch(value) {
     setSearch(value)
@@ -119,7 +112,10 @@ function AllNewsEventsPage({ data }) {
         </title>
       </Helmet>
 
-      <Breadcrumbs />
+      <Breadcrumb
+        crumbs={pageContext.breadcrumb.crumbs}
+        crumbLabel={pageTitle}
+      />
       <div className="news-events-page">
         <header className="full-width-header">
           <section className="header-top">

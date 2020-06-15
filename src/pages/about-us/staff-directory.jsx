@@ -6,7 +6,7 @@ import { useLocation } from '@reach/router'
 import queryString from 'query-string'
 import { parseParam } from '../../library/functions.js'
 import Layout, { siteTitle } from '../../components/Layout.jsx'
-import Breadcrumbs from '../../components/global/Breadcrumbs.jsx'
+import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
 import StaffListing from '../../components/global/StaffListing.jsx'
 
 const { Search } = Input
@@ -28,7 +28,7 @@ function displayStaff(items) {
   }
 }
 
-function StaffDirectoryPage({ data }) {
+function StaffDirectoryPage({ data, pageContext }) {
   const location = useLocation()
   const locationSearchParams = queryString.parse(location.search)
 
@@ -117,7 +117,10 @@ function StaffDirectoryPage({ data }) {
         </title>
       </Helmet>
 
-      <Breadcrumbs />
+      <Breadcrumb
+        crumbs={pageContext.breadcrumb.crumbs}
+        crumbLabel={pageTitle}
+      />
 
       <div className="staff-directory-page">
         <header className="full-width-header">
