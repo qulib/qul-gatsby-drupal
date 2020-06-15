@@ -2,10 +2,22 @@ const lessToJson = require('less-to-json')
 
 module.exports = {
   siteMetadata: {
-    title: `Weens Unibersity Libary`,
+    title: `QUL`,
     siteUrl: `https://library.queensu.ca`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-breadcrumb`,
+      options: {
+        useAutoGen: true,
+        crumbLabelUpdates: [
+          {
+            pathname: '/help-services',
+            crumbLabel: 'Help & Services',
+          },
+        ],
+      },
+    },
     {
       resolve: 'gatsby-source-drupal',
       options: {
