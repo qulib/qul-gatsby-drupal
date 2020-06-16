@@ -4,10 +4,14 @@ import Img from 'gatsby-image'
 import { MdEmail } from 'react-icons/md'
 import { FaPhone, FaUserAlt, FaArrowRight } from 'react-icons/fa'
 
-function Headshot({ image }) {
+function Headshot({ image, alt }) {
   if (image) {
     return (
-      <Img className="headshot" fixed={image.localFile.childImageSharp.fixed} />
+      <Img
+        className="headshot"
+        fixed={image.localFile.childImageSharp.fixed}
+        alt={alt}
+      />
     )
   } else {
     return <FaUserAlt className="headshot-placeholder" />
@@ -42,7 +46,10 @@ function StaffListing({ node }) {
   return (
     <li key={node.drupal_internal__nid} className="staff-listing">
       <section className="headshot">
-        <Headshot image={node.relationships.field_headshot} />
+        <Headshot
+          image={node.relationships.field_headshot}
+          alt={node.field_title}
+        />
       </section>
       <section className="staff-info">
         <h2 className="full-name">

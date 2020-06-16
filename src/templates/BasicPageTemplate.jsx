@@ -18,7 +18,9 @@ function BasicPageTemplate({ data, pageContext }) {
     }
 
     function transform(node, index) {
+      // replace img with local Gasby Img
       if (node.type === 'tag' && node.name === 'img') {
+        console.log('node is: ', node)
         let uuid = node.attribs['data-entity-uuid']
 
         // find the matching image in all the files
@@ -29,6 +31,7 @@ function BasicPageTemplate({ data, pageContext }) {
               <Img
                 key={index}
                 fluid={edge.node.localFile.childImageSharp.fluid}
+                alt={node.attribs['alt']}
               />
             )
           }
@@ -36,6 +39,8 @@ function BasicPageTemplate({ data, pageContext }) {
           return undefined
         })
       }
+
+      // should do one for PDF, doc, etc.
     }
 
     return ReactHtmlParser(html, options)
@@ -89,8 +94,6 @@ export const pageQuery = graphql`
         node {
           drupal_id
           localFile {
-            url
-            publicURL
             childImageSharp {
               fluid(maxWidth: 700) {
                 ...GatsbyImageSharpFluid

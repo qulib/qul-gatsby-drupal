@@ -1,13 +1,13 @@
 .quick-links {
   // @include debug;
-  background: $clr-qul-red-darker url('../images/featured-slider-bg.svg')
+  background: $clr-qul-yellow-lighter url('../images/omni-widget-bg.svg')
     no-repeat;
   background-size: cover;
   display: grid;
   margin-top: 3rem;
 
   .section-title {
-    @include tab-heading($queens-logo-red);
+    @include tab-heading($clr-qul-yellow-darker);
   }
 
   ul {
@@ -21,7 +21,7 @@
 
     li {
       a {
-        color: white;
+        color: $clr-primary;
       }
     }
   }

@@ -4,8 +4,7 @@ import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 
 function NewsCard({ node }) {
-  // const data = node
-  // console.log(node)
+  console.log('news node: ', node)
 
   return (
     <Link to={node.path.alias} className="news-card">
@@ -14,6 +13,7 @@ function NewsCard({ node }) {
           node.relationships.field_featured_image.localFile.childImageSharp
             .fluid
         }
+        alt={node.field_featured_image.alt}
       />
       <footer>
         <h2 dangerouslySetInnerHTML={{ __html: node.title }} />
