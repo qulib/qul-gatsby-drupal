@@ -19,6 +19,10 @@ $clr-qul-lighter-blue: lighten($clr-qul-light-blue, 4%);
 $clr-qul-link-blue: #1d70ad;
 
 /* Reds */
+// $clr-qul-red: #b01135;
+$clr-qul-red: $queens-logo-red;
+$clr-qul-red-lighter: lighten($clr-qul-red, 10%);
+$clr-qul-red-darker: darken($clr-qul-red, 10%);
 
 /* Yellows */
 $clr-qul-yellow: #fcc34c;

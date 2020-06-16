@@ -5,10 +5,9 @@ import PeopleCounterWidget from './PeopleCounterWidget.jsx'
 function Hours() {
   return (
     <section className="hours">
-      <PeopleCounterWidget />
+      <h2 className="section-title">Today's Hours</h2>
 
       <section className="todays-hours">
-        <h2 className="section-title">Today's Hours</h2>
         <ul>
           <li>
             <Link to="/">Stauffer Library</Link>
@@ -48,6 +47,8 @@ function Hours() {
           All Locations & Hours
         </Link>
       </section>
+
+      <PeopleCounterWidget />
     </section>
   )
 }

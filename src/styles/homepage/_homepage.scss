@@ -15,12 +15,6 @@
     left: -1000px;
   }
 
-  h2.section-title {
-    justify-self: center;
-    text-transform: uppercase;
-    padding-bottom: 1rem;
-  }
-
   .omni-ask-us,
   .hours-quick-links {
     // @include debug;
@@ -32,10 +26,6 @@
   }
 
   @include breakpoint($tablet) {
-    h2.section-title {
-      font-size: 1.4rem;
-    }
-
     .omni-ask-us,
     .hours-quick-links {
       padding: 3rem 0;
