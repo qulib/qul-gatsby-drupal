@@ -1,17 +1,45 @@
 import React from 'react'
-// import ReactHtmlParser from 'react-html-parser' // need to check for inline images
-// see: https://gist.github.com/andrewl/e868f2afb2386aadf711da35bc4c825b
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
-// import Img from 'gatsby-image'
-// import { Link } from 'gatsby'
-import Layout, { siteTitle } from '../components/Layout.jsx'
+import Img from 'gatsby-image'
 import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
+import ReactHtmlParser from 'react-html-parser'
+import Layout, { siteTitle } from '../components/Layout.jsx'
 import AskUsWidget from '../components/global/AskUsWidget.jsx'
 
 // add error checking to data assignments
 function BasicPageTemplate({ data, pageContext }) {
   const node = data.nodePage
+  const files = data.allFileFile
+
+  function parseHTML(html) {
+    const options = {
+      transform,
+    }
+
+    function transform(node, index) {
+      if (node.type === 'tag' && node.name === 'img') {
+        let uuid = node.attribs['data-entity-uuid']
+
+        // find the matching image in all the files
+        // idea: instead of pulling all files in here, you could make a component with static query matching the drupal ID
+        return files.edges.map(edge => {
+          if (edge.node.drupal_id === uuid) {
+            return (
+              <Img
+                key={index}
+                fluid={edge.node.localFile.childImageSharp.fluid}
+              />
+            )
+          }
+
+          return undefined
+        })
+      }
+    }
+
+    return ReactHtmlParser(html, options)
+  }
 
   return (
     <Layout>
@@ -25,7 +53,7 @@ function BasicPageTemplate({ data, pageContext }) {
       <div className="basic-page">
         <main className="content">
           <h1>{node.title}</h1>
-          <div dangerouslySetInnerHTML={{ __html: node.body.processed }} />
+          <div>{parseHTML(node.body.processed)}</div>
         </main>
 
         <aside className="sidebar">
@@ -54,6 +82,22 @@ export const pageQuery = graphql`
       title
       body {
         processed
+      }
+    }
+    allFileFile {
+      edges {
+        node {
+          drupal_id
+          localFile {
+            url
+            publicURL
+            childImageSharp {
+              fluid(maxWidth: 700) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
       }
     }
   }
