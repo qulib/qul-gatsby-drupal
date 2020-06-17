@@ -14,19 +14,19 @@ function QuickLinks() {
             <Link to="/">Borrowing</Link>
           </li>
           <li>
-            <Link to="/">Print, Scan, Copy</Link>
-          </li>
-          <li>
             <Link to="/">Interlibrary Loan</Link>
           </li>
           <li>
-            <Link to="/">Copyright & Fair Dealing</Link>
+            <Link to="/">Print, Scan, Copy</Link>
           </li>
           <li>
             <Link to="/">Research by Subject</Link>
           </li>
           <li>
             <Link to="/">Citing Sources</Link>
+          </li>
+          <li>
+            <Link to="/">Copyright & Fair Dealing</Link>
           </li>
           <li>
             <Link to="/">Rare Books & Special Collections</Link>
