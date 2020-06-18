@@ -1,23 +1,15 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 import { Link } from 'gatsby'
-import Layout, { siteTitle } from '../../components/Layout.jsx'
+import Layout from '../../components/Layout.jsx'
 
 const pageTitle = 'Locations & Hours'
 
-function LocationsPage() {
+export default function LocationsPage({ data, pageContext }) {
   return (
-    <Layout>
-      <Helmet>
-        <title>
-          {siteTitle} - {pageTitle}
-        </title>
-      </Helmet>
-
-      <div id="locations-hours-page">
+    <Layout pageTitle={pageTitle} breadcrumbs={pageContext.breadcrumb.crumbs}>
+      <div className="main-menu-page">
         <main className="content">
           <h1>{pageTitle}</h1>
-          <p>hot blurb!</p>
 
           <section className="three-columns">
             <section>
@@ -83,5 +75,3 @@ function LocationsPage() {
     </Layout>
   )
 }
-
-export default LocationsPage

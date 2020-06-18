@@ -1,20 +1,18 @@
 import React, { useState } from 'react'
-import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import { useLocation } from '@reach/router'
 import queryString from 'query-string'
 import { parseParam } from '../../library/functions.js'
 import { Input, Select, Pagination } from 'antd'
-import Layout, { siteTitle } from '../../components/Layout.jsx'
-import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
+import Layout from '../../components/Layout.jsx'
 import NewsCard from '../../components/global/NewsCard.jsx'
 
 const { Search } = Input
 const { Option } = Select
 const pageTitle = 'News & Events'
-const cardsPerPage = 6
+const cardsPerPage = 9
 
-function AllNewsEventsPage({ data, pageContext }) {
+export default function AllNewsEventsPage({ data, pageContext }) {
   const location = useLocation()
   const locationSearchParams = queryString.parse(location.search)
 
@@ -105,17 +103,7 @@ function AllNewsEventsPage({ data, pageContext }) {
   )
 
   return (
-    <Layout>
-      <Helmet>
-        <title>
-          {siteTitle} - {pageTitle}
-        </title>
-      </Helmet>
-
-      <Breadcrumb
-        crumbs={pageContext.breadcrumb.crumbs}
-        crumbLabel={pageTitle}
-      />
+    <Layout pageTitle={pageTitle} breadcrumbs={pageContext.breadcrumb.crumbs}>
       <div className="news-events-page">
         <header className="full-width-header">
           <section className="header-top">
@@ -156,8 +144,6 @@ function AllNewsEventsPage({ data, pageContext }) {
     </Layout>
   )
 }
-
-export default AllNewsEventsPage
 
 export const pageQuery = graphql`
   query AllNewsEventsPage {

@@ -1,37 +1,14 @@
 import React from 'react'
-import Helmet from 'react-helmet'
-import { graphql, Link } from 'gatsby'
-import Layout, { siteTitle } from '../components/Layout.jsx'
-import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
+// import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
+import Layout from '../components/Layout.jsx'
 import AskUsWidget from '../components/global/AskUsWidget.jsx'
 
-// function Bio({ bio }) {
-//   if (bio) {
-//     return (
-//       <section className="bio">
-//         <p dangerouslySetInnerHTML={{ __html: bio.processed }} />
-//       </section>
-//     )
-//   } else {
-//     return ''
-//   }
-// }
-
-function SubjectTemplate({ data, pageContext }) {
-  // console.log('data is: ', data)
+export default function SubjectTemplate({ data, pageContext }) {
   const node = data.taxonomyTermSubjects
 
   return (
-    <Layout>
-      <Helmet>
-        <title>
-          {node.name} | {siteTitle}
-        </title>
-      </Helmet>
-      <Breadcrumb
-        crumbs={pageContext.breadcrumb.crumbs}
-        crumbLabel={node.name}
-      />
+    <Layout pageTitle={node.name} breadcrumbs={pageContext.breadcrumb.crumbs}>
       <div className="subject-page">
         <main className="content">
           <h1>{node.name}</h1>
@@ -44,7 +21,6 @@ function SubjectTemplate({ data, pageContext }) {
               For help locating resources, using the library, or to request a
               research consultation, try our Ask Us service.
             </p>
-
             <AskUsWidget />
           </section>
 
@@ -54,8 +30,6 @@ function SubjectTemplate({ data, pageContext }) {
     </Layout>
   )
 }
-
-export default SubjectTemplate
 
 export const pageQuery = graphql`
   query($id: Int!) {

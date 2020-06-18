@@ -1,38 +1,11 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { formatDate } from '../library/functions.js'
-import Layout, { siteTitle } from '../components/Layout.jsx'
-import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
+import Layout from '../components/Layout.jsx'
 import AskUsWidget from '../components/global/AskUsWidget.jsx'
 
-function Categories({ categories }) {
-  if (categories.length > 0) {
-    const categoryListItems = categories.map(category => {
-      return (
-        <li key={category.drupal_internal__tid}>
-          <Link
-            to="/about-us/news-events"
-            state={{ category: category.drupal_internal__tid }}
-          >
-            {category.name}
-          </Link>
-        </li>
-      )
-    })
-    return (
-      <section className="categories">
-        <h2>Categories</h2>
-        <ul>{categoryListItems}</ul>
-      </section>
-    )
-  } else {
-    return ''
-  }
-}
-
-function NewsEventTemplate({ data, pageContext }) {
+export default function NewsEventTemplate({ data, pageContext }) {
   const node = data.nodeNewsEvents
 
   // options for events
@@ -56,16 +29,7 @@ function NewsEventTemplate({ data, pageContext }) {
   let imageCaption = node.field_image_caption ? node.field_image_caption : ''
 
   return (
-    <Layout>
-      <Helmet>
-        <title>
-          {siteTitle} - {node.title}
-        </title>
-      </Helmet>
-      <Breadcrumb
-        crumbs={pageContext.breadcrumb.crumbs}
-        crumbLabel={node.title}
-      />
+    <Layout pageTitle={node.title} breadcrumbs={pageContext.breadcrumb.crumbs}>
       <div className="news-event-page">
         <main className="content">
           <header>
@@ -113,7 +77,30 @@ function NewsEventTemplate({ data, pageContext }) {
   )
 }
 
-export default NewsEventTemplate
+function Categories({ categories }) {
+  if (categories.length > 0) {
+    const categoryListItems = categories.map(category => {
+      return (
+        <li key={category.drupal_internal__tid}>
+          <Link
+            to="/about-us/news-events"
+            state={{ category: category.drupal_internal__tid }}
+          >
+            {category.name}
+          </Link>
+        </li>
+      )
+    })
+    return (
+      <section className="categories">
+        <h2>Categories</h2>
+        <ul>{categoryListItems}</ul>
+      </section>
+    )
+  } else {
+    return ''
+  }
+}
 
 export const pageQuery = graphql`
   query($id: Int!) {
