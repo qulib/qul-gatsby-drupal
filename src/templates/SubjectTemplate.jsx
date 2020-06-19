@@ -3,15 +3,36 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout.jsx'
 import AskUsWidget from '../components/global/AskUsWidget.jsx'
+import { Collapse } from 'antd'
+
+const { Panel } = Collapse
 
 export default function SubjectTemplate({ data, pageContext }) {
   const node = data.taxonomyTermSubjects
+  console.log('node: ', node)
 
   return (
     <Layout pageTitle={node.name} breadcrumbs={pageContext.breadcrumb.crumbs}>
       <div className="subject-page">
         <main className="content">
           <h1>{node.name}</h1>
+          <section
+            dangerouslySetInnerHTML={{ __html: node.description.processed }}
+          />
+          <Collapse
+            bordered={false}
+            expandIconPosition="right"
+            defaultActiveKey={['1']}
+          >
+            <Panel header={<h2>Guides</h2>} key="1">
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: node.field_guides.processed,
+                }}
+              />
+            </Panel>
+            {/* optional DBs and Journals */}
+          </Collapse>
         </main>
 
         <aside className="sidebar">
@@ -29,6 +50,18 @@ export default function SubjectTemplate({ data, pageContext }) {
       </div>
     </Layout>
   )
+}
+
+function Databases({ text }) {
+  if (text) {
+    return (
+      <Panel header="Databases" key="2">
+        <p dangerouslySetInnerHTML={{ __html: text.processed }} />
+      </Panel>
+    )
+  } else {
+    return ''
+  }
 }
 
 export const pageQuery = graphql`
