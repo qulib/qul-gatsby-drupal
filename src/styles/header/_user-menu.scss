@@ -1,68 +1,48 @@
 #user-menu {
-  // @include debug;
-  display: grid;
+  @include debug;
 
   ul {
+    @include debug;
     list-style-type: none;
     display: grid;
-    grid-template-columns: repeat(3, auto);
-    justify-items: center;
+    grid-template-columns: repeat(3, 1fr);
     margin: 0;
-    padding: 1rem;
+    padding: 0 1rem;
 
     li {
-      // @include debug;
-      align-self: center;
-      padding: 0.5rem;
-      border-bottom: 3px solid transparent;
-
-      &:hover {
-        text-decoration: none;
-        border-bottom: 3px solid $clr-primary;
-        @include fade;
-      }
-
-      &:last-of-type {
-        margin-right: 0;
-      }
+      @include debug;
 
       span {
         display: none;
         padding-left: 0.5rem;
       }
 
-      a {
-        color: $clr-primary;
-
-        &:hover {
-          text-decoration: none;
-        }
-      }
-
       button {
-        background-color: transparent;
+        background-color: white;
+        padding: 4px 15px;
+        // padding: 0;
         color: $clr-primary;
         border: 0;
-        // border: 1px solid $clr-primary;
+        border-bottom: 3px solid transparent;
 
         &:hover {
           cursor: pointer;
+          border-bottom: 3px solid $clr-primary;
+          @include fade;
         }
       }
     }
   }
 
-  // @include breakpoint($tablet) {
-  // }
+  @include breakpoint($tablet) {
+  }
 
   @include breakpoint($desktop) {
-    // padding: 0;
-    justify-self: right;
-
     ul {
+      grid-template-columns: repeat(3, auto);
+      padding: 1rem;
+
       li {
-        align-self: unset;
-        // margin-left: 2rem;
         span {
           display: inline;
         }

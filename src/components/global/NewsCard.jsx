@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 
 function NewsCard({ node }) {
-  console.log('news node: ', node)
+  // console.log('news node: ', node)
 
   return (
     <Link to={node.path.alias} className="news-card">
