@@ -1,8 +1,8 @@
 #site-search {
-  // @include debug;
+  @include debug;
   color: $clr-primary;
   align-self: center;
-  padding: 1rem;
+  padding: 0 1rem;
 
   // .ant-input {
   //   z-index: 10;

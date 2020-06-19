@@ -31,6 +31,16 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
           }
         }
       }
+      allTaxonomyTermSubjects {
+        edges {
+          node {
+            path {
+              alias
+            }
+            drupal_internal__tid
+          }
+        }
+      }
     }
   `)
 
@@ -41,39 +51,44 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
 
   // basic pages
   results.data.allNodePage.edges.forEach(edge => {
-    const page = edge.node
-
     createPage({
-      path: page.path.alias,
+      path: edge.node.path.alias,
       component: require.resolve(`./src/templates/BasicPageTemplate.jsx`),
       context: {
-        id: page.drupal_internal__nid,
+        id: edge.node.drupal_internal__nid,
       },
     })
   })
 
   // news and events
   results.data.allNodeNewsEvents.edges.forEach(edge => {
-    const newsEvent = edge.node
-
     createPage({
-      path: newsEvent.path.alias,
+      path: edge.node.path.alias,
       component: require.resolve(`./src/templates/NewsEventTemplate.jsx`),
       context: {
-        id: newsEvent.drupal_internal__nid,
+        id: edge.node.drupal_internal__nid,
       },
     })
   })
 
   // staff profiles
   results.data.allNodeStaffProfile.edges.forEach(edge => {
-    const staffProfile = edge.node
-
     createPage({
-      path: staffProfile.path.alias,
+      path: edge.node.path.alias,
       component: require.resolve(`./src/templates/StaffProfileTemplate.jsx`),
       context: {
-        id: staffProfile.drupal_internal__nid,
+        id: edge.node.drupal_internal__nid,
+      },
+    })
+  })
+
+  // subject pages
+  results.data.allTaxonomyTermSubjects.edges.forEach(edge => {
+    createPage({
+      path: edge.node.path.alias,
+      component: require.resolve(`./src/templates/SubjectTemplate.jsx`),
+      context: {
+        id: edge.node.drupal_internal__tid,
       },
     })
   })

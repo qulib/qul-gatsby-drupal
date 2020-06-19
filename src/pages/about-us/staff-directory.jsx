@@ -1,34 +1,19 @@
 import React, { useState } from 'react'
-import Helmet from 'react-helmet'
+// import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import { Input, Select } from 'antd'
 import { useLocation } from '@reach/router'
 import queryString from 'query-string'
 import { parseParam } from '../../library/functions.js'
-import Layout, { siteTitle } from '../../components/Layout.jsx'
-import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
+import Layout from '../../components/Layout.jsx'
+// import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
 import StaffListing from '../../components/global/StaffListing.jsx'
 
 const { Search } = Input
 const { Option } = Select
 const pageTitle = 'Staff Directory'
 
-function displayStaff(items) {
-  if (items.length > 0) {
-    return items.map(item => {
-      return (
-        <StaffListing
-          key={item.node.drupal_internal__nid.toString()}
-          node={item.node}
-        />
-      )
-    })
-  } else {
-    return 'No staff found'
-  }
-}
-
-function StaffDirectoryPage({ data, pageContext }) {
+export default function StaffDirectoryPage({ data, pageContext }) {
   const location = useLocation()
   const locationSearchParams = queryString.parse(location.search)
 
@@ -53,10 +38,6 @@ function StaffDirectoryPage({ data, pageContext }) {
       return undefined
     }
   }
-
-  // console.log('location ', location)
-  // console.log('subject param  ', subjectParam())
-  // console.log('unit param  ', unitParam())
 
   const [subject, setSubject] = useState(parseParam(subjectParam()))
   const [unit, setUnit] = useState(parseParam(unitParam()))
@@ -110,18 +91,7 @@ function StaffDirectoryPage({ data, pageContext }) {
   }
 
   return (
-    <Layout>
-      <Helmet>
-        <title>
-          {siteTitle} - {pageTitle}
-        </title>
-      </Helmet>
-
-      <Breadcrumb
-        crumbs={pageContext.breadcrumb.crumbs}
-        crumbLabel={pageTitle}
-      />
-
+    <Layout pageTitle={pageTitle} breadcrumbs={pageContext.breadcrumb.crumbs}>
       <div className="staff-directory-page">
         <header className="full-width-header">
           <h1>{pageTitle}</h1>
@@ -171,7 +141,20 @@ function StaffDirectoryPage({ data, pageContext }) {
   )
 }
 
-export default StaffDirectoryPage
+function displayStaff(items) {
+  if (items.length > 0) {
+    return items.map(item => {
+      return (
+        <StaffListing
+          key={item.node.drupal_internal__nid.toString()}
+          node={item.node}
+        />
+      )
+    })
+  } else {
+    return 'No staff found'
+  }
+}
 
 export const pageQuery = graphql`
   query StaffDirectoryPageQuery {

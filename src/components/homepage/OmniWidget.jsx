@@ -20,7 +20,7 @@ const OmniSearchButton = (
     type="primary"
     htmlType="submit"
   >
-    <AiOutlineSearch />
+    <AiOutlineSearch className="inline-svg" />
   </Button>
 )
 

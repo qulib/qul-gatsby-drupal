@@ -24,14 +24,24 @@ function UserMenu() {
       <ul>
         <li>
           <a href="https://proxy.queensu.ca/">
-            <FaKey aria-labelledby="off-campus-access-label" />
-            <span id="off-campus-access-label">Off-campus Access</span>
+            <button>
+              <FaKey
+                className="inline-svg"
+                aria-labelledby="off-campus-access-label"
+              />
+              <span id="off-campus-access-label">Off-campus Access</span>
+            </button>
           </a>
         </li>
         <li>
           <Link to="/help-services/ask-us">
-            <BsChatFill aria-labelledby="ask-us-label" />
-            <span id="ask-us-label">Ask Us</span>
+            <button>
+              <BsChatFill
+                className="inline-svg"
+                aria-labelledby="ask-us-label"
+              />
+              <span id="ask-us-label">Ask Us</span>
+            </button>
           </Link>
         </li>
         <li>
@@ -40,9 +50,12 @@ function UserMenu() {
               className="ant-dropdown-link"
               onClick={e => e.preventDefault()}
             >
-              <FaUserAlt aria-labelledby="my-account-label" />
+              <FaUserAlt
+                aria-labelledby="my-account-label"
+                className="inline-svg"
+              />
               <span id="my-account-label">
-                My Account <FaChevronDown />
+                My Account <FaChevronDown className="inline-svg" />
               </span>
             </button>
           </Dropdown>

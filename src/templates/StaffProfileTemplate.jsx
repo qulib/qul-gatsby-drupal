@@ -1,12 +1,70 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
-import Layout, { siteTitle } from '../components/Layout.jsx'
-import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
+import Layout from '../components/Layout.jsx'
 import AskUsWidget from '../components/global/AskUsWidget.jsx'
 import { MdEmail } from 'react-icons/md'
 import { FaPhone, FaFilePdf, FaMapMarkerAlt } from 'react-icons/fa'
+
+export default function StaffProfileTemplate({ data, pageContext }) {
+  const node = data.nodeStaffProfile
+
+  return (
+    <Layout pageTitle={node.title} breadcrumbs={pageContext.breadcrumb.crumbs}>
+      <div className="staff-profile-page">
+        <main className="content">
+          <h1>{node.title}</h1>
+
+          <section className="contact">
+            <Headshot image={node.relationships.field_headshot} />
+
+            <p className="job-title">{node.field_job_title}</p>
+            <p>
+              <a href={'mailto:' + node.field_email}>
+                <MdEmail className="inline-svg" />
+                {node.field_email}
+              </a>
+            </p>
+            <p>
+              <FaPhone className="inline-svg" />
+              {node.field_phone}
+            </p>
+
+            {/* if office */}
+            <Office
+              building={node.field_location_building}
+              room={node.field_location_room}
+            />
+            {/* <p>
+
+              {node.field_phone}
+            </p> */}
+          </section>
+          <section className="text">
+            <Bio bio={node.field_bio} />
+            <Units units={node.relationships.field_units} />
+            <Subjects subjects={node.relationships.field_subjects} />
+            <CV cv={node.relationships.field_cv} />
+          </section>
+        </main>
+
+        <aside className="sidebar">
+          <section className="ask-us-box">
+            <h2>Ask Us</h2>
+            <p>
+              For help locating resources, using the library, or to request a
+              research consultation, try our Ask Us service.
+            </p>
+
+            <AskUsWidget />
+          </section>
+
+          {/* if sidebar content exists in Drupal node, then optionally display here */}
+        </aside>
+      </div>
+    </Layout>
+  )
+}
 
 function Headshot({ image }) {
   if (image) {
@@ -122,91 +180,10 @@ function CV({ cv }) {
   }
 }
 
-function StaffProfileTemplate({ data, pageContext }) {
-  // console.log('data is: ', data)
-  const node = data.nodeStaffProfile
-
-  return (
-    <Layout>
-      <Helmet>
-        <title>
-          {siteTitle} - {node.title}
-        </title>
-      </Helmet>
-      <Breadcrumb
-        crumbs={pageContext.breadcrumb.crumbs}
-        crumbLabel={node.title}
-      />
-      <div className="staff-profile-page">
-        <main className="content">
-          <h1>{node.title}</h1>
-
-          <section className="contact">
-            <Headshot image={node.relationships.field_headshot} />
-
-            <p className="job-title">{node.field_job_title}</p>
-            <p>
-              <a href={'mailto:' + node.field_email}>
-                <MdEmail className="inline-svg" />
-                {node.field_email}
-              </a>
-            </p>
-            <p>
-              <FaPhone className="inline-svg" />
-              {node.field_phone}
-            </p>
-
-            {/* if office */}
-            <Office
-              building={node.field_location_building}
-              room={node.field_location_room}
-            />
-            {/* <p>
-
-              {node.field_phone}
-            </p> */}
-          </section>
-          <section className="text">
-            <Bio bio={node.field_bio} />
-            <Units units={node.relationships.field_units} />
-            <Subjects subjects={node.relationships.field_subjects} />
-            <CV cv={node.relationships.field_cv} />
-          </section>
-        </main>
-
-        <aside className="sidebar">
-          <section className="ask-us-box">
-            <h2>Ask Us</h2>
-            <p>
-              For help locating resources, using the library, or to request a
-              research consultation, try our Ask Us service.
-            </p>
-
-            <AskUsWidget />
-          </section>
-
-          {/* if sidebar content exists in Drupal node, then optionally display here */}
-        </aside>
-      </div>
-    </Layout>
-  )
-}
-
-export default StaffProfileTemplate
-
 export const pageQuery = graphql`
   query($id: Int!) {
     nodeStaffProfile(drupal_internal__nid: { eq: $id }) {
-      field_bio {
-        processed
-      }
-      field_cv {
-        description
-      }
       title
-      path {
-        alias
-      }
       field_phone
       field_email
       field_job_title
@@ -214,6 +191,12 @@ export const pageQuery = graphql`
       field_location_room
       field_headshot {
         alt
+      }
+      field_bio {
+        processed
+      }
+      field_cv {
+        description
       }
       relationships {
         field_cv {

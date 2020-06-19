@@ -1,14 +1,12 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
 import ReactHtmlParser from 'react-html-parser'
-import Layout, { siteTitle } from '../components/Layout.jsx'
+import Layout from '../components/Layout.jsx'
 import AskUsWidget from '../components/global/AskUsWidget.jsx'
 
 // add error checking to data assignments
-function BasicPageTemplate({ data, pageContext }) {
+export default function BasicPageTemplate({ data, pageContext }) {
   const node = data.nodePage
   const files = data.allFileFile
 
@@ -47,14 +45,7 @@ function BasicPageTemplate({ data, pageContext }) {
   }
 
   return (
-    <Layout>
-      <Helmet>
-        {siteTitle} - {node.title}
-      </Helmet>
-      <Breadcrumb
-        crumbs={pageContext.breadcrumb.crumbs}
-        crumbLabel={node.title}
-      />
+    <Layout pageTitle={node.title} breadcrumbs={pageContext.breadcrumb.crumbs}>
       <div className="basic-page">
         <main className="content">
           <h1>{node.title}</h1>
@@ -78,8 +69,6 @@ function BasicPageTemplate({ data, pageContext }) {
     </Layout>
   )
 }
-
-export default BasicPageTemplate
 
 export const pageQuery = graphql`
   query($id: Int!) {

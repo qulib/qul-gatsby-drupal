@@ -27,12 +27,13 @@
 // used to set button styles
 // @param $baseColour the background colour of the button
 @mixin button-style($baseColour) {
+  cursor: pointer;
   background-color: $baseColour;
   color: white;
   border: 3px solid transparent;
+  border-radius: 2px;
   border-bottom: 3px solid darken($baseColour, 10%);
   font-family: $font-main;
-  cursor: pointer;
   padding: 0.3rem 1rem;
   margin: 0;
   height: 40px;
@@ -76,10 +77,3 @@
     font-size: 1.5rem;
   }
 }
-
-// h2 {
-//   background-color: $clr-primary;
-
-//   font-size: 1.5rem;
-
-// }
