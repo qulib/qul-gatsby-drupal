@@ -3,4 +3,8 @@
   color: $clr-primary;
   align-self: center;
   padding: 1rem;
+
+  @include breakpoint($desktop) {
+    padding-left: 0;
+  }
 }

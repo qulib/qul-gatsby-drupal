@@ -40,7 +40,7 @@
   @include breakpoint($desktop) {
     ul {
       grid-template-columns: repeat(3, auto);
-      padding: 1rem;
+      justify-items: left;
 
       li {
         span {
