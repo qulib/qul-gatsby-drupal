@@ -9,7 +9,11 @@ const { Panel } = Collapse
 
 export default function SubjectTemplate({ data, pageContext }) {
   const node = data.taxonomyTermSubjects
-  console.log('node: ', node)
+  // console.log('node: ', node)
+
+  const databases = <Databases text={node.field_subject_databases} />
+
+  console.log(databases)
 
   return (
     <Layout pageTitle={node.name} breadcrumbs={pageContext.breadcrumb.crumbs}>
@@ -22,7 +26,8 @@ export default function SubjectTemplate({ data, pageContext }) {
           <Collapse
             bordered={false}
             expandIconPosition="right"
-            defaultActiveKey={['1']}
+            // onChange={callback}
+            // defaultActiveKey={['1']}
           >
             <Panel header={<h2>Guides</h2>} key="1">
               <p
@@ -31,7 +36,17 @@ export default function SubjectTemplate({ data, pageContext }) {
                 }}
               />
             </Panel>
-            {/* optional DBs and Journals */}
+            {/* <Databases text={node.field_subject_databases} />
+            {console.log('hi', node.field_subject_databases.processed)} */}
+            <Panel header={<h2>Databases</h2>} key="2">
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: node.field_subject_databases.processed,
+                }}
+              />
+            </Panel>
+            <Journals text={node.field_subject_journals} />
+            <Collections text={node.field_subject_collections} />
           </Collapse>
         </main>
 
@@ -52,10 +67,46 @@ export default function SubjectTemplate({ data, pageContext }) {
   )
 }
 
+// function callback(key) {
+//   console.log(key)
+// }
+
 function Databases({ text }) {
+  // console.log('hi', text)
+  console.log(text.processed)
   if (text) {
     return (
-      <Panel header="Databases" key="2">
+      <Panel header={<h2>Databases</h2>} forceRender={true} key="2">
+        <p
+          dangerouslySetInnerHTML={{
+            __html: text.processed,
+          }}
+        />
+      </Panel>
+    )
+  } else {
+    return undefined
+  }
+}
+
+function Journals({ text }) {
+  // console.log('hi', text)
+  if (text) {
+    return (
+      <Panel header={<h2>Journals</h2>} key="3">
+        <p dangerouslySetInnerHTML={{ __html: text.processed }} />
+      </Panel>
+    )
+  } else {
+    return ''
+  }
+}
+
+function Collections({ text }) {
+  // console.log('hi', text)
+  if (text) {
+    return (
+      <Panel header={<h2>Featured Collections</h2>} key="4">
         <p dangerouslySetInnerHTML={{ __html: text.processed }} />
       </Panel>
     )
@@ -71,23 +122,31 @@ export const pageQuery = graphql`
       path {
         alias
       }
+      description {
+        processed
+      }
+      field_guides {
+        processed
+      }
+      field_subject_databases {
+        processed
+      }
+      field_subject_journals {
+        processed
+      }
+      field_subject_collections {
+        processed
+      }
       relationships {
+        field_news_events_category {
+          drupal_internal__tid
+        }
         node__staff_profile {
           title
           path {
             alias
           }
         }
-        field_news_events_category {
-          drupal_internal__tid
-          name
-        }
-      }
-      description {
-        processed
-      }
-      field_guides {
-        processed
       }
     }
   }
