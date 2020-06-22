@@ -8,6 +8,7 @@
     grid-template-columns: repeat(3, 1fr);
     margin: 0;
     padding: 0 1rem;
+    justify-items: right;
 
     li {
       @include debug;
@@ -19,8 +20,7 @@
 
       button {
         background-color: white;
-        padding: 4px 15px;
-        // padding: 0;
+        padding: 3px;
         color: $clr-primary;
         border: 0;
         border-bottom: 3px solid transparent;

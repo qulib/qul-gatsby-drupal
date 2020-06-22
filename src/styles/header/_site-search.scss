@@ -2,17 +2,5 @@
   @include debug;
   color: $clr-primary;
   align-self: center;
-  padding: 0 1rem;
-
-  // .ant-input {
-  //   z-index: 10;
-  //   @include fade;
-
-  //   -webkit-transition: width 0.4s ease-in-out;
-  //   transition: width 0.4s ease-in-out;
-  //   // width: 500px;
-  //   &:focus {
-  //     width: 500px;
-  //   }
-  // }
+  padding: 1rem;
 }

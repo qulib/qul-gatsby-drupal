@@ -3,17 +3,19 @@
   padding: 1rem;
 
   ul {
+    // background-color: yellowgreen;
     list-style-type: none;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 1rem;
     margin: 0;
     padding: 0;
 
     li {
+      // background-color: orangered;
       align-self: center;
-      margin: 0 1rem 0 0;
       font-size: 0.8rem;
-      padding-bottom: 0.5rem;
+      text-align: center;
 
       &:last-of-type {
         margin-right: 0;
@@ -36,17 +38,24 @@
   @include breakpoint($tablet) {
     padding-top: 0;
     justify-self: right;
+    // max-width: 300px;
 
     ul {
       grid-template-columns: repeat(4, auto);
 
       li {
-        font-size: 1rem;
-        margin-right: 2rem;
+        // font-size: 0.9rem;
+        margin-right: 0.5rem;
       }
     }
   }
 
   @include breakpoint($desktop) {
+    ul {
+      li {
+        font-size: 1rem;
+        margin-right: 2rem;
+      }
+    }
   }
 }
