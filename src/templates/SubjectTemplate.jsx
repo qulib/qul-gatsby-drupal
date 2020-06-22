@@ -1,6 +1,5 @@
 import React from 'react'
-// import { graphql, Link } from 'gatsby'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout.jsx'
 import AskUsWidget from '../components/global/AskUsWidget.jsx'
 import { Collapse } from 'antd'
@@ -9,11 +8,6 @@ const { Panel } = Collapse
 
 export default function SubjectTemplate({ data, pageContext }) {
   const node = data.taxonomyTermSubjects
-  // console.log('node: ', node)
-
-  const databases = <Databases text={node.field_subject_databases} />
-
-  console.log(databases)
 
   return (
     <Layout pageTitle={node.name} breadcrumbs={pageContext.breadcrumb.crumbs}>
@@ -23,31 +17,7 @@ export default function SubjectTemplate({ data, pageContext }) {
           <section
             dangerouslySetInnerHTML={{ __html: node.description.processed }}
           />
-          <Collapse
-            bordered={false}
-            expandIconPosition="right"
-            // onChange={callback}
-            // defaultActiveKey={['1']}
-          >
-            <Panel header={<h2>Guides</h2>} key="1">
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.field_guides.processed,
-                }}
-              />
-            </Panel>
-            {/* <Databases text={node.field_subject_databases} />
-            {console.log('hi', node.field_subject_databases.processed)} */}
-            <Panel header={<h2>Databases</h2>} key="2">
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.field_subject_databases.processed,
-                }}
-              />
-            </Panel>
-            <Journals text={node.field_subject_journals} />
-            <Collections text={node.field_subject_collections} />
-          </Collapse>
+          <Accordians node={node} />
         </main>
 
         <aside className="sidebar">
@@ -67,52 +37,67 @@ export default function SubjectTemplate({ data, pageContext }) {
   )
 }
 
-// function callback(key) {
-//   console.log(key)
-// }
+function Accordians(node) {
+  // console.log('node: ', node)
+  const panel = []
 
-function Databases({ text }) {
-  // console.log('hi', text)
-  console.log(text.processed)
-  if (text) {
-    return (
-      <Panel header={<h2>Databases</h2>} forceRender={true} key="2">
+  if (node.node.field_guides) {
+    panel.push(
+      <Panel header={<h2>Guides</h2>} key="1">
         <p
           dangerouslySetInnerHTML={{
-            __html: text.processed,
+            __html: node.node.field_guides.processed,
           }}
         />
       </Panel>
     )
-  } else {
-    return undefined
   }
-}
 
-function Journals({ text }) {
-  // console.log('hi', text)
-  if (text) {
-    return (
+  if (node.node.field_subject_databases) {
+    panel.push(
+      <Panel header={<h2>Databases</h2>} key="2">
+        <p
+          dangerouslySetInnerHTML={{
+            __html: node.node.field_subject_databases.processed,
+          }}
+        />
+      </Panel>
+    )
+  }
+
+  if (node.node.field_subject_journals) {
+    panel.push(
       <Panel header={<h2>Journals</h2>} key="3">
-        <p dangerouslySetInnerHTML={{ __html: text.processed }} />
+        <p
+          dangerouslySetInnerHTML={{
+            __html: node.node.field_subject_journals.processed,
+          }}
+        />
       </Panel>
     )
-  } else {
-    return ''
   }
-}
 
-function Collections({ text }) {
-  // console.log('hi', text)
-  if (text) {
-    return (
+  if (node.node.field_subject_collections) {
+    panel.push(
       <Panel header={<h2>Featured Collections</h2>} key="4">
-        <p dangerouslySetInnerHTML={{ __html: text.processed }} />
+        <p
+          dangerouslySetInnerHTML={{
+            __html: node.node.field_subject_collections.processed,
+          }}
+        />
       </Panel>
     )
-  } else {
-    return ''
   }
+
+  return (
+    <Collapse
+      bordered={false}
+      expandIconPosition="right"
+      defaultActiveKey={['1']}
+    >
+      {panel}
+    </Collapse>
+  )
 }
 
 export const pageQuery = graphql`
