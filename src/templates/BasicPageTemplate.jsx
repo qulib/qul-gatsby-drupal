@@ -78,7 +78,7 @@ export const pageQuery = graphql`
         processed
       }
     }
-    allFileFile {
+    allFileFile(filter: { filemime: { ne: "application/pdf" } }) {
       edges {
         node {
           drupal_id
