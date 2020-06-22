@@ -1,4 +1,5 @@
 const lessToJson = require('less-to-json')
+const breadcrumbPaths = require('./breadcrumbPaths.js')
 
 module.exports = {
   siteMetadata: {
@@ -43,24 +44,7 @@ module.exports = {
       resolve: `gatsby-plugin-breadcrumb`,
       options: {
         useAutoGen: true,
-        crumbLabelUpdates: [
-          {
-            pathname: '/search',
-            crumbLabel: 'Search',
-          },
-          {
-            pathname: '/help-services',
-            crumbLabel: 'Help & Services',
-          },
-          {
-            pathname: '/locations-hours',
-            crumbLabel: 'Locations & Hours',
-          },
-          {
-            pathname: '/about-us',
-            crumbLabel: 'About Us',
-          },
-        ],
+        crumbLabelUpdates: breadcrumbPaths.crumbLabelUpdates,
       },
     },
     {
