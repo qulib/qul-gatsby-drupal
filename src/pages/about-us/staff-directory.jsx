@@ -1,12 +1,10 @@
 import React, { useState } from 'react'
-// import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import { Input, Select } from 'antd'
 import { useLocation } from '@reach/router'
 import queryString from 'query-string'
 import { parseParam } from '../../library/functions.js'
 import Layout from '../../components/Layout.jsx'
-// import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
 import StaffListing from '../../components/global/StaffListing.jsx'
 
 const { Search } = Input

@@ -16,9 +16,10 @@ export default function BasicPageTemplate({ data, pageContext }) {
     }
 
     function transform(node, index) {
+      // console.log('node is: ', node)
       // replace img with local Gasby Img
       if (node.type === 'tag' && node.name === 'img') {
-        console.log('node is: ', node)
+        // console.log('node is: ', node)
         let uuid = node.attribs['data-entity-uuid']
 
         // find the matching image in all the files

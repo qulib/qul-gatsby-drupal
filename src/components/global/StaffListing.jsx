@@ -34,10 +34,8 @@ function Subjects({ subjects }) {
   }
 }
 
-function StaffListing({ node }) {
-  console.log(node)
-
-  const displayUnit = units => {
+export default function StaffListing({ node }) {
+  const displayUnits = units => {
     return units.map(unit => {
       return <span key={unit.name}>{unit.name}</span>
     })
@@ -56,7 +54,7 @@ function StaffListing({ node }) {
           {node.field_last_name}, {node.field_first_name}
         </h2>
         <span className="job-title">{node.field_job_title}</span>
-        <span>{displayUnit(node.relationships.field_units)}</span>
+        <span>{displayUnits(node.relationships.field_units)}</span>
         <Subjects subjects={node.relationships.field_subjects} />
       </section>
 
@@ -83,5 +81,3 @@ function StaffListing({ node }) {
     </li>
   )
 }
-
-export default StaffListing
